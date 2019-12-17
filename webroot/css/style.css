@@ -62,3 +62,17 @@ body{
             padding: 10px 10px 20px 0;
             vertical-align: top;
         }
+
+
+table#c_table{
+	width:100%;
+}
+
+tr.c_content{
+	border:10px solid white;
+}
+
+table{
+	border-spacing: 10px 80px;
+	
+}

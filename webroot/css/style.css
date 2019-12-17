@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+
+body{
+	padding-top: 50px;
+}
+
+.main{
+	padding: 20px 40px;
+	background-color: #fff;
+}
+
+.main .page-header {
+	margin-top: 0;
+}
+
+ #loading{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(http://no1s.biz/kenshu/image/loader.gif) no-repeat center center #ccc;
+            opacity: 0.5;
+            z-index: 9999;
+        }
+        #main_box{
+            margin: 0 auto;
+            width: 1200px;
+        }
+        #main{
+            width: 600px;
+            background-color: #fff;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        #movie_title{
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        #movie_description{
+            font-size: 1em;
+            margin: 20px 0;
+        }
+        #related{
+            background-color: #f1f1f1;
+            margin-top: 20px;
+            padding-left: 50px;
+            width: 500px;
+        }
+        #related table{
+            background-color: #fff;
+        }
+        #related table tr{
+            border-bottom: 3px solid #f1f1f1;
+        }
+        #related td.thum{
+            padding: 10px 10px 20px 10px;
+        }
+        #related td.details{
+            padding: 10px 10px 20px 0;
+            vertical-align: top;
+        }

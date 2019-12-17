@@ -62,3 +62,91 @@ body{
             padding: 10px 10px 20px 0;
             vertical-align: top;
         }
+        
+        /*admin_playlists_mylist*/
+        h1{
+        	border-left: solid red 2rem;
+        	padding-left: 1rem;
+        }
+        
+        .playlist_box{
+        	width:90%;
+        	height: 180px;
+        	background-color:violet;
+        	margin:4rem auto 4rem auto;
+        	display:flex;
+        	justify-content: space-between;
+        	border: 0.3rem dotted red;
+        }
+        
+        .playlist_box:hover{
+        	opacity:0.7;
+        }
+        .thum{
+        	width:300px;
+        	
+        }
+        .movie_count{
+        	width:20%;
+        	height:180px;
+        	background-image:url("../img/nature.jpg");
+        	background-repeat: no-repeat;
+        	background-size: 100%;
+        	position:relative;
+        }
+        
+        .count{
+        	z-index:9999;
+        	text-align: center;
+        	width:50%;
+        	height:180px;
+        	line-height: 180px;
+        	opacity:0.4;
+        	color:white;
+        	background-color:gray;
+        	background-position: inherit;
+        	position:absolute;
+        	left:50%;
+        }
+        
+        .count span{
+        	vertical-align: middle;
+        	margin:auto 0;
+        	color: white;
+        }
+        .description{
+        	width: 60%;
+        	margin: auto 0 auto 2rem;
+        	
+        }
+        .actions{
+        	width : 20%;
+        	margin:auto;
+        	text-align: center;
+        	
+        }
+        
+        .description h3{
+        	margin:0;
+        }
+        
+        .content{
+        	margin-top: 1rem;
+        	font-weight:bold;
+        }
+        .actions p{
+        	width: 70%;
+        	border: 0.3rem solid black;
+        	border-radius: 2rem;
+        	font-size: 1.5rem;
+        	font-weight: bold;
+        	margin:1rem auto 1rem auto;
+        	background-color: orangered;
+        	color: white;
+        }
+        
+        .actions p:hover{
+        	background-color:white;
+        	color:orangered;
+        }
+        

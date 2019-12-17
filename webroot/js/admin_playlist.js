@@ -83,11 +83,14 @@
             })
         };
         $(function(){
-            $('#main_box').hide();
-            $('form').submit(function(){
-                var keyword = $('#keyword').val();
-                $('#loading').fadeIn();
-                search(keyword);
-                return false;
-            });
+        	$('#btn').on('click',admin);
         });
+        function admin(event){
+        	//alert('b');
+            $('#main_box').hide();
+            var keyword = $('#keyword').val();
+            $('#loading').fadeIn();
+            search(keyword);
+            return false;
+          
+        };

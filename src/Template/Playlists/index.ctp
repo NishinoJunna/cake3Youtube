@@ -5,7 +5,7 @@
         <div id="header">
             <form>
                 <input type="text" id="keyword" value="AKB48" />
-                <input type="button" value="ŒŸõ" id="btn" disabled="disabled" />
+                <input type="button" value="æ¤œç´¢" id="btn" disabled="disabled" />
             </form>
         </div>
         <div id="main_box" class="clearfix">

@@ -11,13 +11,6 @@
 				<li class="dropdown">
 					<?=$this->Html->link("プレイリスト新規作成","#",["data-toggle"=>"dropdown"]); ?>
 				</li>
-				<li class="dropdown">
-					<?=$this->Html->link("顧客","#",["data-toggle"=>"dropdown"]); ?>
-					<ul class="dropdown-menu">
-						<li><?=$this->Html->link("一覧","/admin/customers/index"); ?></li>
-						<li><?=$this->Html->link("新規追加","/admin/customers/add"); ?></li>
-					</ul>
-				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<p class="navbar-text">ようこそ、<?=$auth["name"]; ?>さん</p>

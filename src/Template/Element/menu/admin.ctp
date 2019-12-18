@@ -9,7 +9,7 @@
 					<?=$this->Html->link("マイプレイリスト","/admin/playlists/mylist"); ?>
 				</li>
 				<li class="dropdown">
-					<?=$this->Html->link("プレイリスト新規作成","#",["data-toggle"=>"dropdown"]); ?>
+					<?=$this->Html->link("プレイリスト新規作成","/admin/playlists/add"); ?>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -19,6 +19,16 @@
 					<ul class="dropdown-menu">
 						<li><?=$this->Html->link("ユーザ編集","/admin/users/edit") ?></li>
 						<li><?=$this->Html->link("ログアウト","/admin/users/logout") ?></li>
+					</ul>
+				</li>
+				<?php /*もし管理者なら*/ ?>
+				<li class="dropdown"　style="font-color:blue;">
+					<?=$this->Html->link("DBのダウンロード(CSV)","#",["data-toggle"=>"dropdown"]); ?>
+					<ul class="dropdown-menu">
+						<li><?=$this->Html->link("Usersテーブル","/admin/csv/csvdownload/users") ?></li>
+						<li><?=$this->Html->link("Playlistsテーブル","/admin/csv/csvdownload/playlists") ?></li>
+						<li><?=$this->Html->link("Moviesテーブル","/admin/csv/csvdownload/movies") ?></li>
+						<li><?=$this->Html->link("Commentsテーブル","/admin/csv/csvdownload/comments") ?></li>
 					</ul>
 				</li>
 			</ul>

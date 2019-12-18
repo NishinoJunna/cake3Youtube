@@ -1,0 +1,93 @@
+var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+	var datas = [];
+	var googleApiClientReady = function(){
+		init();
+	};
+	var init = function(){
+		$('#btn1').attr('disabled',false);
+	}
+	var search = function(keyword){
+		gapi.client.setApiKey(apiKey);
+		gapi.client.load('youtube', 'v3', function(){
+		});
+		var request = gapi.client.request({
+			'path': '/youtube/v3/search',
+			'params': {
+				'q': keyword,
+				'type': 'video',
+				'part': 'snippet',
+			}
+		});
+		request.execute(function(data){
+			console.log(data);
+			if (!data.items) return;
+			$('#main').text('');
+			$('#main').append('<table>');
+			for(var i in data.items){
+				if(data.items[i].id.videoId &&
+					data.items[i].id.kind=="youtube#video"){
+					datas[i] = {"videoId" : data.items[i].id.videoId,
+                			"title" : data.items[i].snippet.title,
+                			"description" : data.items[i].snippet.description };
+					console.log(data.items[i].id.videoId);
+					$('#main table').append(
+						'<tr class="movie_box">' +
+						'<td class="thum"><img src="' +
+						data.items[i].snippet.thumbnails.medium.url + '"/></td>' +
+						'<td class="details">' +
+						'<a href="https://www.youtube.com/watch?=v' + data.items[i].id.videoId +
+						'" target="_blank">' + data.items[i].snippet.title +'</a><br />' +
+						'<span class="description">' + data.items[i].snippet.description +
+						'</span>' +
+						'</td>' +
+						'</td>');
+				}
+			}
+			var tr_tags = $("#main table tr");
+            
+            tr_tags.on('click',function(){
+            	var rank = tr_tags.index(this);
+            	current = rank -1;
+            	//datas, current
+            	
+            	$.ajax({
+            	    type: "POST",
+            	    url: "/cake3youtube/playlists/ccccc",
+            	    data: {"item": current},
+            	        success: function(html){
+            	            console.log(html);
+            	        }
+            	    });
+            	
+            });
+		});
+		console.log(datas);
+		$('#loading').fadeOut();
+	}
+	 $(function(){
+     	$('#btn1').on('click',admin1);
+	 });
+	function admin1(event){
+			var keyword = $('#keyword').val();
+			$('#loading').fadeIn();
+			search(keyword);
+			return false;
+	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

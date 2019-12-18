@@ -61,35 +61,5 @@ class ManagementController extends AppController
 		/*}*/
 	}
 	
-	public function backup(){
-		$this->autoRender = false;
-		//DB情報
-		$id = "root";
-		$pwd = "";
-		$db = "cake3youtube";
-		
-		//出力ファイル名
-		$fileName = dirname(__FILE__) . '/db_dump.sql';
-		
-		//コマンド生成
-		//「/usr/bin/mysqldump -u $id -p$pwd $db > $fileName 」
-		$cmd = '/usr/bin/mysqldump';
-		$cmd = $cmd . ' -u ' . $id;
-		$cmd = $cmd . ' -p' . $pwd;
-		$cmd = $cmd . ' ' . $db;
-		$cmd = $cmd . ' > ' . $fileName;
-		
-		//実行
-		system($cmd);
-		
-		//気休めだけど実行結果チェック
-		//ファイルが作成されていればOK
-		if(file_exists($fileName) && filesize($fileName) > 0){
-			print "OK";
-		}else{
-			print "NG";
-		}
-	}
-	
 
 }

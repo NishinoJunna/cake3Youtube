@@ -1,5 +1,5 @@
 <?php $this->prepend('script', $this->Html->script('admin_playlist')); ?>
-
+<div id="play">
 <div id="container">
         <div id="loading"></div>
         <div id="header">
@@ -22,4 +22,6 @@
             <div id="movie_description"></div>
         </div>
     </div>
+</div>
     <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady" ></script>
+    

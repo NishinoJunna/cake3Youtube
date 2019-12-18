@@ -67,6 +67,11 @@ body{
             padding: 10px 10px 20px 0;
             vertical-align: top;
         }
+<<<<<<< HEAD
+=======
+
+        
+>>>>>>> patient
 /*全ページ共通CSS*/
 		.page_title{
         	border-left: solid red 2rem;
@@ -153,19 +158,23 @@ body{
         	background-color:white;
         	color:orangered;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> patient
         
 /*admin_comments_index*/
       
-        #play_container{
+        .play_container{
         	display:flex;
         	justify-content:space-between;
         	margin:3rem auto 0 auto;
         }
-        .player{
+        #player iframe{
         	height:380px;
+        	width:600px;
         	margin:0 auto;
-        	background-color:gray;
-        	color: white;
+        	border: solid 2rem red;
         }
         
         .button_add_playlist{
@@ -202,4 +211,12 @@ body{
         	width:60%;
         	background-color: gray;	
         	padding:1rem;
+<<<<<<< HEAD
         }
+=======
+        }
+        
+
+        
+
+>>>>>>> patient

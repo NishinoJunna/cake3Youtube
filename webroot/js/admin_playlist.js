@@ -64,7 +64,7 @@
                 tr_tags.on('click',function(){
                 	var rank = tr_tags.index(this);
                 	current = rank -1;
-                	
+                	console.log(current);
                 	playNext();
                 });
 

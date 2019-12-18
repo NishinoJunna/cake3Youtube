@@ -93,8 +93,8 @@ var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 	function createPlayer(){
    		current = 0;
        player = new YT.Player('player', {
-           height: '390',
-           width: '640',
+           //height: '400',
+           //width: '700',
            videoId: datas[current]['videoId'],
            events: {
                'onReady': onPlayerReady,

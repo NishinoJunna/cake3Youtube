@@ -31,9 +31,7 @@ class PlaylistsTable extends Table{
 		$validator
 		->requirePresence('name','create')
 		->notEmpty('name');
-		$validator
-		->requirePresence('status','create')
-		->notEmpty('status');
+		
 		$validator
 		->requirePresence('description','create')
 		->notEmpty('description');

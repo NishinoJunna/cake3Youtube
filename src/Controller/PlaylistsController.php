@@ -7,10 +7,10 @@ class PlaylistsController extends AppController
 {
 	public function index()
 	{
-		
-	}
-	
-	public function mylist(){
-		
+		if(!empty($_POST['item'])){
+			$item = $_POST['item'];
+			print $item;
+				
+		}
 	}
 }

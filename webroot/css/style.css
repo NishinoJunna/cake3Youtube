@@ -29,11 +29,14 @@ body{
             margin: 0 auto;
             width: 1200px;
         }
-        #main{
+        #player{
             width: 600px;
             background-color: #fff;
             margin-top: 20px;
             padding: 20px;
+        }
+        #main{
+            
         }
         #movie_title{
             font-size: 1.2em;
@@ -42,6 +45,8 @@ body{
         #movie_description{
             font-size: 1em;
             margin: 20px 0;
+            width: 594px;
+            
         }
         #related{
             background-color: #f1f1f1;
@@ -62,6 +67,7 @@ body{
             padding: 10px 10px 20px 0;
             vertical-align: top;
         }
+
         
 /*全ページ共通CSS*/
 		.page_title{
@@ -199,3 +205,4 @@ body{
         	background-color: gray;	
         	padding:1rem;
         }
+

@@ -63,12 +63,13 @@ body{
             vertical-align: top;
         }
         
-        /*admin_playlists_mylist*/
-        h1{
+/*全ページ共通CSS*/
+		.page_title{
         	border-left: solid red 2rem;
         	padding-left: 1rem;
+        	letter-spacing: 0.2em;
         }
-        
+/*admin_playlists_mylist　→本来は playlist_indexおよびadmin_homes_indexの画面*/     
         .playlist_box{
         	width:90%;
         	height: 180px;
@@ -122,8 +123,7 @@ body{
         .actions{
         	width : 20%;
         	margin:auto;
-        	text-align: center;
-        	
+        	text-align: center;	
         }
         
         .description h3{
@@ -149,3 +149,56 @@ body{
         	background-color:white;
         	color:orangered;
         }
+        
+/*admin_comments_index*/
+      
+        #play_container{
+        	display:flex;
+        	justify-content:space-between;
+        	margin:3rem auto 0 auto;
+        }
+        .player{
+        	height:380px;
+        	margin:0 auto;
+        	background-color:gray;
+        	color: white;
+        }
+        
+        .button_add_playlist{
+        	text-align: right;
+        	margin-bottom: 3rem;
+        }
+        .left_play_container{
+        	width: 65%;
+        	margin-right: 2rem;
+        }
+        .right_play_container{
+        	width: 35%;
+        }
+        .related_movies_text{
+        	text-align: center;
+        	margin-bottom: 4rem;
+        	
+        }
+        .related_movies_box{
+        	display: flex;
+        	border: 1px dotted red;
+        	box-sizing: content-box;
+        }
+        .comment_username{
+        	text-decoration: underline;
+        }
+        
+        
+        .thumnails{
+        	width:40%;
+        }
+        
+        .movie_details{
+        	width:60%;
+        	background-color: gray;	
+        	padding:1rem;
+        }
+        
+        
+        

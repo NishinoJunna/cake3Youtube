@@ -64,7 +64,7 @@ var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
             	$("#search").hide();
             	console.log(current);
             	$("#play").show();
-            	
+            	$('#commentAdd #youtube_id').val(datas[current]["videoId"]);
             	if (create){
          			create = false;
          			createPlayer();
@@ -106,6 +106,7 @@ var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 	
 	function onPlayerReady(event){
         event.target.playVideo();
+        $('#commentAdd #youtube_id').val(datas[current]["videoId"]);
         //videoInfo(current);
 			
     }

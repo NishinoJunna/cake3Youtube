@@ -6,6 +6,7 @@ use \Exception;
 
 class HomesController extends AppController{
 	public function index(){
-		
+		$comment = $this->loadModel('Comments');
+		$this->set(compact('comment'));
 	}
 }

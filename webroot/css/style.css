@@ -157,7 +157,6 @@ body{
         }
         
 /*admin_comments_index*/
-      
         #play_container{
         	display:flex;
         	justify-content:space-between;
@@ -205,4 +204,39 @@ body{
         	background-color: gray;	
         	padding:1rem;
         }
-
+/*admin/homes/index    playlist/index*/
+		#homepage_container{
+			padding:3rem;
+		}
+		
+		.page_sub_title{
+			margin-bottom: 3rem;
+			letter-spacing: 0.2em;
+		}
+		.trend_movies_container{
+			display:flex;
+			flex-wrap: wrap;
+			justify-content:space-between;
+		}
+		
+		.trend_movie_box{
+			width:20%;
+			border: 1px solid red;
+			border-radius: 3px;
+			margin:2rem 1rem;
+			background-image:url("../img/nature.jpg");
+			color:white;
+			text-align: center;
+		}
+		
+		.trend_playlists_container{
+			display:flex;
+			flex-wrap: wrap;
+			justify-content:space-between;
+		}
+		
+		.trend_playlist_box{
+			width: 45%;
+			display: flex;
+			border: 1px dotted red;
+		}

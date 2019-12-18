@@ -157,16 +157,17 @@ body{
         }
         
 /*admin_comments_index*/
-        #play_container{
+      
+        .play_container{
         	display:flex;
         	justify-content:space-between;
         	margin:3rem auto 0 auto;
         }
-        .player{
+        #player iframe{
         	height:380px;
+        	width:600px;
         	margin:0 auto;
-        	background-color:gray;
-        	color: white;
+        	border: solid 2rem red;
         }
         
         .button_add_playlist{
@@ -204,6 +205,7 @@ body{
         	background-color: gray;	
         	padding:1rem;
         }
+
 /*admin/homes/index    playlist/index*/
 		#homepage_container{
 			padding:3rem;

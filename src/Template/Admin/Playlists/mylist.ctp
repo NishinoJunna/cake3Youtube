@@ -1,5 +1,5 @@
 <div id = "container">
-	<h1>Your All Playlists</h1>
+	<h1 class="page_title">Your All Playlists</h1>
 	<div class = "playlist_box">
 		<div class = "movie_count">
 			<p class = "count"><span>動画件数</span></p>

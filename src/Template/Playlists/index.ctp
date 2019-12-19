@@ -1,5 +1,5 @@
 <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
-<form>
+	<form>
 				<input type="text" id="keyword" value="game" />
 				<input type="button" id="btn1" value="検索" />
 			</form>
@@ -11,9 +11,9 @@
 		</div>
 		<div id="main"></div>
 	</div>
- </div>
+</div>
  
- <div id="play" class="play_container" style="display: none">
+<div id="play" class="play_container" style="display: none">
  			<form>    
                 <input type="button" value=" < <" id="prev" />
 		        <input type="button" value="再生" id="exe" />
@@ -23,13 +23,7 @@
 		<div id="player">
 			
 		</div>
-		<div class="button_add_playlist"><?php
-echo $this->Form->create($movie,array("url"=>"/admin/movies/add"));
-echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>""]);
-echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストを選択","label"=>false]);
-echo "<button type=\"submit\" class=\"movie_submit\">追加</button>";
-echo $this->Form->end();
-?></div>
+		<p class="button_add_playlist">ここをクリックするとプレイリストに動画を追加</p>
 		<div class="comment_post_area">
 			<?php
 			echo $this->Form->create($comment); 
@@ -54,16 +48,8 @@ echo $this->Form->end();
 	</div><!--left_play-container -->
 	
 	<div class="right_play_container">
-		<h3 class="related_movies_text">関連動画</h3>
-	<!-- foreachで関連動画を出す。現在は視覚イメージしやすいように、一つ一つボックス表示しています -->
-		<div class= "related_movies_box">
-			<p class ="thumnails">サムネイルイメージ</p>
-			<div class ="movie_details">
-				<p class ="movie_title">タイトル</p>
-				<p class ="movie_descreption">動画詳細が来ます。動画詳細が来ます。動画詳細が来ます。</p>
-			</div><!-- movie_details -->
-		</div><!-- related_movies_box -->
-
+	
 	</div><!-- right_play_container -->
+	
 </div><!-- play_container -->
 <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>

@@ -5,9 +5,9 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use Cake\ORM\Rule\IsUnique;
 
-class CommentsTable extends Table{
+
+class MoviesTable extends Table{
 	public function initialize(array $config){
 		parent::initialize($config);
 		$this->table('movies');
@@ -31,18 +31,16 @@ class CommentsTable extends Table{
 		$validator
 		->requirePresence('youtube_id','create')
 		->notEmpty('youtube_id');
-		$validator
-		->isUnique('playlist_id', 'youtube_id');
+		
+		
 		
 		return $validator;
 	}
 	
-	/*public function buildRules(RulesChecker $rules){
-		$rules->add($rules->isUnique(
-				['playlist_id', 'youtube_id'],
-				["message"=>'この動画はすでに登録されています']
-				));
+	public function buildRules(RulesChecker $rules){
+		$rules->add($rules->isUnique(['playlist_id', 'youtube_id'],
+							["message"=>'この動画はすでに登録されています']));
 		return $rules;
-	}*/
+	}
 	
 }

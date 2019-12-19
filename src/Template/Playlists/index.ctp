@@ -23,7 +23,13 @@
 		<div id="player">
 			
 		</div>
-		<p class="button_add_playlist">ここをクリックするとプレイリストに動画を追加</p>
+		<div class="button_add_playlist"><?php
+echo $this->Form->create($movie,array("url"=>"/admin/movies/add"));
+echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>""]);
+echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストを選択","label"=>false]);
+echo "<button type=\"submit\" class=\"movie_submit\">追加</button>";
+echo $this->Form->end();
+?></div>
 		<div class="comment_post_area">
 			<?php
 			echo $this->Form->create($comment); 

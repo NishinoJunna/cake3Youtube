@@ -15,7 +15,7 @@ class MoviesController extends AppController
 				
 				return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
 			}
-			$this->Flash->error(__('動画の登録に失敗しました'));
+			$this->Flash->error(__('動画の登録に失敗しました。既に登録されている可能性があります。'));
 		}
 		return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
 	}

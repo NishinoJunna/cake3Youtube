@@ -155,7 +155,6 @@ body{
         	background-color:white;
         	color:orangered;
         }
-
         
 /*admin_comments_index*/
       
@@ -171,6 +170,16 @@ body{
         	border: solid 2rem red;
         }
         
+        .before_search_container{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		
+		.before_search_container .related_movies_box{
+			width: 40%;
+			margin: 2rem;
+		}
+		
         .button_add_playlist{
         	text-align: right;
         	margin-bottom: 3rem;
@@ -179,13 +188,12 @@ body{
         	width: 65%;
         	margin-right: 2rem;
         }
-        .right_play_container{
+        .play_container .right_play_container{
         	width: 35%;
         }
         .related_movies_text{
         	text-align: center;
         	margin-bottom: 4rem;
-        	
         }
         .related_movies_box{
         	display: flex;
@@ -196,17 +204,57 @@ body{
         	text-decoration: underline;
         }
         
-        
         .thumnails{
-        	width:40%;
+        	margin:0;
+        }
+        .thumnails img{
+        	width:180px;
+        	margin:auto 0;
         }
         
         .movie_details{
         	width:60%;
-        	background-color: gray;	
+        	background-color: oranged;	
         	padding:1rem;
+        	font-size: 1.2rem;
         }
-        
+        .movie_title{
+        	color: white;
+        }
 
-        
-
+/*admin/homes/index    playlist/index*/
+		#homepage_container{
+			padding:3rem;
+		}
+		
+		.page_sub_title{
+			margin-bottom: 3rem;
+			letter-spacing: 0.2em;
+		}
+		.trend_movies_container{
+			display:flex;
+			flex-wrap: wrap;
+			justify-content:space-between;
+		}
+		
+		.trend_movie_box{
+			width:20%;
+			border: 1px solid red;
+			border-radius: 3px;
+			margin:2rem 1rem;
+			background-image:url("../img/nature.jpg");
+			color:white;
+			text-align: center;
+		}
+		
+		.trend_playlists_container{
+			display:flex;
+			flex-wrap: wrap;
+			justify-content:space-between;
+		}
+		
+		.trend_playlist_box{
+			width: 45%;
+			display: flex;
+			border: 1px dotted red;
+		}

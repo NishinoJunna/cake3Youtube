@@ -9,11 +9,4 @@ class PlaylistsController extends AppController
 	{
 		
 	}
-
-
-	
-	public function mylist(){
-		
-	}
-
 }

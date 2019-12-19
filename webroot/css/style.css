@@ -68,7 +68,6 @@ body{
             vertical-align: top;
         }
 
-        
 /*全ページ共通CSS*/
 		.page_title{
         	border-left: solid red 2rem;
@@ -155,7 +154,6 @@ body{
         	background-color:white;
         	color:orangered;
         }
-        
 /*admin_comments_index*/
       
         .play_container{
@@ -219,7 +217,8 @@ body{
         	font-size: 1.2rem;
         }
         .movie_title{
-        	color: white;
+        	color:black;
+        	/*color: white; 変更しました　byNishino*/
         }
 
 /*admin/homes/index    playlist/index*/

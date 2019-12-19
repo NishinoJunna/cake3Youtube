@@ -30,4 +30,49 @@ class CommentsController extends AppController
 			$this->Flash->error(__('コメントに失敗しました'));		
 		}
 	}
+	
+	public function addCommentAjax(){
+		$this->autoRender = false;
+		$result = [];
+			
+		$user_id=$this->MyAuth->user('id');
+		$comment = $this->Comments->newEntity();
+		
+		if($this->request->is(['ajax'])){
+			$comment->content = $this->request->data['content'];
+			$comment->user_id = $user_id;
+			$comment->youtube_id = $this->request->data['youtube_id'];
+			if($this->Bids->save($bid)){
+				$result['status']="success";
+				echo json_encode($result);
+				return;
+			}else{
+				$result['errors']=$comments->errors();
+				return;
+			}
+		
+		$result['status']="error";
+		echo json_encode($result);
+		return;
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

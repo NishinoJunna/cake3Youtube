@@ -25,10 +25,10 @@
 				<li class="dropdown"　style="font-color:blue;">
 					<?=$this->Html->link("DBのダウンロード(CSV)","#",["data-toggle"=>"dropdown"]); ?>
 					<ul class="dropdown-menu">
-						<li><?=$this->Html->link("Usersテーブル","/admin/csv/csvdownload/users") ?></li>
-						<li><?=$this->Html->link("Playlistsテーブル","/admin/csv/csvdownload/playlists") ?></li>
-						<li><?=$this->Html->link("Moviesテーブル","/admin/csv/csvdownload/movies") ?></li>
-						<li><?=$this->Html->link("Commentsテーブル","/admin/csv/csvdownload/comments") ?></li>
+						<li><?=$this->Html->link("Usersテーブル","/admin/management/csvdownload/users") ?></li>
+						<li><?=$this->Html->link("Playlistsテーブル","/admin/management/csvdownload/playlists") ?></li>
+						<li><?=$this->Html->link("Moviesテーブル","/admin/management/csvdownload/movies") ?></li>
+						<li><?=$this->Html->link("Commentsテーブル","/admin/management/csvdownload/comments") ?></li>
 					</ul>
 				</li>
 			</ul>

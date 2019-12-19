@@ -7,7 +7,7 @@ use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 
 
-class CsvController extends AppController
+class ManagementController extends AppController
 {
 	function csvdownload($id = null){
 		$user = $this->MyAuth->user();

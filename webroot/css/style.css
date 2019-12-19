@@ -67,11 +67,7 @@ body{
             padding: 10px 10px 20px 0;
             vertical-align: top;
         }
-<<<<<<< HEAD
-=======
 
-        
->>>>>>> patient
 /*全ページ共通CSS*/
 		.page_title{
         	border-left: solid red 2rem;
@@ -158,14 +154,6 @@ body{
         	background-color:white;
         	color:orangered;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> patient
-=======
->>>>>>> hinomizu
-        
 /*admin_comments_index*/
       
         .play_container{
@@ -226,21 +214,13 @@ body{
         	width:60%;
         	background-color: oranged;	
         	padding:1rem;
-<<<<<<< HEAD
-<<<<<<< HEAD
-        }
-=======
-=======
         	font-size: 1.2rem;
         }
         .movie_title{
-        	color: white;
->>>>>>> hinomizu
+        	color:black;
+        	/*color: white; 変更しました　byNishino*/
         }
 
-<<<<<<< HEAD
->>>>>>> patient
-=======
 /*admin/homes/index    playlist/index*/
 		#homepage_container{
 			padding:3rem;
@@ -277,4 +257,3 @@ body{
 			display: flex;
 			border: 1px dotted red;
 		}
->>>>>>> hinomizu

@@ -47,8 +47,7 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 						`<div class= "related_movies_box">
 							<p class="thumnails"><img src=${data.items[i].snippet.thumbnails.default.url}></p>
 							<div class ="movie_details">
-								<p class ="movie_title">
-									<a href="https://www.youtube.com/watch?v=${data.items[i].id.videoId}">${data.items[i].snippet.title}</a>
+								<p class ="movie_title">${data.items[i].snippet.title}
 								</p>
 								<p class= "publishedAt">投稿者：${data.items[i].snippet.channelTitle}</p>
 							</div>
@@ -60,8 +59,8 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
             
             movie_box.on('click',function(){
             	var rank = movie_box.index(this);
-            	console.log(rank);
-            	current = rank -1;
+            	current = rank;
+            	console.log(current);
             	//datas, current
             	$("#search").hide();
             	$("#play").show();
@@ -87,13 +86,14 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 			var keyword = $('#keyword').val();
 			$('#loading').fadeIn();
 			search(keyword);
+			$("h1.page_title").hide();
+			$("#homepage_container").hide();
 			$("#search").show();
         	$("#play").hide();
 			return false;
 	};
 	
 	function createPlayer(){
-   		current = 0;
        player = new YT.Player('player', {
            height: '400',
            width: '700',
@@ -164,6 +164,8 @@ function exe(){
         player.playVideo();
     }
 }
+
+//currentのあたり、
 	
 	
 	

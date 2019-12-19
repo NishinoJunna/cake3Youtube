@@ -1,4 +1,4 @@
-var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 	var datas = [];
 	var googleApiClientReady = function(){
 		init();
@@ -27,6 +27,7 @@ var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 			'params': {
 				'q': keyword,
 				'type': 'video',
+				'maxResults': 6,
 				'part': 'snippet',
 			}
 		});
@@ -34,44 +35,43 @@ var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 			console.log(data);
 			if (!data.items) return;
 			$('#main').text('');
-			$('#main').append('<table>');
+			$('.right_play_container').text('');
+			$('#main').append('<div class ="right_play_container before_search_container">');
 			for(var i in data.items){
 				if(data.items[i].id.videoId &&
 					data.items[i].id.kind=="youtube#video"){
 					datas[i] = {"videoId" : data.items[i].id.videoId,
-                			"title" : data.items[i].snippet.title,
-                			"description" : data.items[i].snippet.description };
-					console.log(data.items[i].id.videoId);
-					$('#main table').append(
-						'<tr class="movie_box">' +
-						'<td class="thum"><img src="' +
-						data.items[i].snippet.thumbnails.medium.url + '"/></td>' +
-						'<td class="details">' +
-						'<a href="https://www.youtube.com/watch?=v' + data.items[i].id.videoId +
-						'" target="_blank">' + data.items[i].snippet.title +'</a><br />' +
-						'<span class="description">' + data.items[i].snippet.description +
-						'</span>' +
-						'</td>' +
-						'</td>');
+	            			"title" : data.items[i].snippet.title,
+	            			"description" : data.items[i].snippet.description };
+					$('.right_play_container').append(
+						`<div class= "related_movies_box">
+							<p class="thumnails"><img src=${data.items[i].snippet.thumbnails.default.url}></p>
+							<div class ="movie_details">
+								<p class ="movie_title">
+									<a href="https://www.youtube.com/watch?v=${data.items[i].id.videoId}">${data.items[i].snippet.title}</a>
+								</p>
+								<p class= "publishedAt">投稿者：${data.items[i].snippet.channelTitle}</p>
+							</div>
+						</div>`
+					);
 				}
 			}
-			var tr_tags = $("#main table tr");
+			var movie_box = $(".related_movies_box");
             
-            tr_tags.on('click',function(){
-            	var rank = tr_tags.index(this);
+            movie_box.on('click',function(){
+            	var rank = movie_box.index(this);
+            	console.log(rank);
             	current = rank -1;
             	//datas, current
             	$("#search").hide();
-            	console.log(current);
             	$("#play").show();
             	
             	if (create){
          			create = false;
          			createPlayer();
-         		}else{
-         			playNext();
+         			}else{
+         				playNext();
          		} 
-            	
             });
 		});
 		console.log(datas);
@@ -93,8 +93,8 @@ var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 	function createPlayer(){
    		current = 0;
        player = new YT.Player('player', {
-           //height: '400',
-           //width: '700',
+           height: '400',
+           width: '700',
            videoId: datas[current]['videoId'],
            events: {
                'onReady': onPlayerReady,

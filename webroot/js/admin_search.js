@@ -104,6 +104,7 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
                'onError': onPlayerError
            }
        });
+       console.log($(".ytp-title-link yt-uix-sessionlink").getAttribute("href"));
    	}
 	
 	function onPlayerReady(event){

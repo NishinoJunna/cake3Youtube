@@ -241,7 +241,7 @@ body{
 			border: 1px solid red;
 			border-radius: 3px;
 			margin:2rem 1rem;
-			background-image:url("../img/nature.jpg");
+			/*background-image:url("../img/nature.jpg");*/
 			color:white;
 			text-align: center;
 		}

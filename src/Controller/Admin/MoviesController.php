@@ -8,8 +8,8 @@ use \Exception;
 class MoviesController extends AppController
 {
 	public function add(){
+		//https://img.youtube.com/vi/{youtube_video_id}/default.jpg これが準備されているyoutubeサムネイル
 		$movie = $this->Movies->newEntity();
-		
 		if($this->request->is('post')){
 			$movie->playlist_id = $this->request->data["playlist_id"];
 			$movie->youtube_id = $this->request->data["youtube_id"];
@@ -18,7 +18,7 @@ class MoviesController extends AppController
 				$movie_detail = $this->MovieDetails->newEntity();
 				$youtube_id = $movie->youtube_id;
 				$already_exist = $this->MovieDetails->find('all')->where(["youtube_id"=>$youtube_id])->toArray();
-				if(!isset($already_exsist)){
+				if(empty($already_exist)){
 					$movie_detail->youtube_id = $youtube_id; 
 					$movie_detail->title = $this->request->data["title"];
 					if($this->MovieDetails->save($movie_detail)){
@@ -26,6 +26,7 @@ class MoviesController extends AppController
 					}
 					$this->Flash->error(__('動画の登録に失敗しました。'));
 				}
+				return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
 			}
 			$this->Flash->error(__('動画の登録に失敗しました。既に登録されている可能性があります。'));
 		}

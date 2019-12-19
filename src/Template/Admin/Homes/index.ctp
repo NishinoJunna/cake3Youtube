@@ -1,7 +1,7 @@
 <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
 <form>
-				<input type="text" id="keyword" value="game" />
+				<input type="text" id="keyword" value="" />
 				<input type="button" id="btn1" value="検索" />
 </form>
 
@@ -11,8 +11,9 @@
 	
 		<?php foreach($trend_movies as $trend_movie): ?>
 	
-		<div class= "trend_movie_box">
+		<div class= "trend_movie_box"  style="background:url(https://img.youtube.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg)">
 			<div class ="trend_movie_details">
+			<img src="">
 				<p class ="trend_movie_title"><?=h($trend_movie->title) ?></p>
 			</div><!-- movie_details -->
 			<p class= "check_plyalist_contents">この動画を再生</p>
@@ -39,7 +40,7 @@
 					<p class= "publishedAt">作成者：<?=$trend_playlist->user->name ?></p>
 				</div><!-- .description -->
 				<div class = "actions">
-					<p class = "view"><?=$this->Html->link("動画一覧",["controller"=>"playlists","action"=>"mylist",$trend_playlist->id]) ?></p>
+					<p class = "view"><?=$this->Html->link("動画一覧",["controller"=>"playlists","action"=>"view",$trend_playlist->id]) ?></p>
 				</div><!-- actions -->
 			</div><!-- .playlist_box -->
 		</div><!-- trend_playlists_container -->

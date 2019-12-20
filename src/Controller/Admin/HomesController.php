@@ -9,4 +9,17 @@ class HomesController extends AppController{
 		$comment = $this->loadModel('Comments');
 		$this->set(compact('comment'));
 	}
+	
+	public function play($id = null){
+		$comment = $this->loadModel('Comments');
+		if(isset($_GET["youtube_id"])){
+			$youtube_id = $_GET["youtube_id"];
+		}
+		$comments = $this->loadModel('Comments')
+					->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
+					->contain('Users')
+					->where(['youtube_id'=>$youtube_id]);
+		//var_dump($comments); die();
+		$this->set(compact('comment','comments'));
+	}
 }

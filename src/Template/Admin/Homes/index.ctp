@@ -11,9 +11,9 @@
 	
 		<?php foreach($trend_movies as $trend_movie): ?>
 	
-		<div class= "trend_movie_box"  style="background:url(https://img.youtube.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg)">
+		<div class= "trend_movie_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg); background-repeat: no-repeat;
+		background-size:contain;">
 			<div class ="trend_movie_details">
-			<img src="">
 				<p class ="trend_movie_title"><?=h($trend_movie->title) ?></p>
 			</div><!-- movie_details -->
 			<p class= "check_plyalist_contents">この動画を再生</p>
@@ -25,11 +25,13 @@
 
 	<h2 class="page_sub_title">Check Trend Playlist</h2>
 		
-		<?php foreach($trend_playlists as $trend_playlist): ?>
+		<?php foreach($trend_playlists as $key => $trend_playlist): ?>
 		
 		<div class="trend_playlists_container">
 			<div class = "playlist_box">
-				<div class = "movie_count">
+				<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $first[$key]->youtube_id ?>/mqdefault.jpg);
+        	background-repeat: no-repeat;
+        	background-size: cover;">
 					<p class = "count"><span>動画件数</span></p>
 				</div><!-- movie_count -->
 				<div class = "description">

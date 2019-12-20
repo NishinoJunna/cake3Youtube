@@ -140,13 +140,14 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 	
     
     function playNext(){
-    	
+    	 //window.location.href = '/cake3youtube/user/login';
         current++;
         
         if(current >= datas.length){
             current = 0;
         }
-        player.loadVideoById(datas[current]["videoId"]);
+        // 通常の遷移
+        //player.loadVideoById(datas[current]["videoId"]);
        // videoInfo(current);
 }
 

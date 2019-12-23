@@ -7,9 +7,13 @@ use \Exception;
 class HomesController extends AppController{
 	public function index(){
 		$search = 0;
+		$keyword = "";
 		$comment = $this->loadModel('Comments');
-		
-		$this->set(compact('comment','search'));
+		$keyword = "";
+		if(isset($_GET["keyword"])){
+			$keyword = $_GET["keyword"];
+		}
+		$this->set(compact('comment','search',"keyword"));
 	}
 	
 	public function play(){

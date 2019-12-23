@@ -3,7 +3,7 @@
  
  			<?php
 				echo $this->Form->create($search,['type' => 'get']);
-				echo $this->Form->input('keyword',["label"=>"",'id'=>"keyword"]);
+				echo $this->Form->input('keyword',['id'=>"keyword"]);
 				echo $this->Form->button("登録",[ 'id'=>'btn1']);
 				echo $this->Form->end();
 			?>

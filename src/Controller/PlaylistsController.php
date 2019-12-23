@@ -8,9 +8,12 @@ class PlaylistsController extends AppController
 	public function index()
 	{
 		$search = 0;
+		$keyword = "";
+		if(isset($_GET["keyword"])){
+			$keyword = $_GET["keyword"];
+		}
 		
-		
-		$this->set(compact('search'));
+		$this->set(compact('search','keyword'));
 	}
 
 	public function play()

@@ -1,4 +1,4 @@
-var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
+var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
 	var datas = [];
 	
 	var googleApiClientReady = function(){
@@ -8,11 +8,13 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 	    	 search(keyword);
 	     }
 	};
+	
 	var keyword = "";
 	var url_string = window.location.href;
 	var url = new URL(url_string);
 	keyword = url.searchParams.get("keyword");
-	console.log(keyword);
+		
+	
 	var init = function(){
 		$('#btn1').attr('disabled',false);
 	}

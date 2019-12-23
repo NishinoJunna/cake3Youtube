@@ -1,5 +1,4 @@
-var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
-
+var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
 var url_string = window.location.href;
 var url = new URL(url_string);
 var youtube_id = url.searchParams.get("youtube_id");
@@ -10,8 +9,8 @@ console.log(keyword);
 
 
 	var datas = [];
-	//datas[0] = {"videoId": youtube_id};
-
+	
+	datas[0] = {"videoId": youtube_id};
 	var googleApiClientReady = function(){
 		init();
 	};
@@ -31,6 +30,8 @@ console.log(keyword);
     	 
     	
          player = new YT.Player('player', {
+             height: '390',
+             width: '640',
              videoId: youtube_id,
              events: {
                  'onReady': onPlayerReady,
@@ -40,7 +41,7 @@ console.log(keyword);
          });
      }
      
-	var search = function(youtube_id){
+	var search = function(keyword){
 		
 		gapi.client.setApiKey(apiKey);
 		gapi.client.load('youtube', 'v3', function(){
@@ -48,13 +49,12 @@ console.log(keyword);
 		var request = gapi.client.request({
 			'path': '/youtube/v3/search',
 			'params': {
-				'relatedToVideoId':youtube_id,
+				'q': keyword,
 				'type': 'video',
-				'maxResults':10,
 				'part': 'snippet',
 			}
 		});
-		
+		var a = 1;
 		request.execute(function(data){
 			console.log(data);
 			if (!data.items) return;
@@ -63,35 +63,51 @@ console.log(keyword);
 			for(var i in data.items){
 				if(data.items[i].id.videoId &&
 					data.items[i].id.kind=="youtube#video"){
+					
 					console.log(data.items[i].id.videoId);
 					if(data.items[i].id.videoId != youtube_id){
-						datas[i] = {"videoId" : data.items[i].id.videoId,
+						datas[a] = {"videoId" : data.items[i].id.videoId,
 	                			"title" : data.items[i].snippet.title,
-	                			"description" : data.items[i].snippet.description };
-						$('.right_play_container').append(
-							'<tr class="movie_box">' +
-							'<td class="thum"><img src="' +
-							data.items[i].snippet.thumbnails.medium.url + '"/></td>' +
-							'<td class="details">' +
-							'<a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=' + data.items[i].id.videoId + '&search=' + keyword + 
-							'">' + data.items[i].snippet.title +'</a><br />' +
-							'<span class="description">' + data.items[i].snippet.description +
-							'</span>' +
-							'</td>' +
-							'</td>');
+	                			"description" : data.items[i].snippet.description,
+	                			"snippet" : data.items[i].snippet.thumbnails.medium.url };
+						a++;
+						
 					}
 				}
 			}
+			console.log(datas);
+			shuffle(datas);
+			console.log(datas);
+			for(key in datas){
+				if (datas[key]["videoId"] != youtube_id){
+					$('#related table').append(
+							'<tr class="movie_box">' +
+							'<td class="thum"><img src="' +
+							datas[key]["snippet"] + '"/></td>' +
+							'<td class="details">' +
+							'<a href="http://localhost/cake3youtube/playlists/play?youtube_id=' + datas[key]["videoId"] + '&search=' + keyword + 
+							'">' + datas[key]["title"] +'</a><br />' +
+							'<span class="description">' + datas[key]["description"] +
+							'</span>' +
+							'</td>' +
+							'</td>');
+				}
+				
+			}
 			
-			console.log(datas);
-			//obj_array_shuffle(datas);
-			console.log(datas);
-			var tr_tags = $(".right_play_container tr");
+			var tr_tags = $("#related table tr");
             
             tr_tags.on('click',function(){
             	var rank = tr_tags.index(this);
-            	console.log(rank);		
-            	location.href = "play?youtube_id="+datas[rank]["videoId"];
+            	current = rank;
+            	//datas, current
+            	
+            	
+            	console.log(current);
+            	
+            	//$('#commentAdd #youtube_id').val(datas[current]["videoId"]);
+            	//player.loadVideoById(datas[current]["videoId"]);
+            	
             });
 		});
 		console.log(datas);
@@ -101,10 +117,9 @@ console.log(keyword);
 	 $(function(){
      	$('#btn1').on('click',admin1);
 	 });
-
-	function admin1(){
-			window.location.href = "http://localhost/cake3youtube/admin/homes/index?keyword=" + $("#keyword").val();
-			return false;
+	function admin1(event){
+		window.location.href = "http://localhost/cake3youtube/playlists/index?keyword=" + $("#keyword").val();
+		return false;
 	};
 	
 	function createPlayer(){
@@ -113,11 +128,10 @@ console.log(keyword);
 	
 	function onPlayerReady(event){
         event.target.playVideo();
-        $('h2.movie_title').html(event.target.getVideoData().title);
-        search(youtube_id);
-        $('#commentAdd #youtube_id').val(youtube_id	);
-        $('#videoid_add').val(youtube_id);
-        $('#title_add').val(event.target.getVideoData().title);
+        search(keyword);
+        
+        $('#commentAdd #youtube_id').val(datas[current]["videoId"]);
+        //videoInfo(current);
 			
     }
     function onPlayerStateChange(event){
@@ -147,8 +161,16 @@ console.log(keyword);
 	
     
     function playNext(){
-        console.log(datas[0]["videoId"]);
-        window.location.href = "http://localhost/cake3youtube/admin/homes/play?youtube_id=" + datas[0]["videoId"];
+    	
+        current++;
+        
+        if(current >= datas.length){
+           // current = 0;
+        }
+        //player.loadVideoById(datas[current]["videoId"]);
+       // videoInfo(current);
+        console.log(datas[current]["videoId"]);
+        window.location.href = "http://localhost/cake3youtube/playlists/play?youtube_id=" + datas[current]["videoId"] + '&search=' + keyword;
         
 }
 
@@ -158,7 +180,7 @@ function playPrev(){
         current = datas.length - 1;
     }
     console.log(datas[current]["videoId"]);
-    window.location.href = "http://localhost/cake3youtube/admin/homes/play?youtube_id=" + datas[current]["videoId"] + '&search=' + keyword;
+    window.location.href = "http://localhost/cake3youtube/playlists/play?youtube_id=" + datas[current]["videoId"] + '&search=' + keyword;
     //videoInfo(current);
 }
 function exe(){
@@ -168,18 +190,13 @@ function exe(){
         player.playVideo();
     }
 }
-	
-	
-function obj_array_shuffle(list) {
-	for (var i = list.length - 1; i > 0; i--) {
-		var j = Math.floor(Math.random() * (i + 1));
-		if (i == j) continue;
-		var k = list[i];
-		list[i] = list[j];
-		list[j] = k;
-	}
-	return list;
+function shuffle(array)
+{
+	var nb = array.lenght - 1;
+    return array.sort(function() { return Math.random() - .4 });
 }
+	
+	
 	
 	
 	

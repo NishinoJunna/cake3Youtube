@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
 <h1 class= "page_title">Welcome!!</h1>
 
@@ -62,16 +63,25 @@
 		
 </div><!-- homepage_container -->
 
+=======
+<?php $this->prepend('script', $this->Html->script('admin_searchout')); ?>
+
+			<?php
+				echo $this->Form->create($search,['type' => 'get']);
+				echo $this->Form->input('keyword',["label"=>""]);
+				echo $this->Form->button("登録",["action"=>"index", 'id'=>'btn1']);
+				echo $this->Form->end();
+			?>
+>>>>>>> patient
 <div id="search">
 	<div id="container">
 		<div id="loading"></div>
-		<div id="header">
-			
-		</div>
+		<div id="header"></div>
 		<div id="main"></div>
 	</div>
 </div>
  
+<<<<<<< HEAD
 <div id="play" class="play_container" style="display: none">
  			<form>    
                 <input type="button" value=" < <" id="prev" />
@@ -113,3 +123,6 @@
 	
 </div><!-- play_container -->
 <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+=======
+ <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady" ></script>
+>>>>>>> patient

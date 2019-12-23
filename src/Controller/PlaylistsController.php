@@ -7,6 +7,7 @@ class PlaylistsController extends AppController
 {
 	public function index()
 	{
+<<<<<<< HEAD
 		//検索前の表示画面
 		$this->loadModel("MovieDetails");
 		$trend_movies = $this->MovieDetails
@@ -37,6 +38,32 @@ class PlaylistsController extends AppController
 		$trend_playlists = $this->paginate($trend_playlists);
 		$this->set(compact("trend_movies","trend_playlists","first"));
 		//by 西野
+=======
+		$search = 0;
+		
+		
+		$this->set(compact('search'));
+	}
+
+	public function play()
+	{
+		$search = 0;
+		$comment = $this->loadModel('Comments');
+		if(isset($_GET["youtube_id"])){
+			$youtube_id = $_GET["youtube_id"];
+		}
+		$comments = $this->loadModel('Comments')
+		->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
+		->contain('Users')
+		->where(['youtube_id'=>$youtube_id]);
+		//var_dump($comments); die();
+		$this->set(compact('comment','comments','search'));
+	}
+	
+	public function mylist()
+	{
+		
+>>>>>>> patient
 	}
 
 }

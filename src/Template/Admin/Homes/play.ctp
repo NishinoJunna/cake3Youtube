@@ -1,9 +1,9 @@
 <?php $this->prepend('script', $this->Html->script('admin_playlist')); ?>
  <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
- <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
  			<form>
                 <input type="text" id="keyword" value="" />
                 <input type="submit" value="検索" id="btn1" disabled="disabled" />
+
                 <input type="button" value=" < <" id="prev" />
 		        <input type="button" value="再生" id="exe" />
 		        <input type="button" value=" > > " id="next" />

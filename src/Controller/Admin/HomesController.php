@@ -6,6 +6,7 @@ use \Exception;
 
 class HomesController extends AppController{
 	public function index(){
+
 		/*
 		 アクセスログ生成
 		$this->loadComponent('Math');
@@ -44,9 +45,15 @@ class HomesController extends AppController{
 		$comment = $this->loadModel('Comments');
 		$this->set(compact('comment',"trend_movies","trend_playlists","first","count"));
 		// by 西野
+
+		$search = 0;
+		
+		$this->set(compact('search'));
+
 	}
 	
-	public function play($id = null){
+	public function play(){
+		$search = 0;
 		$comment = $this->loadModel('Comments');
 		if(isset($_GET["youtube_id"])){
 			$youtube_id = $_GET["youtube_id"];
@@ -56,11 +63,13 @@ class HomesController extends AppController{
 					->contain('Users')
 					->where(['youtube_id'=>$youtube_id]);
 		//var_dump($comments); die();
+
 		$user = $this->MyAuth->user();
 		$this->loadModel("Playlists");
 		$playlists = $this->Playlists->find('list')->where(["user_id"=>$user["id"]]);
 		$this->loadModel("Movies");
 		$movie = $this->Movies->newEntity();
-		$this->set(compact('comment','comments','playlists','movie'));
+		$this->set(compact('comment','comments','playlists','movie','search'));
+
 	}
 }

@@ -76,7 +76,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 //adminプレフィックスの作成
 Router::prefix('admin',['_namePrefix'=>'admin:'], function ($routes){
-	$routes->connect("/",["controller"=>"Homes"]);
+	$routes->connect("/",["controller"=>"Homes", "action"=>"index", 'home']);
 	$routes->fallbacks(DashedRoute::class);
 });
 /**

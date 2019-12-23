@@ -1,9 +1,17 @@
 <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
-<form>
+
+	<?php 
+				echo $this->Form->create($search,['type' => 'get']);
+				echo $this->Form->input('keyword',["label"=>""]);
+				echo $this->Form->button("検索",["action"=>"index", 'id'=>'btn1']);
+				echo $this->Form->end();
+			?>
+<!--
+<form action="index" method="get">
 				<input type="text" id="keyword" value="" />
 				<input type="button" id="btn1" value="検索" />
-</form>
+</form> -->
 
 <div id ="homepage_container">
 <h2 class="page_sub_title">Check Trend Movie</h2>
@@ -59,6 +67,7 @@
 		</div>
 </div><!-- homepage_container -->
 
+
 <div id="search">
 	<div id="container">
 		<div id="loading"></div>
@@ -68,4 +77,4 @@
  </div>
  
 
-<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> 
+<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady" ></script>

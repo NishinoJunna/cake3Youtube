@@ -1,45 +1,26 @@
-<?php $this->prepend('script', $this->Html->script('shuffle_movie')); ?>
-<?php $this->prepend('css', $this->Html->css('shuffle_movie')); ?>
+<?php $this->prepend('script', $this->Html->script('admin_movies_edit')); ?>
+<?php $this->prepend('css', $this->Html->css('admin_movies_edit')); ?>
 
 <div id= "shuffle_movies_container">
 	<div class= "shuffle_left_container">
-		<div class= "trend_movie_box before">
+	<?php foreach($playlist_movies as $movie) :?>
+		<div class= "trend_movie_box before" id="<?= $movie->movie_detail->youtube_id?>">
 			<div class ="trend_movie_details">
-				<p class ="trend_movie_title">バンプオブチキン</p>
-				<p class ="trend_movie_descreption">動画詳細が来ます。動画詳細が来ます。動画詳細が来ます。</p>
+				<p class ="trend_movie_title"><?= $movie->movie_detail->title ?></p>
+				<p class ="trend_movie_descreption">ここに動画の説明が来ますここに動画の説明が来ますここに動画の説明が来ますここに動画の説明が来ますここに動画の説明が来ます</p>
 			</div><!-- movie_details -->
-			<p class= "check_plyalist_contents">この動画を再生</p>
 		</div><!-- trend_movie_box -->
-		<div class= "trend_movie_box before">
-			<div class ="trend_movie_details">
-				<p class ="trend_movie_title">オレンジレンジ</p>
-				<p class ="trend_movie_descreption">動画詳細が来ます。動画詳細が来ます。動画詳細が来ます。</p>
-			</div><!-- movie_details -->
-			<p class= "check_plyalist_contents">この動画を再生</p>
-		</div><!-- trend_movie_box -->
-		<div class= "trend_movie_box before">
-			<div class ="trend_movie_details">
-				<p class ="trend_movie_title">君の名は</p>
-				<p class ="trend_movie_descreption">動画詳細が来ます。動画詳細が来ます。動画詳細が来ます。</p>
-			</div><!-- movie_details -->
-			<p class= "check_plyalist_contents">この動画を再生</p>
-		</div><!-- trend_movie_box -->
-		<div class= "trend_movie_box before">
-			<div class ="trend_movie_details">
-				<p class ="trend_movie_title">デジモン</p>
-				<p class ="trend_movie_descreption">動画詳細が来ます。動画詳細が来ます。動画詳細が来ます。</p>
-			</div><!-- movie_details -->
-			<p class= "check_plyalist_contents">この動画を再生</p>
-		</div><!-- trend_movie_box -->
+	<?php endforeach ;?>
 	</div><!-- shuffle_left_container -->
 	<div class= "shuffle_right_container">
-		<div class="after_shuffle_box" id=1>
+	<?= $this->Form->create()?>
+		<?php for($i=1; $i <= $playlist_movies->count(); $i++) :?>
+		
+		<div class="after_shuffle_box" id="<?php echo $i;?>" value="">
+		<?= $this->Form->input($i,["type"=>"hidden","value"=>"","id"=>"$i"]); ?>
 		</div>
-		<div class="after_shuffle_box" id=2>
-		</div>
-		<div class="after_shuffle_box" id=3>
-		</div>
-		<div class="after_shuffle_box" id=4>
-		</div>
+	<?php endfor ;?>
 	</div><!-- shuffle_right_container -->
 </div><!-- shuffle_movies_container -->
+<?= $this->Form->button("登録")?>
+<?= $this->Form->end?>

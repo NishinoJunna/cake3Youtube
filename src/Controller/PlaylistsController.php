@@ -17,5 +17,8 @@ class PlaylistsController extends AppController
 		$this->set(compact("trend_movies","trend_playlists"));
 		//by 西野
 	}
-
+	
+	public function mylist($id = null){
+		
+	}
 }

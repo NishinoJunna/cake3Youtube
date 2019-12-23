@@ -74,7 +74,7 @@ body{
         	padding-left: 1rem;
         	letter-spacing: 0.2em;
         }
-/*admin_playlists_mylist　→本来は playlist_indexおよびadmin_homes_indexの画面*/     
+/*admin_playlists_mylist*/     
         .playlist_box{
         	width:90%;
         	height: 180px;
@@ -83,10 +83,11 @@ body{
         	display:flex;
         	justify-content: space-between;
         	border: 0.3rem dotted red;
+        	box-sizing: content-box;
         }
         
         .playlist_box:hover{
-        	opacity:0.7;
+        	opacity:0.9;
         }
         .thum{
         	width:300px;
@@ -99,10 +100,10 @@ body{
         	background-repeat: no-repeat;
         	background-size: 100%;
         	position:relative;
+        	
         }
         
         .count{
-        	z-index:9999;
         	text-align: center;
         	width:50%;
         	height:180px;
@@ -113,20 +114,29 @@ body{
         	background-position: inherit;
         	position:absolute;
         	left:50%;
+        	font-size: 5rem;
         }
         
         .count span{
         	vertical-align: middle;
         	margin:auto 0;
         	color: white;
+        	margin: 0 2rem;
         }
         .description{
         	width: 60%;
-        	margin: auto 0 auto 2rem;
-        	
+        	margin-top: 2rem;
+        }
+        
+        .content{
+        	text-decoration: underline;	
+        }
+        
+        .mylist_created_user{
+        	text-align: right;
         }
         .actions{
-        	width : 20%;
+        	width : 10%;
         	margin:auto;
         	text-align: center;	
         }
@@ -134,13 +144,14 @@ body{
         .description h3{
         	margin:0;
         }
-        
         .content{
-        	margin-top: 1rem;
         	font-weight:bold;
+        	word-break: break-word;
+        	font-size: 1.3rem;
+        	padding: 2rem;
         }
-        .actions p{
-        	width: 70%;
+        .edit{
+        	width: 90%;
         	border: 0.3rem solid black;
         	border-radius: 2rem;
         	font-size: 1.5rem;
@@ -150,10 +161,16 @@ body{
         	color: white;
         }
         
-        .actions p:hover{
+        .actions .edit:hover{
         	background-color:white;
         	color:orangered;
         }
+        
+        .actions a:hover{
+        	text-decoration: none;
+        }
+        
+        
 /*admin_comments_index*/
       
         .play_container{
@@ -221,7 +238,7 @@ body{
         	/*color: white; 変更しました　byNishino*/
         }
 
-/*admin/homes/index    playlist/index*/
+/*両ホーム画面：admin/homes/index    playlist/index*/
 		#homepage_container{
 			padding:3rem;
 		}
@@ -245,6 +262,7 @@ body{
 			color:white;
 			text-align: center;
 		}
+
 		
 		.trend_playlists_container{
 			display:flex;

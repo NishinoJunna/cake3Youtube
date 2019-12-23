@@ -7,16 +7,7 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 		$('#btn1').attr('disabled',false);
 	}
 	 var videoId;
-     var current = 0;
-     var player;
      
-     var create = new Boolean(true);
-     var tag = document.createElement('script');
-     tag.src = 'http://www.youtube.com/player_api';
-     var firstScriptTag = document.getElementsByTagName('script')[0];
-     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-     function onYouTubePlayerAPIReady(){
-     }
      
 	var search = function(keyword){
 		gapi.client.setApiKey(apiKey);
@@ -53,26 +44,18 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 							</div>
 						</div>`
 					);
+					
 				}
 			}
 			var movie_box = $(".related_movies_box");
             
             movie_box.on('click',function(){
             	var rank = movie_box.index(this);
-            	current = rank;
-            	console.log(current);
-            	//datas, current
+            	console.log(rank);
             	$("#search").hide();
-            	$("#play").show();
-            	$('#commentAdd #youtube_id').val(datas[current]["videoId"]);
-            	$('.button_add_playlist #videoid_add').val(datas[current]["videoId"]);
-            	$('.button_add_playlist #title_add').val(datas[current]["title"]);
-            	if (create){
-         			create = false;
-         			createPlayer();
-         			}else{
-         				playNext();
-         		} 
+            	
+            	window.location.href = 'http://localhost/cake3youtube/admin/homes/play?youtube_id='+datas[rank]["videoId"]+'&search='+keyword;
+            	
             });
 		});
 		console.log(datas);
@@ -89,85 +72,10 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 			$("h1.page_title").hide();
 			$("#homepage_container").hide();
 			$("#search").show();
-        	$("#play").hide();
 			return false;
 	};
 	
-	function createPlayer(){
-       player = new YT.Player('player', {
-           height: '400',
-           width: '700',
-           videoId: datas[current]['videoId'],
-           events: {
-               'onReady': onPlayerReady,
-               'onStateChange': onPlayerStateChange,
-               'onError': onPlayerError
-           }
-       });
-       console.log($(".ytp-title-link yt-uix-sessionlink").getAttribute("href"));
-   	}
 	
-	function onPlayerReady(event){
-        event.target.playVideo();
-        $('#commentAdd #youtube_id').val(datas[current]["videoId"]);
-        //videoInfo(current);
-			
-    }
-    function onPlayerStateChange(event){
-        if(event.data == YT.PlayerState.ENDED){
-            playNext();
-        }else if(event.data == YT.PlayerState.PLAYING) {
-            $('#exe').val("停止");
-        }else if(event.data == YT.PlayerState.PAUSED) {
-            $('#exe').val("再生");
-        }
-    }
-
-    function onPlayerError(event){
-        playNext();
-    }
-    $(window).load(function(){
-        $('#prev').on('click',function(){
-            playPrev();
-        });
-        $('#next').on('click',function(){
-            playNext();
-        });
-        $('#exe').on('click',function(){
-            exe();
-        });
-    });
-	
-    
-    function playNext(){
-    	 //window.location.href = '/cake3youtube/user/login';
-        current++;
-        
-        if(current >= datas.length){
-            current = 0;
-        }
-        // 通常の遷移
-        //player.loadVideoById(datas[current]["videoId"]);
-       // videoInfo(current);
-}
-
-function playPrev(){
-    current--;
-    if(current < 0){
-        current = datas.length - 1;
-    }
-    player.loadVideoById(datas[current]["videoId"]);
-    videoInfo(current);
-}
-function exe(){
-    if(player.getPlayerState() == YT.PlayerState.PLAYING){
-        player.pauseVideo();
-    }else {
-        player.playVideo();
-    }
-}
-
-//currentのあたり、
 	
 	
 	

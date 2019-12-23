@@ -182,6 +182,9 @@ body{
         	text-align: right;
         	margin-bottom: 3rem;
         }
+        .add_playlist{
+        	width:300px;
+        }
         .left_play_container{
         	width: 65%;
         	margin-right: 2rem;
@@ -220,7 +223,12 @@ body{
         	color:black;
         	/*color: white; 変更しました　byNishino*/
         }
-
+	span.description {
+		display: -webkit-box;
+			-webkit-box-orient: vertical;
+		  	-webkit-line-clamp: 3;
+		  	overflow: hidden;
+	}
 /*admin/homes/index    playlist/index*/
 		#homepage_container{
 			padding:3rem;

@@ -82,9 +82,10 @@
 		<div id="player">
 			
 		</div>
-		<p class="button_add_playlist">ログインしてプレイリストに動画を追加</p>
+
+
 		<div class="comment_post_area">
-			<?php
+		<?php
 			echo $this->Form->create($comment); 
 			echo $this->Form->textarea("content",["label"=>false,"type"=>"textarea","id"=>"comment", "style"=>"resize:none;", "value"=>""]);
 			echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>2]);

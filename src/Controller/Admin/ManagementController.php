@@ -17,7 +17,7 @@ class ManagementController extends AppController
 		}else{ */
 		if($id == "users"||$id == "playlists"||$id == "movies"||$id == "comments"){
 			Configure::write("debug", 0); // debugコードを出さないように
-			$csv_file = sprintf($id."_%s.csv", date("Ymd-hi")); // 適当にファイル名を指定
+			$csv_file = sprintf($id."_%s.csv", date("Ymd-hi")); // 日付でファイル名を指定
 			header ("Content-disposition: attachment; filename=" . $csv_file);
 			header ("Content-type: application/octet-stream; name=" . $csv_file);
 			$buf = null;

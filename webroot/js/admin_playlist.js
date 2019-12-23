@@ -1,4 +1,4 @@
-var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
+var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 
 var url_string = window.location.href;
 var url = new URL(url_string);
@@ -10,8 +10,7 @@ console.log(keyword);
 
 
 	var datas = [];
-	//datas[0] = {"videoId": youtube_id};
-
+	
 	var googleApiClientReady = function(){
 		init();
 	};

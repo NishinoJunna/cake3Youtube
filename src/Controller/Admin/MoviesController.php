@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 use App\Controller\Admin\AppController;
 use \Exception;
 
-
 class MoviesController extends AppController
 {
 	public function add(){
@@ -53,6 +52,34 @@ class MoviesController extends AppController
 			$this->Flash->error(__("不正なIDです"));
 			return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
 		}
+		
+	}
+	public function edit($playlist_id=null){
+		$playlist_movies= $this->Movies->find('all')
+			->contain('MovieDetails')
+			->where(['Movies.playlist_id'=>$playlist_id])
+			->order(['Movies.play_number'=>'ASC']);
+		
+		if($this->request->is("post")){
+			$number= $this->request->data;
+			foreach($number as $key => $value){
+				$play_number= ['play_number'=>$key];
+				$video_id = ['youtube_id'=>$value];
+				$this->Movies->updateAll($play_number,$video_id);
+			}
+			return $this->redirect(["action"=>"view",$playlist_id]);
+		}
+		$this->set(compact('playlist_movies'));
 	}
 	
+	public function view($playlist_id){
+		$movies= $this->Movies
+			->find("all")
+			->contain('MovieDetails')
+			->where(["playlist_id"=>$playlist_id])
+			->order(["play_number"=>"ASC"])
+			->toArray();
+			
+		$this->set(compact("movies","playlist_id"));
+	}
 }

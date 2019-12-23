@@ -19,6 +19,7 @@ class MoviesTable extends Table{
 				'foreignKey'=>'playlist_id',
 				'joinType'=>'inner'
 		]);
+
 		$this->belongsTo('MovieDetails',[
 				'foreignKey'=>'youtube_id',
 				'bindingKey'=>'youtube_id',

@@ -1,38 +1,23 @@
 <?php $this->prepend('script', $this->Html->script('admin_playlistout')); ?>
- <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
 
- 			<?php
-				echo $this->Form->create($search,['type' => 'get']);
-				echo $this->Form->input('keyword',["label"=>""]);
-				echo $this->Form->button("登録",[ 'id'=>'btn1']);
-				echo $this->Form->end();
-			?>
-			
-            <form>
+
+ 			<form>
+                <input type="text" id="keyword" value="" />
+                <input type="submit" value="検索" id="btn1" disabled="disabled" />
+
                 <input type="button" value=" < <" id="prev" />
 		        <input type="button" value="再生" id="exe" />
 		        <input type="button" value=" > > " id="next" />
             </form>
-<div id="play" class="play_container">
-	<div class="left_play_container">
-		<div id="main_box" class="clearfix">
-        	<div id="movie_title"><a></a></div>
-            <div id="player" class="pull-left"></div>
-            <div id="related" class="pull-left"></div>
-            <div id="movie_description"></div>
-        </div><!--main_box-->
 
-		<div class="comment_post_area">
-			<?php
-				echo $this->Form->create($comment,["id"=>"commentAdd",'url' => array('controller' => 'Users', 'action' => 'login')]); 
-				echo $this->Form->input("content",["label"=>false,"type"=>"textarea","id"=>"comment", "style"=>"resize:none;", "value"=>""]); 
-				echo $this->Form->input('youtube_id',['value'=>"",'type'=>'hidden',"id"=>"youtube_id"]);
-				echo $this->Form->button("登録");
-				echo $this->Form->end();
-			?>
-			<button type="button" id="comm">コメント</button>
-			<?php	echo $this->Form->end();?>
-		</div><!--comment_post_area-->
+<div id="play" class="play_container">
+	
+	<div class="left_play_container">
+		<h2 class ="movie_title"></h2>	
+		<div id="player">
+				
+		</div>
+		
 		
 		<?php if(isset($comments)): ?>
 		<div class ="comment_box">
@@ -47,6 +32,10 @@
 		</div><!-- comment_box -->
 		<?php endif; ?>
 	</div><!--left_play-container -->
+	
+	<div class="right_play_container">
+		
+	</div><!-- right_play_container -->
 	
 
 <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>

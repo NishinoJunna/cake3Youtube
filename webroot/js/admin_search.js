@@ -1,4 +1,4 @@
-var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
+var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 	var datas = [];
 	
 	var googleApiClientReady = function(){
@@ -34,9 +34,7 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 				'part': 'snippet',
 			}
 		});
-		var url_string = window.location.href;
-		var url = new URL(url_string);
-		keyword = url.searchParams.get("keyword");
+		
 		request.execute(function(data){
 			console.log(data);
 			if (!data.items) return;

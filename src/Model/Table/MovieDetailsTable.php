@@ -20,6 +20,7 @@ class MovieDetailsTable extends Table{
 				'bindingKey'=>'youtube_id',
 				'joinType'=>'inner'
 		]);
+		
 	}
 
 	public function validationDefault(Validator $validator){

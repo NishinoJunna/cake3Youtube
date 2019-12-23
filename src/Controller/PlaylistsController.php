@@ -7,7 +7,6 @@ class PlaylistsController extends AppController
 {
 	public function index()
 	{
-<<<<<<< HEAD
 		//検索前の表示画面
 		$this->loadModel("MovieDetails");
 		$trend_movies = $this->MovieDetails
@@ -38,7 +37,6 @@ class PlaylistsController extends AppController
 		$trend_playlists = $this->paginate($trend_playlists);
 		$this->set(compact("trend_movies","trend_playlists","first"));
 		//by 西野
-=======
 		$search = 0;
 		
 		
@@ -60,10 +58,4 @@ class PlaylistsController extends AppController
 		$this->set(compact('comment','comments','search'));
 	}
 	
-	public function mylist()
-	{
-		
->>>>>>> patient
-	}
-
 }

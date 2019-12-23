@@ -1,5 +1,4 @@
 <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
-<?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
 
 	<?php 
 				echo $this->Form->create($search,['type' => 'get']);
@@ -50,7 +49,7 @@
 					<p class= "publishedAt">作成者：<?=$trend_playlist->user->name ?></p>
 				</div><!-- .description -->
 				<div class = "actions">
-					<p class = "view"><?=$this->Html->link("動画一覧",["controller"=>"playlists","action"=>"view",$trend_playlist->id]) ?></p>
+					<p class = "view"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
 				</div><!-- actions -->
 			</div><!-- .playlist_box -->
 		</div><!-- trend_playlists_container -->

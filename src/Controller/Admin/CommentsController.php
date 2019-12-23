@@ -7,7 +7,7 @@ use \Exception;
 
 class CommentsController extends AppController
 {
-	function index($youtube_id = null){
+	/*function index($youtube_id = null){
 		$user = $this->MyAuth->user();
 		$comment = $this->Comments->newEntity();
 		$this->set(compact("comment","youtube_id"));
@@ -29,7 +29,7 @@ class CommentsController extends AppController
 			}
 			$this->Flash->error(__('コメントに失敗しました'));		
 		}
-	}
+	}*/
 	
 	public function addcommentajax(){
 		$this->autoRender = false;

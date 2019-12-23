@@ -7,24 +7,20 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 
-class MoviesTable extends Table{
+class MovieDetailsTable extends Table{
 	public function initialize(array $config){
 		parent::initialize($config);
-		$this->table('movies');
+		$this->table('movie_details');
 		$this->displayfield('id');
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
 
-		$this->belongsTo('Playlists',[
-				'foreignKey'=>'playlist_id',
-				'joinType'=>'inner'
-		]);
-
-		$this->belongsTo('MovieDetails',[
+		$this->hasMany('Movies',[
 				'foreignKey'=>'youtube_id',
 				'bindingKey'=>'youtube_id',
 				'joinType'=>'inner'
 		]);
+		
 	}
 
 	public function validationDefault(Validator $validator){
@@ -32,21 +28,21 @@ class MoviesTable extends Table{
 		->integer('id')
 		->allowEmpty('id','create');
 		$validator
-		->requirePresence('playlist_id','create')
-		->notEmpty('playlist_id');
+		->requirePresence('title','create')
+		->notEmpty('title');
 		$validator
 		->requirePresence('youtube_id','create')
 		->notEmpty('youtube_id');
-		
-		
-		
+
+
+
 		return $validator;
 	}
-	
+
 	public function buildRules(RulesChecker $rules){
-		$rules->add($rules->isUnique(['playlist_id', 'youtube_id'],
-							["message"=>'この動画はすでに登録されています']));
+		$rules->add($rules->isUnique(['youtube_id'],
+				["message"=>'この動画はすでに登録されています']));
 		return $rules;
 	}
-	
+
 }

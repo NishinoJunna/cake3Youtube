@@ -1,4 +1,5 @@
-var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
+var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+
 var url_string = window.location.href;
 var url = new URL(url_string);
 var youtube_id = url.searchParams.get("youtube_id");
@@ -10,7 +11,6 @@ console.log(keyword);
 
 	var datas = [];
 	
-	datas[0] = {"videoId": youtube_id};
 	var googleApiClientReady = function(){
 		init();
 	};
@@ -30,8 +30,6 @@ console.log(keyword);
     	 
     	
          player = new YT.Player('player', {
-             //height: '400',
-             //width: '700',
              videoId: youtube_id,
              events: {
                  'onReady': onPlayerReady,
@@ -41,7 +39,7 @@ console.log(keyword);
          });
      }
      
-	var search = function(keyword){
+	var search = function(youtube_id){
 		
 		gapi.client.setApiKey(apiKey);
 		gapi.client.load('youtube', 'v3', function(){
@@ -49,12 +47,13 @@ console.log(keyword);
 		var request = gapi.client.request({
 			'path': '/youtube/v3/search',
 			'params': {
-				'q': keyword,
+				'relatedToVideoId':youtube_id,
 				'type': 'video',
+				'maxResults':10,
 				'part': 'snippet',
 			}
 		});
-		var a = 1;
+		
 		request.execute(function(data){
 			console.log(data);
 			if (!data.items) return;
@@ -63,14 +62,12 @@ console.log(keyword);
 			for(var i in data.items){
 				if(data.items[i].id.videoId &&
 					data.items[i].id.kind=="youtube#video"){
-					
 					console.log(data.items[i].id.videoId);
 					if(data.items[i].id.videoId != youtube_id){
-						datas[a] = {"videoId" : data.items[i].id.videoId,
+						datas[i] = {"videoId" : data.items[i].id.videoId,
 	                			"title" : data.items[i].snippet.title,
 	                			"description" : data.items[i].snippet.description };
-						a++;
-						$('#related table').append(
+						$('.right_play_container').append(
 							'<tr class="movie_box">' +
 							'<td class="thum"><img src="' +
 							data.items[i].snippet.thumbnails.medium.url + '"/></td>' +
@@ -86,19 +83,14 @@ console.log(keyword);
 			}
 			
 			console.log(datas);
-			var tr_tags = $("#related table tr");
+			
+			console.log(datas);
+			var tr_tags = $(".right_play_container tr");
             
             tr_tags.on('click',function(){
             	var rank = tr_tags.index(this);
-            	current = rank;
-            	//datas, current
-            	
-            	
-            	console.log(current);
-            	
-            	//$('#commentAdd #youtube_id').val(datas[current]["videoId"]);
-            	//player.loadVideoById(datas[current]["videoId"]);
-            	
+            	console.log(rank);		
+            	location.href = "play?youtube_id="+datas[rank]["videoId"];
             });
 		});
 		console.log(datas);
@@ -108,6 +100,7 @@ console.log(keyword);
 	 $(function(){
      	$('#btn1').on('click',admin1);
 	 });
+
 	function admin1(){
 			window.location.href = "http://localhost/cake3youtube/admin/homes/index?keyword=" + $("#keyword").val();
 			return false;
@@ -119,10 +112,11 @@ console.log(keyword);
 	
 	function onPlayerReady(event){
         event.target.playVideo();
-        search(keyword);
-        
-        $('#commentAdd #youtube_id').val(datas[current]["videoId"]);
-        //videoInfo(current);
+        $('h2.movie_title').html(event.target.getVideoData().title);
+        search(youtube_id);
+        $('#commentAdd #youtube_id').val(youtube_id	);
+        $('#videoid_add').val(youtube_id);
+        $('#title_add').val(event.target.getVideoData().title);
 			
     }
     function onPlayerStateChange(event){
@@ -152,16 +146,8 @@ console.log(keyword);
 	
     
     function playNext(){
-    	
-        current++;
-        
-        if(current >= datas.length){
-           // current = 0;
-        }
-        //player.loadVideoById(datas[current]["videoId"]);
-       // videoInfo(current);
-        console.log(datas[current]["videoId"]);
-        window.location.href = "http://localhost/cake3youtube/admin/homes/play?youtube_id=" + datas[current]["videoId"] + '&search=' + keyword;
+        console.log(datas[0]["videoId"]);
+        window.location.href = "http://localhost/cake3youtube/admin/homes/play?youtube_id=" + datas[0]["videoId"];
         
 }
 
@@ -183,6 +169,16 @@ function exe(){
 }
 	
 	
+/*function obj_array_shuffle(list) {
+	for (var i = list.length - 1; i > 0; i--) {
+		var j = Math.floor(Math.random() * (i + 1));
+		if (i == j) continue;
+		var k = list[i];
+		list[i] = list[j];
+		list[j] = k;
+	}
+	return list;
+}*/
 	
 	
 	

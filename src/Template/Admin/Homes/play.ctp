@@ -3,7 +3,7 @@
  
  			<?php
 				echo $this->Form->create($search,['type' => 'get']);
-				echo $this->Form->input('keyword',['id'=>"keyword"]);
+				echo $this->Form->input('keyword',["label"=>"", 'id'=>"keyword", "value"=>$search]);
 				echo $this->Form->button("登録",[ 'id'=>'btn1']);
 				echo $this->Form->end();
 			?>
@@ -13,16 +13,24 @@
 		        <input type="button" value="再生" id="exe" />
 		        <input type="button" value=" > > " id="next" />
             </form>
-<div id="play" class="play_container">
-	<div class="left_play_container">
-		<div id="main_box" class="clearfix">
-        	<div id="movie_title"><a></a></div>
-            <div id="player" class="pull-left"></div>
-            <div id="related" class="pull-left"></div>
-            <div id="movie_description"></div>
-        </div><!--main_box-->
 
-		<p class="button_add_playlist">ここをクリックするとプレイリストに動画を追加</p>
+<div id="play" class="play_container">
+	
+	<div class="left_play_container">
+		<h2 class ="movie_title"></h2>	
+		<div id="player">
+				
+		</div>
+		<div class="button_add_playlist">
+			<?php 
+				echo $this->Form->create($movie,array("url"=>"/admin/movies/add"));
+				echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>"","id"=>"videoid_add"]);
+				echo $this->Form->input("title",["type"=>"hidden","value"=>"","id"=>"title_add"]);
+				echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストに追加","label"=>false,"class"=>"add_playlist"]);
+				echo "<button type=\"submit\" class=\"movie_submit\">追加する</button>";
+				echo $this->Form->end();
+			?>
+		</div>
 		<div class="comment_post_area">
 			<?php
 				echo $this->Form->create($comment,["id"=>"commentAdd",]); 
@@ -46,6 +54,10 @@
 		</div><!-- comment_box -->
 		<?php endif; ?>
 	</div><!--left_play-container -->
+	
+	<div class="right_play_container">
+		
+	</div><!-- right_play_container -->
 	
 <?php /* ?>	<div class="right_play_container">
 		<h3 class="related_movies_text">関連動画</h3>

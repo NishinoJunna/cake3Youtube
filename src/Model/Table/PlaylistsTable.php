@@ -20,7 +20,8 @@ class PlaylistsTable extends Table{
 		]);
 		$this->hasMany('Movies',[
 				'foreignKey'=>'playlist_id',
-				'joinType'=>'inner'
+				'joinType'=>'inner',
+				'dependent' => true
 		]);
 	}
 

@@ -2,7 +2,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Admin\AppController;
-
+use \Exception;	
 
 class PlaylistsController extends AppController
 {
@@ -58,6 +58,29 @@ class PlaylistsController extends AppController
 			->toArray();
 		
 		$this->set(compact("playlist_movies"));
+	}
+	
+	public function delete($id = null){
+		$user_id = $this->MyAuth->user("id");
+		try{
+			$playlist = $this->Playlists->get($id, [
+				"contain"=>["Users","Movies"]	
+			]);
+			if($playlist["user_id"] != $user_id){
+				throw new Exception();
+			}else{
+				$this->request->is(['post','delete']);
+				if($this->Playlists->delete($playlist)){
+					$this->Flash->success(__('プレイリストを削除しました'));
+				}else{
+					$this->Flash->error(__('削除に失敗しました'));
+				}
+				return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
+			}
+		}catch(Exception $e){
+			$this->Flash->error(__("不正なIDです"));
+			return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
+		}
 	}
 }
 

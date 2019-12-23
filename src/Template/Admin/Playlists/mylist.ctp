@@ -12,10 +12,15 @@
 			<p class = "content">
 				<?= h($playlist->description) ?>
 			</p>
+			
 		</div><!-- .description -->
 		<div class = "actions">
+			<p class = "edit"><?=$this->html->link("変更",["action"=>"edit",$playlist->id]) ?></p>
 			<p class ="edit"><?= $this->Html->link("並び替え",["controller"=>"Movies","action"=>"edit",$playlist->id])?></p>
 			<p class ="edit"><?= $this->Html->link("動画一覧",["controller"=>"Movies","action"=>"view",$playlist->id])?></p>
+			<p>
+				<?=$this->Html->link("プレイリストを削除する",["action"=>"delete",$playlist->id]) ?>
+			</p>
 		</div><!-- actions -->
 	</div><!-- .playlist_box -->
 <?php endforeach;?>	

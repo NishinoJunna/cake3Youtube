@@ -15,16 +15,12 @@ class MovieDetailsTable extends Table{
 		$this->primaryKey('id');
 		$this->addBehavior('Timestamp');
 
-		$this->belongsTo('Playlists',[
-				'foreignKey'=>'playlist_id',
-				'joinType'=>'inner'
-		]);
-		
 		$this->hasMany('Movies',[
 				'foreignKey'=>'youtube_id',
 				'bindingKey'=>'youtube_id',
 				'joinType'=>'inner'
 		]);
+		
 	}
 
 	public function validationDefault(Validator $validator){

@@ -53,10 +53,10 @@ class PlaylistsController extends AppController
 	public function play($playlist_id){
 		$playlist_movies = $this->Playlists->Movies
 			->find("all")
+			->contain("MovieDetails")
 			->where(["playlist_id"=>$playlist_id])
 			->order(["play_number"=>"ASC"])
 			->toArray();
-		
 		$this->set(compact("playlist_movies"));
 	}
 }

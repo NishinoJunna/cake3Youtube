@@ -54,7 +54,7 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 							'<td class="thum"><img src="' +
 							data.items[i].snippet.thumbnails.medium.url + '"/></td>' +
 							'<td class="details">' +
-							'<a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=' + data.items[i].id.videoId + '&search=' + keyword + 
+							'<a href="http://localhost/cake3youtube/playlists/play?youtube_id=' + data.items[i].id.videoId + '&search=' + keyword + 
 							'">' + data.items[i].snippet.title +'</a><br />' +
 							'<span class="description">' + data.items[i].snippet.description +
 							'</span>' +

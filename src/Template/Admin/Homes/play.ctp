@@ -1,9 +1,14 @@
 <?php $this->prepend('script', $this->Html->script('admin_playlist')); ?>
  <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
- <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
- 			<form>
-                <input type="text" id="keyword" value="Akb48" />
-                <input type="submit" value="検索" id="btn1" disabled="disabled" />
+ 
+ 			<?php
+				echo $this->Form->create($search,['type' => 'get']);
+				echo $this->Form->input('keyword',["label"=>"",'id'=>"keyword"]);
+				echo $this->Form->button("登録",[ 'id'=>'btn1']);
+				echo $this->Form->end();
+			?>
+			
+            <form>
                 <input type="button" value=" < <" id="prev" />
 		        <input type="button" value="再生" id="exe" />
 		        <input type="button" value=" > > " id="next" />

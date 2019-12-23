@@ -6,11 +6,14 @@ use \Exception;
 
 class HomesController extends AppController{
 	public function index(){
+		$search = 0;
 		$comment = $this->loadModel('Comments');
-		$this->set(compact('comment'));
+		
+		$this->set(compact('comment','search'));
 	}
 	
-	public function play($id = null){
+	public function play(){
+		$search = 0;
 		$comment = $this->loadModel('Comments');
 		if(isset($_GET["youtube_id"])){
 			$youtube_id = $_GET["youtube_id"];
@@ -20,6 +23,6 @@ class HomesController extends AppController{
 					->contain('Users')
 					->where(['youtube_id'=>$youtube_id]);
 		//var_dump($comments); die();
-		$this->set(compact('comment','comments'));
+		$this->set(compact('comment','comments','search'));
 	}
 }

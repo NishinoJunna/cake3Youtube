@@ -1,9 +1,11 @@
 <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
 
-			<form>
-				<input type="text" id="keyword" value="game" />
-				<input type="button" id="btn1" value="検索" />
-			</form>
+			<?php
+				echo $this->Form->create($search,['type' => 'get']);
+				echo $this->Form->input('keyword',["label"=>""]);
+				echo $this->Form->button("登録",["action"=>"index", 'id'=>'btn1']);
+				echo $this->Form->end();
+			?>
 <div id="search">
 	<div id="container">
 		<div id="loading"></div>

@@ -1,32 +1,47 @@
+#keyword{
+	width:20%;
+}
+
 #playlist_play_container{
 	display: flex;
-	
 }
 
 .playlist_left_container{
-	width:800px;
 	border: 2px blue solid;
 	font-size: 20px;
-	min-width:0;
 }
 
 .playlist_right_container{
 	width: 35%;
 	border: 2px red solid;
 	font-size: 20px;
-	min-width:0;
+	
 }
 
+.flex_box{
+	width: 90%;
+	display: flex;
+	border-bottom: solid gray 0.1rem;
+	margin: 1rem auto;
+	padding: 1rem;	
+}
 .movies_box{
-	width: 80%;
-	padding: 2rem;
+	width: 40%;
+	min-height: 80px;
+	box-sizing: border-boz;
 }
-.playlist_movie{
-	width:90%;
-	border: 1px black solid;
-	margin:2rem auto;
+.flex_right_box{
+	width:60%;
+	word-break: break-all;
+	max-height:80px;
+	overflow: hidden;
+	font-size: 1.4rem;
+	padding: 1rem;
 }
 
+.flex_right_box a:hover{
+	
+}
 .button_add_playlist{
 	margin: 5rem auto;
 }
@@ -38,3 +53,54 @@
 .comment_box{
 	margin: 5rem auto;
 }
+
+.iframe_box{
+	width: 800px;
+	margin: 0 auto;
+}
+
+.iframe_box iframe{
+	margin: 0 auto !important;
+	width: 90% !important;
+	height: 400px !important;
+}
+
+.topic{
+	text-align: center;
+	margin-bottom: 5rem; 
+	
+}
+
+
+.add_playlist{
+	width: 30%;
+	margin:0 2rem 0 auto;
+	font-size:1.4rem;	
+}
+
+.comment_post_area{
+	width: 90%;
+}
+
+.comment_button{
+	display: block;
+	width: 15%;
+	font-size: 1rem;
+	margin-left: auto;
+}
+.comment_box{
+	width: 90%;
+	font-size: 1.2rem;
+	border-bottom: 0.1rem silver dotted;
+}
+
+.comment_content{
+	margin-left: 2rem;
+	word-break: break-word;
+}
+.comment_date{
+	margin-top:3rem;
+	text-align: right;
+}
+
+

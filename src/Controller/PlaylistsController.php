@@ -48,7 +48,7 @@ class PlaylistsController extends AppController
 
 	public function play()
 	{
-		$search = 0;
+		$search = "";
 		$comment = $this->loadModel('Comments');
 		if(isset($_GET["youtube_id"])){
 			$youtube_id = $_GET["youtube_id"];

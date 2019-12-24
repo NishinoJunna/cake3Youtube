@@ -6,10 +6,12 @@ use \Exception;
 
 class MoviesController extends AppController
 {
-	public function add(){
-		//https://img.youtube.com/vi/{youtube_video_id}/default.jpg これが準備されているyoutubeサムネイル
+	public function addplaylistajax(){
+		$this->autoRender = false;
+		$result= [];
+		
 		$movie = $this->Movies->newEntity();
-		if($this->request->is('post')){
+		if($this->request->is('ajax')){
 			$movie->playlist_id = $this->request->data["playlist_id"];
 			$movie->youtube_id = $this->request->data["youtube_id"];
 			if($this->Movies->save($movie)){
@@ -21,16 +23,18 @@ class MoviesController extends AppController
 					$movie_detail->youtube_id = $youtube_id; 
 					$movie_detail->title = $this->request->data["title"];
 					if($this->MovieDetails->save($movie_detail)){
-						return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
+						$result['status']="success";
+						echo json_encode($result);
+						return;
 					}
-					$this->Flash->error(__('動画の登録に失敗しました。'));
 				}
-				return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
 			}
-			$this->Flash->error(__('動画の登録に失敗しました。既に登録されている可能性があります。'));
+			$result["status"]=$movie_detail->errors();
+			echo json_encode($result);
+			return;
 		}
-		return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
 	}
+	//https://img.youtube.com/vi/{youtube_video_id}/default.jpg これが準備されているyoutubeサムネイル
 	
 	public function delete($id = null){
 		$user_id = $this->MyAuth->user("id");

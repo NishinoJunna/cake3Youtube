@@ -59,7 +59,7 @@
 			<div class="movies_box" style="background-image:url(https://i.ytimg.com/vi/<?php echo $playlist_movie->youtube_id ?>/mqdefault.jpg);
         	background-repeat: no-repeat;
         	background-size: cover;" 
-        	id="color<?php echo $playlist_movie->play_number;?>">
+        	id="color<?php echo $i ;?>">
         	<a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $playlist_id ?>&youtube_id=<?php echo $playlist_movie->youtube_id; ?>&nb=<?php $nb ?>">
         		<?php echo $playlist_movie->youtube_id;?>
         	</a>

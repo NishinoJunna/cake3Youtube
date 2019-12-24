@@ -10,6 +10,9 @@
         	background-size: cover;" >
         <div class= "title_box">
 			<p class= "movie_title"><?php echo $movie->movie_detail->title;?></p>
+			<?php if($mine): ?>
+			<?=$this->Html->Link("プレイリストから削除",["controller"=>"movies","action"=>"delete",$movie->id]) ?>	
+			<?php endif; ?>
 			<p class= "play_number"><?php echo $movie->play_number;?></p>
 		</div>
 		</div><!-- movie_box -->

@@ -77,6 +77,15 @@ class MoviesController extends AppController
 	}
 	
 	public function view($playlist_id){
+		//追加
+		$user = $this->MyAuth->user();
+		$this->loadModel("Playlists");
+		$playlist = $this->Playlists->get($playlist_id);
+		$mine = 0;
+		if($user["id"]===$playlist["user_id"]){
+			$mine = 1;
+		}
+		//by 西野
 		$movies= $this->Movies
 			->find("all")
 			->contain('MovieDetails')
@@ -89,7 +98,7 @@ class MoviesController extends AppController
 			->where(["playlist_id"=>$playlist_id])
 			->order(["play_number"=>"ASC"])
 			->first();
-			
-		$this->set(compact("movies","playlist_id","movi"));
+		$this->set(compact("movies","playlist_id","movi","mine"));
+
 	}
 }

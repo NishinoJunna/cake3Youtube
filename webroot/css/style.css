@@ -258,6 +258,7 @@ body{
 			letter-spacing: 0.2em;
 		}
 		.trend_movies_container{
+			width:800px;
 			display:flex;
 			flex-wrap: wrap;
 			justify-content:space-between;
@@ -269,7 +270,6 @@ body{
 			border: 1px solid red;
 			border-radius: 3px;
 			margin:2rem 1rem;
-			/*background-image:url("../img/nature.jpg");*/
 			color:white;
 			text-align: center;
 		}
@@ -292,3 +292,13 @@ body{
 			display: flex;
 			border: 1px dotted red;
 		}
+		
+		p.check_plyalist_contents a{
+			text-align:bottom;
+		}
+		/* 追加　by西野*/
+		p.check_plyalist_contents a:hover{
+    		color: white;
+			text-decoration:none;
+		}
+		

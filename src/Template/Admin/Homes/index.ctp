@@ -23,7 +23,7 @@
 			<div class ="trend_movie_details">
 				<p class ="trend_movie_title"><?=h($trend_movie->title) ?></p>
 			</div><!-- movie_details -->
-			<a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=<?php echo $trend_movie->youtube_id ?>" /><p class= "check_plyalist_contents">動画を再生</p></a>
+			<p class= "check_plyalist_contents"><a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=<?php echo $trend_movie->youtube_id ?>" />動画を再生</a></p>
 		</div><!-- trend_movie_box -->
 	
 		<?php endforeach; ?>
@@ -49,7 +49,7 @@
 					<p class= "publishedAt">作成者：<?=$trend_playlist->user->name ?></p>
 				</div><!-- .description -->
 				<div class = "actions">
-					<p class = "view"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
+					<p class = "edit"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
 				</div><!-- actions -->
 			</div><!-- .playlist_box -->
 		</div><!-- trend_playlists_container -->

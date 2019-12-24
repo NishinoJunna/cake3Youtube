@@ -11,9 +11,16 @@ class MoviesController extends AppController
 		$result= [];
 		
 		$movie = $this->Movies->newEntity();
+		
 		if($this->request->is('ajax')){
+			$last = $this->Movies->find()->where(["playlist_id"=>$this->request->data["playlist_id"]])->order(["created_at"=>"desc"])->first();
+			$movie->play_number = $last["play_number"]+1;
+			if(empty($last)){
+					$movie->play_number = 1;
+			}
 			$movie->playlist_id = $this->request->data["playlist_id"];
 			$movie->youtube_id = $this->request->data["youtube_id"];
+			
 			if($this->Movies->save($movie)){
 				$this->loadModel("MovieDetails");
 				$movie_detail = $this->MovieDetails->newEntity();
@@ -37,6 +44,11 @@ class MoviesController extends AppController
 	//https://img.youtube.com/vi/{youtube_video_id}/default.jpg これが準備されているyoutubeサムネイル
 	
 	public function delete($id = null){
+		
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("DeletePlaylists");
+		
 		$user_id = $this->MyAuth->user("id");
 		try{
 			$movie = $this->Movies->get($id);
@@ -59,6 +71,12 @@ class MoviesController extends AppController
 		
 	}
 	public function edit($playlist_id=null){
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("Edit");
+		
+		$last = $this->Movies->find()->where(["playlist_id"=>$playlist_id])->order(["created_at"=>"desc"])->first();
+		var_dump($last);exit();
 		$playlist_movies= $this->Movies->find('all')
 			->contain('MovieDetails')
 			->where(['Movies.playlist_id'=>$playlist_id])
@@ -77,6 +95,10 @@ class MoviesController extends AppController
 	}
 	
 	public function view($playlist_id){
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("ViewPlaylists");
+		
 		//追加
 		$user = $this->MyAuth->user();
 		$this->loadModel("Playlists");

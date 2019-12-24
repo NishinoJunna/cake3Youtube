@@ -14,11 +14,10 @@ class HomesController extends AppController{
 		
 
 
-		/*
-		 アクセスログ生成
+		
+		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Home");
-		*/
 		//検索前の表示画面
 		$this->loadModel("Movies");
 		//サブクエリ
@@ -61,6 +60,10 @@ class HomesController extends AppController{
 	}
 	
 	public function play(){
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("Play");
+		
 		$search = "";
 		$comment = $this->loadModel('Comments');
 		if(isset($_GET["youtube_id"])){

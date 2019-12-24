@@ -3,7 +3,7 @@
 	<?php 
 				echo $this->Form->create($search,['type' => 'get']);
 				echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$keyword]);
-				echo $this->Form->button("登録",["action"=>"index", 'id'=>'btn1']);
+				echo $this->Form->button("検索",["action"=>"index", 'id'=>'btn1']);
 				echo $this->Form->end();
 			?>
 <!--
@@ -18,12 +18,12 @@
 	
 		<?php foreach($trend_movies as $trend_movie): ?>
 	
-		<div class= "trend_movie_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg); background-repeat: no-repeat;
+		<div class= "trend_movie_box"  style="background:url(https://i.ytimg.com/vi/<?php echo h($trend_movie->youtube_id) ?>/default.jpg); background-repeat: no-repeat;
 		background-size:contain;">
 			<div class ="trend_movie_details">
 				<p class ="trend_movie_title"><?=h($trend_movie->title) ?></p>
 			</div><!-- movie_details -->
-			<p class= "check_plyalist_contents"><a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=<?php echo $trend_movie->youtube_id ?>" />動画を再生</a></p>
+			<p class= "check_plyalist_contents"><a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=<?php echo h($trend_movie->youtube_id) ?>" />動画を再生</a></p>
 		</div><!-- trend_movie_box -->
 	
 		<?php endforeach; ?>

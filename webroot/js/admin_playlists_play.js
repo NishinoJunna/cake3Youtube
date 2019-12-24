@@ -37,10 +37,9 @@ var init = function(){
      $('.playlist_right_container #color' + current).css("border","aqua 1rem solid");
      $('#commentAdd #youtube_id').val(youtube_id);
      /*$('h2.movie_title').html(event.target.getVideoData().title);
-     search(youtube_id);
-     $('#commentAdd #youtube_id').val(youtube_id	);
+     search(youtube_id);*/
      $('#videoid_add').val(youtube_id);
-     $('#title_add').val(event.target.getVideoData().title);*/
+     $('#title_add').val(event.target.getVideoData().title);
 			
  }
  function onPlayerStateChange(event){

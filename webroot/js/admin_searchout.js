@@ -1,5 +1,5 @@
 
-var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
+var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 
 //var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 
@@ -73,7 +73,7 @@ var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
             	console.log(rank);
             	$("#search").hide();
             	
-            	window.location.href = 'http://localhost/cake3youtube/admin/homes/play?youtube_id='+datas[rank]["videoId"]+'&search='+keyword;
+            	window.location.href = 'http://localhost/cake3youtube/playlists/play?youtube_id='+datas[rank]["videoId"];
             	
             });
 		});

@@ -17,8 +17,18 @@
 		<div id="player">
 				
 		</div>
+		<div class="button_add_playlist">
+		<?=$this->Html->link("ログインしてプレイリストに追加する","#",["class"=>"out_playlist_add"]) ?>
+		</div>
 		
-		
+		<div class="comment_post_area">
+			<?php
+				echo $this->Form->input("content",["label"=>false,"id"=>"comment", "style"=>"resize:none;", "value"=>""]); 
+				echo $this->Form->input('youtube_id',['value'=>"",'type'=>'hidden',"id"=>"youtube_id"]);
+			?>
+			<button type="button" id="comm">コメント</button>
+			
+		</div><!--comment_post_area-->
 		<?php if(isset($comments)): ?>
 		<div class ="comment_box">
 		<?php foreach ($comments as $c): ?>

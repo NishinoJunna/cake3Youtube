@@ -29,7 +29,7 @@ CREATE TABLE `comments` (
   `content` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,8 +38,36 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,'2',1,'テスト用','2019-12-17 17:03:20'),(14,'2',1,'コメントアウト','2019-12-17 17:22:27'),(15,'2',1,'コメントアウト','2019-12-17 17:23:14'),(16,'2',1,'コメントアウト','2019-12-17 17:24:13'),(17,'2',1,'コメントテストです\r\nあああ','2019-12-17 17:24:58'),(18,'2',1,'改行テスト\r\nあああ\r\nいいうえお','2019-12-17 17:27:52');
+INSERT INTO `comments` VALUES (1,'2',1,'テスト用','2019-12-17 17:03:20'),(14,'2',1,'コメントアウト','2019-12-17 17:22:27'),(15,'2',1,'コメントアウト','2019-12-17 17:23:14'),(16,'2',1,'コメントアウト','2019-12-17 17:24:13'),(17,'2',1,'コメントテストです\r\nあああ','2019-12-17 17:24:58'),(18,'2',1,'改行テスト\r\nあああ\r\nいいうえお','2019-12-17 17:27:52'),(19,'0xSiBpUdW4E',1,'マリーゴールド','2019-12-20 15:14:26'),(20,'yjAFThnxJgU',2,'コメントテスト','2019-12-20 18:31:16'),(21,'0xSiBpUdW4E',2,'テスト投稿です','2019-12-23 13:32:32'),(22,'pfGI91CFtRg',2,'プレイリストに入ってない？','2019-12-23 13:33:18'),(23,'JZqplTvRex8',2,'コメント','2019-12-23 15:12:37'),(24,'hzWDXge2ANM',2,'コメント１','2019-12-23 15:16:34'),(25,'hzWDXge2ANM',2,'あいうえお','2019-12-23 15:16:43'),(26,'hzWDXge2ANM',3,'田中です','2019-12-23 15:17:25'),(27,'hzWDXge2ANM',3,'こんにちわ','2019-12-23 15:17:37'),(28,'aPHGClLjZWk',2,'','2019-12-23 15:35:25'),(29,'aPHGClLjZWk',2,'こんにちわ\r\nコメントテスト\r\nです','2019-12-23 15:35:54');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `movie_details`
+--
+
+DROP TABLE IF EXISTS `movie_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `movie_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `youtube_id` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `youtube_id` (`youtube_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `movie_details`
+--
+
+LOCK TABLES `movie_details` WRITE;
+/*!40000 ALTER TABLE `movie_details` DISABLE KEYS */;
+INSERT INTO `movie_details` VALUES (1,'0xSiBpUdW4E','あいみょん - マリーゴールド【OFFICIAL MUSIC VIDEO】','2019-12-19 17:42:44','2019-12-19 17:42:44'),(2,'hzWDXge2ANM','back number - 「ハッピーエンド」Music Video','2019-12-19 18:23:42','2019-12-19 18:23:42'),(3,'ZIn20Rmj030','back number -「HAPPY BIRTHDAY」Music Video (TBS系 火曜ドラマ「初めて恋をした日に読む話」主題歌)','2019-12-19 18:24:27','2019-12-19 18:24:27'),(4,'yjAFThnxJgU','E-girls / シンデレラフィット(CINDERELLA FIT) Music Video','2019-12-20 11:59:27','2019-12-20 11:59:27'),(5,'JfgOjtq440o','back number - 「クリスマスソング」Music Video','2019-12-20 14:05:08','2019-12-20 14:05:08'),(6,'JZqplTvRex8','西野カナ 『Bedtime Story』MV(Short Ver.)','2019-12-20 14:05:36','2019-12-20 14:05:36'),(7,'FQHHA4SSXtg','あいみょん – マリーゴールド【AIMYON BUDOKAN -1995-】','2019-12-23 09:55:37','2019-12-23 09:55:37'),(8,'aPHGClLjZWk','西野カナ 『トリセツ』MV(Short Ver.)','2019-12-23 13:17:24','2019-12-23 13:17:24'),(9,'RY0VC4A4saE','西野カナ 『もしも運命の人がいるのなら』MV(Short Ver.)','2019-12-23 13:17:38','2019-12-23 13:17:38'),(10,'s-O_JV8j8wc','back number - 「瞬き」Music Video','2019-12-23 15:02:03','2019-12-23 15:02:03'),(11,'fhseD2tRLUY','少女時代 / ＭＲ．ＴＡＸＩ　（DANCE VER.）','2019-12-23 17:13:21','2019-12-23 17:13:21'),(12,'fYP_3QEb5Yk','Girls\' Generation 少女時代 \'Genie\' MV (JPN Ver.)','2019-12-23 17:15:15','2019-12-23 17:15:15'),(13,'BA7fdSkp8ds','Wonder Girls \"NOBODY (Eng. Ver)\" M/V','2019-12-23 17:15:46','2019-12-23 17:15:46'),(14,'MzvXWwp25Qk','E-girls / DANCE WITH ME NOW!','2019-12-23 17:42:12','2019-12-23 17:42:12'),(15,'kOHB85vDuow','TWICE \"FANCY\" M/V','2019-12-23 18:10:24','2019-12-23 18:10:24');
+/*!40000 ALTER TABLE `movie_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -52,10 +80,11 @@ DROP TABLE IF EXISTS `movies`;
 CREATE TABLE `movies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `playlist_id` int(11) NOT NULL,
-  `youtube_id` int(11) NOT NULL,
+  `youtube_id` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `play_number` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +93,7 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
+INSERT INTO `movies` VALUES (24,4,'0xSiBpUdW4E','2019-12-20 10:24:10',NULL),(25,4,'ZIn20Rmj030','2019-12-20 10:24:43',2),(26,4,'hzWDXge2ANM','2019-12-20 10:24:56',NULL),(30,4,'FQHHA4SSXtg','2019-12-23 09:55:37',NULL),(37,7,'fhseD2tRLUY','2019-12-23 17:13:21',NULL),(38,7,'fYP_3QEb5Yk','2019-12-23 17:15:14',NULL),(39,7,'BA7fdSkp8ds','2019-12-23 17:15:46',NULL),(40,7,'MzvXWwp25Qk','2019-12-23 17:42:12',NULL),(41,7,'kOHB85vDuow','2019-12-23 18:10:24',NULL);
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,7 +113,7 @@ CREATE TABLE `playlists` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,6 +122,7 @@ CREATE TABLE `playlists` (
 
 LOCK TABLES `playlists` WRITE;
 /*!40000 ALTER TABLE `playlists` DISABLE KEYS */;
+INSERT INTO `playlists` VALUES (3,1,'KPOP',1,'KPOPメドレー詰め合わせ','2019-12-19 13:43:48','2019-12-19 14:44:06'),(4,1,'あいみょん',1,'最近のもの','2019-12-19 13:46:02','2019-12-19 14:44:06'),(5,3,'作業用BGM',1,'バラード曲中心のプレイリスト','2019-12-19 14:53:42','2019-12-19 14:53:42'),(6,3,'作業用BGM２',1,'Jpopメインで詰め合わせ','2019-12-19 14:54:06','2019-12-19 14:54:06'),(7,2,'dance曲',1,'KPOP多めです','2019-12-23 17:12:51','2019-12-23 17:12:51'),(8,2,'洋楽系',0,'最近のおすすめ','2019-12-23 17:45:02','2019-12-23 17:45:02');
 /*!40000 ALTER TABLE `playlists` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +142,7 @@ CREATE TABLE `users` (
   `modified_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +151,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'sample@sample.com','花','$2y$10$KZQCDm9zN6kVFN9at2pCkuHlxISEixyW/Hh3RtKDm8Bbv0/fd/jQS','2019-12-17 16:33:22','2019-12-17 16:33:22');
+INSERT INTO `users` VALUES (1,'sample@sample.com','花','$2y$10$KZQCDm9zN6kVFN9at2pCkuHlxISEixyW/Hh3RtKDm8Bbv0/fd/jQS','2019-12-17 16:33:22','2019-12-17 16:33:22'),(2,'mail@mail.com','aiko','$2y$10$2SfrB6SdrPZC2UUSFVoLe.ov6cMDlSLGL8BEQEBRQfnhwCpE88h8O','2019-12-18 16:12:45','2019-12-18 16:12:45'),(3,'aaa@aaa.com','田中太郎','$2y$10$qrEc5rW4R9dpKa5t.7GNJutlDssqrJAA1nPJuwv3coF12cttpLbBC','2019-12-19 14:53:12','2019-12-19 14:53:12');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -133,4 +164,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-18 16:00:47
+-- Dump completed on 2019-12-24 11:04:22

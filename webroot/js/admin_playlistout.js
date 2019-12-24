@@ -99,13 +99,17 @@ console.log(keyword);
  	
  	 $(function(){
       	$('#btn1').on('click',admin1);
+      	$('#comm').on('click',alerting);
  	 });
 
  	function admin1(){
  			window.location.href = "http://localhost/cake3youtube/?keyword=" + $("#keyword").val();
  			return false;
  	};
- 	
+
+ 	function alerting(){
+ 		alert("コメントにはログインが必要です");
+ 	};
  	function createPlayer(){
     		
     	}
@@ -113,6 +117,7 @@ console.log(keyword);
  	function onPlayerReady(event){
          event.target.playVideo();
          $('h2.movie_title').html(event.target.getVideoData().title);
+         $('.out_playlist_add').attr("href","http://localhost/cake3youtube/admin/homes/play?youtube_id="+youtube_id);
          search(youtube_id);
  			
      }

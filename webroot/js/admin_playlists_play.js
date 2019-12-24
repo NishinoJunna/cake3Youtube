@@ -21,6 +21,14 @@ var init = function(){
  var firstScriptTag = document.getElementsByTagName('script')[0];
  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
  function onYouTubePlayerAPIReady(){
+	 var movie_box = $(".movies_box");
+	 movie_box.on('click',function(){
+	 	var rank = movie_box.index(this) + 1;
+	 	console.log(rank);
+	 	youtube_id = $('#video' + rank).val();
+	 	window.location.href = "http://localhost/cake3youtube/admin/playlists/play?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
+	 });
+	 
      player = new YT.Player('player', {
          videoId: youtube_id,
          events: {

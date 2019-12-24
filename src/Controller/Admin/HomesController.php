@@ -6,6 +6,13 @@ use \Exception;
 
 class HomesController extends AppController{
 	public function index(){
+		
+		$keyword = "";
+		if(isset($_GET["keyword"])){
+			$keyword = $_GET["keyword"];
+		}
+		
+
 
 		/*
 		 アクセスログ生成
@@ -48,22 +55,25 @@ class HomesController extends AppController{
 
 		$search = 0;
 		
-		$this->set(compact('search'));
+		$this->set(compact('comment','search',"keyword"));
+
 
 	}
 	
 	public function play(){
-		$search = 0;
+		$search = "";
 		$comment = $this->loadModel('Comments');
 		if(isset($_GET["youtube_id"])){
 			$youtube_id = $_GET["youtube_id"];
+		}
+		if(isset($_GET["search"])){
+			$search = $_GET["search"];
 		}
 		$comments = $this->loadModel('Comments')
 					->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
 					->contain('Users')
 					->where(['youtube_id'=>$youtube_id]);
 		//var_dump($comments); die();
-
 		$user = $this->MyAuth->user();
 		$this->loadModel("Playlists");
 		$playlists = $this->Playlists->find('list')->where(["user_id"=>$user["id"]]);

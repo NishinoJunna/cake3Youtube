@@ -1,4 +1,8 @@
-var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+
+var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
+
+//var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+
 	var datas = [];
 	
 	var googleApiClientReady = function(){
@@ -10,11 +14,13 @@ var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 	    	 search(keyword);
 	     }
 	};
+	
 	var keyword = "";
 	var url_string = window.location.href;
 	var url = new URL(url_string);
 	keyword = url.searchParams.get("keyword");
-	console.log(keyword);
+		
+	
 	var init = function(){
 		$('#btn1').attr('disabled',false);
 	}

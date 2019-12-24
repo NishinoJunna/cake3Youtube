@@ -38,9 +38,12 @@ class PlaylistsController extends AppController
 		$this->set(compact("trend_movies","trend_playlists","first"));
 		//by 西野
 		$search = 0;
+		$keyword = "";
+		if(isset($_GET["keyword"])){
+			$keyword = $_GET["keyword"];
+		}
 		
-		
-		$this->set(compact('search'));
+		$this->set(compact('search','keyword'));
 	}
 
 	public function play()
@@ -49,6 +52,9 @@ class PlaylistsController extends AppController
 		$comment = $this->loadModel('Comments');
 		if(isset($_GET["youtube_id"])){
 			$youtube_id = $_GET["youtube_id"];
+		}
+		if(isset($_GET["search"])){
+			$search = $_GET["search"];
 		}
 		$comments = $this->loadModel('Comments')
 		->find('all',['order' =>['Comments.created_at' => 'DESC'] ])

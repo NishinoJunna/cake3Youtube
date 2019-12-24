@@ -1,4 +1,8 @@
-var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+
+//var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
+
+//var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
 
 var url_string = window.location.href;
 var url = new URL(url_string);
@@ -83,7 +87,7 @@ console.log(keyword);
 			}
 			
 			console.log(datas);
-			//obj_array_shuffle(datas);
+			
 			console.log(datas);
 			var tr_tags = $(".right_play_container tr");
             
@@ -169,7 +173,7 @@ function exe(){
 }
 	
 	
-function obj_array_shuffle(list) {
+/*function obj_array_shuffle(list) {
 	for (var i = list.length - 1; i > 0; i--) {
 		var j = Math.floor(Math.random() * (i + 1));
 		if (i == j) continue;
@@ -178,7 +182,7 @@ function obj_array_shuffle(list) {
 		list[j] = k;
 	}
 	return list;
-}
+}*/
 	
 	
 	

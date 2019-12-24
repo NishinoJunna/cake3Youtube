@@ -18,4 +18,6 @@
 		</div><!-- movie_box -->
 	<?php endforeach ;?>
 </div><!-- movies_container -->
-<?= $this->Html->link("このプレイリストを再生",["controller"=>"playlists","action"=>"play",$playlist_id])?>
+<a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $playlist_id ?>&youtube_id=<?= $movi->movie_detail->youtube_id ?>&nb=<?= count($movies) ?>">
+	このプレイリストを再生
+</a>

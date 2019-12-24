@@ -50,14 +50,29 @@ class PlaylistsController extends AppController
 		$this->set(compact('playlist'));
 	}
 	
-	public function play($playlist_id){
+	public function play($playlist_id = null){
+		$youtube_id = "";
+		$comment = $this->loadModel('Comments');
+		$movie = "";
+		$playlists = "";
+		$nb = "";
+		if(isset($_GET["playlist_id"]) && isset($_GET["youtube_id"]) ){
+			$playlist_id = $_GET["playlist_id"];
+			$youtube_id = $_GET["youtube_id"];
+			$nb = $_GET["nb"];
+		}
+		$search = "";
+		$comments = $this->loadModel('Comments')
+			->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
+			->contain('Users')
+			->where(['youtube_id'=>$youtube_id]);
 		$playlist_movies = $this->Playlists->Movies
 			->find("all")
+			->contain("MovieDetails")
 			->where(["playlist_id"=>$playlist_id])
 			->order(["play_number"=>"ASC"])
 			->toArray();
-		
-		$this->set(compact("playlist_movies"));
+		$this->set(compact("playlist_movies","search","comments","comment","movie","playlists","playlist_id","nb"));
 	}
 	
 	public function delete($id = null){

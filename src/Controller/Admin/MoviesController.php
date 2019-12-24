@@ -8,7 +8,8 @@ class MoviesController extends AppController
 {
 	public function addplaylistajax(){
 		$this->autoRender = false;
-		//https://img.youtube.com/vi/{youtube_video_id}/default.jpg これが準備されているyoutubeサムネイル
+		$result= [];
+		
 		$movie = $this->Movies->newEntity();
 		if($this->request->is('ajax')){
 			$movie->playlist_id = $this->request->data["playlist_id"];
@@ -24,14 +25,16 @@ class MoviesController extends AppController
 					if($this->MovieDetails->save($movie_detail)){
 						$result['status']="success";
 						echo json_encode($result);
+						return;
 					}
-					$result["status"]="error";
-					echo json_encode($result);
 				}
-				return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
-			}	
+			}
+			$result["status"]=$movie_detail->errors();
+			echo json_encode($result);
+			return;
 		}
 	}
+	//https://img.youtube.com/vi/{youtube_video_id}/default.jpg これが準備されているyoutubeサムネイル
 	
 	public function delete($id = null){
 		$user_id = $this->MyAuth->user("id");

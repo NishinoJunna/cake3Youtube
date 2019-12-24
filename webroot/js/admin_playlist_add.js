@@ -1,45 +1,27 @@
 $(function(){
-	$('#adminPlaylistAdd').on('click',playlistAddRequest);
+	$("#adminPlaylistAdd").on('click',playlistAddRequest);
 });
 
 function playlistAddRequest(event){
-	
-	var data = $('#playlistAdd').serialize();
-	console.log(data);
-
+	var data = $('#playlistAdd').serializeArray();
+	console.log(data[3].value);
+	if((data[3].value.length !== 0)){
 	$.ajax({
 		url: "/cake3youtube/admin/movies/addplaylistajax",
 		type: "POST",
 		data: data,
 		dataType: "json",
-		success: successAction,
-		error: errorMessage,
+		success: successPlaylistAddAction,
+		error: errorPlaylistAddAction,
 		});
 	}
-	
+}
+function successPlaylistAddAction(result){
+	/*$("select option:first").addClass("ajax");*/
+	alert("プレイリストに動画を登録しました");
+	}
 
-	function successAction(result){
-		console.log(result);
-	}
-	function errorMessage(result){
-		console.log(result);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+function errorPlaylistAddAction(result){
+	alert("この動画は既にプレイリストに登録されています");
+}

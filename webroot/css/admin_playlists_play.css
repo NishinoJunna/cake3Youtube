@@ -1,24 +1,40 @@
 #playlist_play_container{
 	display: flex;
+	
 }
 
 .playlist_left_container{
-	width: 65%;
+	width:800px;
 	border: 2px blue solid;
 	font-size: 20px;
 	min-width:0;
 }
 
-.movies_box{
-	width:30%;
+.playlist_right_container{
+	width: 35%;
 	border: 2px red solid;
 	font-size: 20px;
 	min-width:0;
 }
 
+.movies_box{
+	width: 80%;
+	padding: 2rem;
+}
 .playlist_movie{
 	width:90%;
 	border: 1px black solid;
 	margin:2rem auto;
 }
 
+.button_add_playlist{
+	margin: 5rem auto;
+}
+
+.comment_post_area{
+	margin: 5rem auto;
+}
+
+.comment_box{
+	margin: 5rem auto;
+}

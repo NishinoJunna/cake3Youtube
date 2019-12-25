@@ -9,11 +9,11 @@ class HomesController extends AppController{
 		
 		$keyword = "";
 		if(isset($_GET["keyword"])){
+			if($_GET["keyword"] == ""){
+				return $this->redirect(["action"=>"index"]);
+			}
 			$keyword = $_GET["keyword"];
 		}
-		
-
-
 		/*
 		 アクセスログ生成
 		$this->loadComponent('Math');

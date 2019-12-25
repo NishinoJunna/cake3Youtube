@@ -50,6 +50,11 @@
 				</div><!-- .description -->
 				<div class = "actions">
 					<p class = "view"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
+					<p class = "view">
+						<a href="http://localhost/cake3youtube/playlists/playlist?playlist_id=<?= $trend_playlist->id ?>&youtube_id=<?php echo $first[$key]->youtube_id ?>&nb=">
+							このプレイリストを再生
+						</a>
+					</p>
 				</div><!-- actions -->
 			</div><!-- .playlist_box -->
 		</div><!-- trend_playlists_container -->

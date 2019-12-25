@@ -1,6 +1,6 @@
-<?php $this->prepend('script',$this->Html->script('admin_playlists_play')); ?>
+<?php $this->prepend('script',$this->Html->script('admin_play_out')); ?>
 <?php $this->prepend('css', $this->Html->css('admin_playlists_play')); ?>
-<?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
+
 <input type="hidden" id="nb" value="<?= $nb ?>" />
 <?php
 	echo $this->Form->create($search,['type' => 'get']);
@@ -21,14 +21,7 @@
 			<div id="player"></div>
 		</div>
 		<div class="button_add_playlist">
-			<?php 
-				echo $this->Form->create($movie,array("url"=>"/admin/movies/add"));
-				echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>"","id"=>"videoid_add"]);
-				echo $this->Form->input("title",["type"=>"hidden","value"=>"","id"=>"title_add"]);
-				echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストに追加","label"=>false,"class"=>"add_playlist"]);
-				echo "<button type=\"submit\" class=\"movie_submit\">追加する</button>";
-				echo $this->Form->end();
-			?>
+			<?=$this->Html->link("ログインしてプレイリストに追加する","#",["class"=>"out_playlist_add"]) ?>
 		</div><!-- button_add_playlist-->
 		<div class="comment_post_area">
 			<?php

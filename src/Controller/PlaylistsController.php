@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Composer\Command\SearchCommand;
 
 class PlaylistsController extends AppController
 {
@@ -40,6 +41,9 @@ class PlaylistsController extends AppController
 		$search = 0;
 		$keyword = "";
 		if(isset($_GET["keyword"])){
+			if($_GET["keyword"] == ""){
+				return $this->redirect(["action"=>"index"]);
+			}
 			$keyword = $_GET["keyword"];
 		}
 		
@@ -63,5 +67,51 @@ class PlaylistsController extends AppController
 		//var_dump($comments); die();
 		$this->set(compact('comment','comments','search'));
 	}
+	public function playlist()
+	{
+		$search = "";
+		$playlist_id = null;
+		$youtube_id = "";
+		$comment = $this->loadModel('Comments');
+		$movie = "";
+		$playlists = "";
+		$nb = "";
+		if(isset($_GET["playlist_id"]) && isset($_GET["youtube_id"]) ){
+			$playlist_id = $_GET["playlist_id"];
+			$youtube_id = $_GET["youtube_id"];
+			
+		}
+		$playlist_movies= $this->loadModel('Movies')
+					->find("all")
+					->contain('MovieDetails')
+					->where(["playlist_id"=>$playlist_id])
+					->order(["play_number"=>"ASC"])
+					->toArray();
+		$nb = count($playlist_movies);
+		//var_dump($nb); die();
+		
+		if($playlist_id == "" || $playlist_id == null){
+			return $this->redirect(['action' => 'index']);
+		}
+		$search = "";
+		$comments = $this->loadModel('Comments')
+		->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
+		->contain('Users')
+		->where(['youtube_id'=>$youtube_id]);
+		$this->set(compact("playlist_movies","playlist_id","nb","comments","comment","search"));
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

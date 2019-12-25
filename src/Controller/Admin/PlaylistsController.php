@@ -61,6 +61,11 @@ class PlaylistsController extends AppController
 			$youtube_id = $_GET["youtube_id"];
 			$nb = $_GET["nb"];
 		}
+		
+		//var_dump($nb); die();
+		if($playlist_id == "" || $playlist_id == null){
+			return $this->redirect(["controller"=>"homes",'action' => 'index']);
+		}
 		$search = "";
 		$comments = $this->loadModel('Comments')
 			->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
@@ -72,6 +77,7 @@ class PlaylistsController extends AppController
 			->where(["playlist_id"=>$playlist_id])
 			->order(["play_number"=>"ASC"])
 			->toArray();
+		$nb = count($playlist_movies);
 		$this->set(compact("playlist_movies","search","comments","comment","movie","playlists","playlist_id","nb"));
 	}
 	

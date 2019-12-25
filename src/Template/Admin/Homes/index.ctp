@@ -1,61 +1,55 @@
 <?php $this->prepend('script', $this->Html->script('admin_search')); ?>
+<?php $this->prepend('css', $this->Html->css('admin_movies_view')); ?>
 
+
+<div class="admin_homes_index_form">
+	<h2 class= "page_title">WELCOME!!</h2>
 	<?php 
-				echo $this->Form->create($search,['type' => 'get']);
-				echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$keyword]);
-				echo $this->Form->button("登録",["action"=>"index", 'id'=>'btn1']);
-				echo $this->Form->end();
-			?>
-<!--
-<form action="index" method="get">
-				<input type="text" id="keyword" value="" />
-				<input type="button" id="btn1" value="検索" />
-</form> -->
+		echo $this->Form->create($search,['type' => 'get']);
+		echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$keyword]);
+		echo $this->Form->button("検索",["action"=>"index", 'id'=>'btn1']);
+		echo $this->Form->end();
+	?>
+</div>
 
 <div id ="homepage_container">
-<h2 class="page_sub_title">Check Trend Movie</h2>
-	<div class= "trend_movies_container">
-	
+<h3 class="page_sub_title">Check Trend Movies</h3>
+	<div class= "playlist_movies_container">
 		<?php foreach($trend_movies as $trend_movie): ?>
-	
-		<div class= "trend_movie_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg); background-repeat: no-repeat;
-		background-size:contain;">
-			<div class ="trend_movie_details">
-				<p class ="trend_movie_title"><?=h($trend_movie->title) ?></p>
-			</div><!-- movie_details -->
-			<p class= "check_plyalist_contents"><a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=<?php echo $trend_movie->youtube_id ?>" />動画を再生</a></p>
-		</div><!-- trend_movie_box -->
-	
+		<div class="movies">
+			<div class= "movies_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg); background-repeat: no-repeat;
+			background-size:240px 160px;">
+			</div><!-- movies_box -->
+			<p class ="movie_title"><?=h($trend_movie->title) ?></p>
+			<div class="link_box">
+				<p class= "link"><?=$this->Html->link("この動画を再生" , ["action"=>"play",$trend_movie->youtube_id])?></p>
+			</div>
+		</div><!-- movies -->
 		<?php endforeach; ?>
+	</div><!-- playlist_movies_container -->
 	
-	</div><!-- trend_movies_containe -->
-
-	<h2 class="page_sub_title">Check Trend Playlist</h2>
-		
-		<?php foreach($trend_playlists as $key => $trend_playlist): ?>
-		
-		<div class="trend_playlists_container">
-			<div class = "playlist_box">
-				<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $first[$key]->youtube_id ?>/mqdefault.jpg);
+	<h3 class="page_sub_title">Check Trend Playlists</h3>
+	
+	<?php foreach($trend_playlists as $key => $trend_playlist): ?>
+	<div class="playlist_box">
+			<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $first[$key]->youtube_id ?>/mqdefault.jpg);
         	background-repeat: no-repeat;
-        	background-size: cover;">
-					<p class = "count"><span>動画件数</span></p>
-				</div><!-- movie_count -->
-				<div class = "description">
-					<h3 class ="title"><?=h($trend_playlist->name) ?></h3>
-					<p class = "content">
-						<?=h($trend_playlist->description) ?>
-					</p>
-					<p class= "publishedAt">作成者：<?=$trend_playlist->user->name ?></p>
-				</div><!-- .description -->
-				<div class = "actions">
-					<p class = "edit"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
-				</div><!-- actions -->
-			</div><!-- .playlist_box -->
-		</div><!-- trend_playlists_container -->
-		
+        	background-size: 260px 180px;">
+					<p class ="count"><span>件</span></p>
+			</div><!-- movie_count -->
+			<div class = "description">
+				<h3 class ="title">【<?=h($trend_playlist->name) ?>】</h3>
+				<p class = "content">
+					<?=h($trend_playlist->description) ?>
+				</p>
+				<p class= "publishedAt">作成者：<?=$trend_playlist->user->name ?></p>
+			</div><!-- .description -->
+			<div class = "actions">
+				<p class = "edit"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
+			</div><!-- actions -->
+	</div><!-- playlist_box -->
 		<?php endforeach; ?>
-		
+
 		<div class="paginator">
 			<ul class="pagination">
 				<?= $this->Paginator->numbers([

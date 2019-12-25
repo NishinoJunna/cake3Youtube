@@ -2,19 +2,22 @@
 <?php $this->prepend('css', $this->Html->css('admin_playlists_play')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
 
-<?php
-	echo $this->Form->create($search,['type' => 'get']);
-	echo $this->Form->input('keyword',["label"=>"", 'id'=>"keyword", "value"=>$search]);
-	echo $this->Form->button("検査",[ 'id'=>'btn1']);
-	echo $this->Form->end();
-?>
-			
-<form>
-    <input type="button" value=" < <" id="prev" />
-    <input type="button" value="再生" id="exe" />
-    <input type="button" value=" > > " id="next" />
-</form>
-<?php var_dump($playlists);?>
+<h2 class= "page_title">Playlist Play</h2>
+<div class="form_box">
+	<div class="keyword_box">
+		<?php
+			echo $this->Form->create($search,['type' => 'get']);
+			echo $this->Form->input('keyword',["label"=>"", 'id'=>"keyword", "value"=>$search]);
+			echo $this->Form->button("検索",[ 'id'=>'btn1']);
+			echo $this->Form->end();
+		?>
+	</div><!-- keyword_box -->		
+	<form>
+	    <input type="button" value=" < <" id="prev" />
+	    <input type="button" value="再生" id="exe" />
+	    <input type="button" value=" > > " id="next" />
+	</form>
+</div><!-- form_box -->
 <div id= "playlist_play_container">
 	<div class="playlist_left_container">
 		<div class= "iframe_box">

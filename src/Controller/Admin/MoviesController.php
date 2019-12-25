@@ -98,6 +98,6 @@ class MoviesController extends AppController
 			->where(["playlist_id"=>$playlist_id])
 			->order(["play_number"=>"ASC"])
 			->first();
-		$this->set(compact("movies","playlist_id","movi","mine"));
+		$this->set(compact("playlist","movies","playlist_id","movi","mine"));
 	}
 }

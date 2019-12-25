@@ -23,7 +23,8 @@ class PlaylistsController extends AppController
 		$trend_playlists = $this->Playlists->find()->contain("Users")
 		->where(function ($exp, $q) use ($subquery) {
 			return $exp->exists($subquery);
-		});
+		})
+		->andWhere(["status"=>1]);
 			//var_dump($trend_playlists);exit;
 			$first = array();
 			$tp = $trend_playlists->toArray();

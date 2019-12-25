@@ -58,6 +58,7 @@ class MoviesController extends AppController
 			}else{
 				$this->request->is(['post','delete']);
 				if($this->Movies->delete($movie)){
+					
 					$this->Flash->success(__('プレイリストから削除しました'));
 				}else{
 					$this->Flash->error(__('削除に失敗しました'));
@@ -89,7 +90,7 @@ class MoviesController extends AppController
 			$number = explode(",", $number);
 			foreach($number as $key => $value){
 				$play_number= ['play_number'=>$key+1];
-				$video_id = ['youtube_id'=>$value];
+				$video_id = ['youtube_id'=>$value,'playlist_id'=>$playlist_id];
 				$this->Movies->updateAll($play_number,$video_id);
 			}
 			return $this->redirect(["action"=>"view",$playlist_id]);

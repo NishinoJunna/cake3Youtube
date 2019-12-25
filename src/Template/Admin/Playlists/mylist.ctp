@@ -5,8 +5,8 @@
 
 <?php foreach($my_playlists as $playlist) :?> 	
 	<div class = "playlist_box">
-		<?php if(!empty($playlist->movies[1]->youtube_id)): ?>
-		<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $playlist->movies[1]->youtube_id;?>/mqdefault.jpg);
+		<?php if(!empty($playlist->movies[0]->youtube_id)): ?>
+		<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $playlist->movies[0]->youtube_id;?>/mqdefault.jpg);
         	background-repeat: no-repeat;
         	background-size: 260px 180px;">
         <?php else: ?>

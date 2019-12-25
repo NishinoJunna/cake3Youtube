@@ -26,6 +26,7 @@
 		
 		.movies_box{
 			width:100%;
+			cursor:pointer;
 		}
 		
 		.after_click{

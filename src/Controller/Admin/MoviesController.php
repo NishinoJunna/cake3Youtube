@@ -75,11 +75,15 @@ class MoviesController extends AppController
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Edit");
 		
-		$playlist_movies= $this->Movies->find('all')
-			->contain('MovieDetails')
-			->where(['Movies.playlist_id'=>$playlist_id])
-			->order(['Movies.play_number'=>'ASC']);
-		
+		try{
+			$playlist_movies= $this->Movies->find('all')
+				->contain('MovieDetails')
+				->where(['Movies.playlist_id'=>$playlist_id])
+				->order(['Movies.play_number'=>'ASC']);
+		}catch(Exception $e){
+			$this->Flash->error(__("不正なIDです"));
+			return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
+		}
 		if($this->request->is("post")){
 			$number= $this->request->data["newnumber"];
 			$number = explode(",", $number);
@@ -97,29 +101,33 @@ class MoviesController extends AppController
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("ViewPlaylists");
-		
-		//追加
-		$user = $this->MyAuth->user();
-		$this->loadModel("Playlists");
-		$playlist = $this->Playlists->get($playlist_id);
-		$mine = 0;
-		if($user["id"]===$playlist["user_id"]){
-			$mine = 1;
+		try{
+			//追加
+			$user = $this->MyAuth->user();
+			$this->loadModel("Playlists");
+			$playlist = $this->Playlists->get($playlist_id);
+			$mine = 0;
+			if($user["id"]===$playlist["user_id"]){
+				$mine = 1;
+			}
+			//by 西野
+			$movies= $this->Movies
+				->find("all")
+				->contain('MovieDetails')
+				->where(["playlist_id"=>$playlist_id])
+				->order(["play_number"=>"ASC"])
+				->toArray();
+			$movi=$this->Movies
+				->find("all")
+				->contain('MovieDetails')
+				->where(["playlist_id"=>$playlist_id])
+				->order(["play_number"=>"ASC"])
+				->first();
+			$this->set(compact("movies","playlist_id","movi","mine"));
+		}catch(Exception $e){
+			$this->Flash->error(__("不正なIDです"));
+			return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
 		}
-		//by 西野
-		$movies= $this->Movies
-			->find("all")
-			->contain('MovieDetails')
-			->where(["playlist_id"=>$playlist_id])
-			->order(["play_number"=>"ASC"])
-			->toArray();
-		$movi=$this->Movies
-			->find("all")
-			->contain('MovieDetails')
-			->where(["playlist_id"=>$playlist_id])
-			->order(["play_number"=>"ASC"])
-			->first();
-		$this->set(compact("movies","playlist_id","movi","mine"));
 
 	}
 }

@@ -7,11 +7,11 @@
 <div id= "shuffle_movies_container">
 	<?= $this->Form->create()?>
 	<div class= "shuffle_left_container">
-	<?php foreach($playlist_movies as $key => $movie) :?>
+	<?php foreach($playlist_movies as $movie) :?>
 		<div class= "movies_box" id="<?= $movie->movie_detail->youtube_id?>">
 			<div class ="trend_movie_details">
 				<p class ="trend_movie_title"><?= $movie->movie_detail->title ?></p>
-				<p><?=$key?></p>
+				<p><?=$movie->play_number?></p>
 			</div><!-- movie_details -->
 		</div><!-- trend_movie_box -->
 	<?php endforeach ;?>

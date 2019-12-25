@@ -57,7 +57,7 @@ CREATE TABLE `movie_details` (
   `modified_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `youtube_id` (`youtube_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `movie_details` (
 
 LOCK TABLES `movie_details` WRITE;
 /*!40000 ALTER TABLE `movie_details` DISABLE KEYS */;
-INSERT INTO `movie_details` VALUES (1,'0xSiBpUdW4E','あいみょん - マリーゴールド【OFFICIAL MUSIC VIDEO】','2019-12-19 17:42:44','2019-12-19 17:42:44'),(2,'hzWDXge2ANM','back number - 「ハッピーエンド」Music Video','2019-12-19 18:23:42','2019-12-19 18:23:42'),(3,'ZIn20Rmj030','back number -「HAPPY BIRTHDAY」Music Video (TBS系 火曜ドラマ「初めて恋をした日に読む話」主題歌)','2019-12-19 18:24:27','2019-12-19 18:24:27'),(4,'yjAFThnxJgU','E-girls / シンデレラフィット(CINDERELLA FIT) Music Video','2019-12-20 11:59:27','2019-12-20 11:59:27'),(5,'JfgOjtq440o','back number - 「クリスマスソング」Music Video','2019-12-20 14:05:08','2019-12-20 14:05:08'),(6,'JZqplTvRex8','西野カナ 『Bedtime Story』MV(Short Ver.)','2019-12-20 14:05:36','2019-12-20 14:05:36'),(7,'FQHHA4SSXtg','あいみょん – マリーゴールド【AIMYON BUDOKAN -1995-】','2019-12-23 09:55:37','2019-12-23 09:55:37'),(8,'aPHGClLjZWk','西野カナ 『トリセツ』MV(Short Ver.)','2019-12-23 13:17:24','2019-12-23 13:17:24'),(9,'RY0VC4A4saE','西野カナ 『もしも運命の人がいるのなら』MV(Short Ver.)','2019-12-23 13:17:38','2019-12-23 13:17:38'),(10,'s-O_JV8j8wc','back number - 「瞬き」Music Video','2019-12-23 15:02:03','2019-12-23 15:02:03'),(11,'fhseD2tRLUY','少女時代 / ＭＲ．ＴＡＸＩ　（DANCE VER.）','2019-12-23 17:13:21','2019-12-23 17:13:21'),(12,'fYP_3QEb5Yk','Girls\' Generation 少女時代 \'Genie\' MV (JPN Ver.)','2019-12-23 17:15:15','2019-12-23 17:15:15'),(13,'BA7fdSkp8ds','Wonder Girls \"NOBODY (Eng. Ver)\" M/V','2019-12-23 17:15:46','2019-12-23 17:15:46'),(14,'MzvXWwp25Qk','E-girls / DANCE WITH ME NOW!','2019-12-23 17:42:12','2019-12-23 17:42:12'),(15,'kOHB85vDuow','TWICE \"FANCY\" M/V','2019-12-23 18:10:24','2019-12-23 18:10:24');
+INSERT INTO `movie_details` VALUES (1,'0xSiBpUdW4E','あいみょん - マリーゴールド【OFFICIAL MUSIC VIDEO】','2019-12-19 17:42:44','2019-12-19 17:42:44'),(2,'hzWDXge2ANM','back number - 「ハッピーエンド」Music Video','2019-12-19 18:23:42','2019-12-19 18:23:42'),(3,'ZIn20Rmj030','back number -「HAPPY BIRTHDAY」Music Video (TBS系 火曜ドラマ「初めて恋をした日に読む話」主題歌)','2019-12-19 18:24:27','2019-12-19 18:24:27'),(4,'yjAFThnxJgU','E-girls / シンデレラフィット(CINDERELLA FIT) Music Video','2019-12-20 11:59:27','2019-12-20 11:59:27'),(5,'JfgOjtq440o','back number - 「クリスマスソング」Music Video','2019-12-20 14:05:08','2019-12-20 14:05:08'),(6,'JZqplTvRex8','西野カナ 『Bedtime Story』MV(Short Ver.)','2019-12-20 14:05:36','2019-12-20 14:05:36'),(7,'FQHHA4SSXtg','あいみょん – マリーゴールド【AIMYON BUDOKAN -1995-】','2019-12-23 09:55:37','2019-12-23 09:55:37'),(8,'aPHGClLjZWk','西野カナ 『トリセツ』MV(Short Ver.)','2019-12-23 13:17:24','2019-12-23 13:17:24'),(9,'RY0VC4A4saE','西野カナ 『もしも運命の人がいるのなら』MV(Short Ver.)','2019-12-23 13:17:38','2019-12-23 13:17:38'),(10,'s-O_JV8j8wc','back number - 「瞬き」Music Video','2019-12-23 15:02:03','2019-12-23 15:02:03'),(11,'fhseD2tRLUY','少女時代 / ＭＲ．ＴＡＸＩ　（DANCE VER.）','2019-12-23 17:13:21','2019-12-23 17:13:21'),(12,'fYP_3QEb5Yk','Girls\' Generation 少女時代 \'Genie\' MV (JPN Ver.)','2019-12-23 17:15:15','2019-12-23 17:15:15'),(13,'BA7fdSkp8ds','Wonder Girls \"NOBODY (Eng. Ver)\" M/V','2019-12-23 17:15:46','2019-12-23 17:15:46'),(14,'MzvXWwp25Qk','E-girls / DANCE WITH ME NOW!','2019-12-23 17:42:12','2019-12-23 17:42:12'),(15,'kOHB85vDuow','TWICE \"FANCY\" M/V','2019-12-23 18:10:24','2019-12-23 18:10:24'),(16,'2S24-y0Ij3Y','BLACKPINK - \'Kill This Love\' M/V','2019-12-24 16:36:15','2019-12-24 16:36:15'),(17,'ryJgDL9jzKk','Ed Sheeran - Put It All On Me (feat. Ella Mai) [Official Video]','2019-12-24 16:36:52','2019-12-24 16:36:52');
 /*!40000 ALTER TABLE `movie_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +84,7 @@ CREATE TABLE `movies` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `play_number` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-INSERT INTO `movies` VALUES (24,4,'0xSiBpUdW4E','2019-12-20 10:24:10',NULL),(25,4,'ZIn20Rmj030','2019-12-20 10:24:43',2),(26,4,'hzWDXge2ANM','2019-12-20 10:24:56',NULL),(30,4,'FQHHA4SSXtg','2019-12-23 09:55:37',NULL),(37,7,'fhseD2tRLUY','2019-12-23 17:13:21',NULL),(38,7,'fYP_3QEb5Yk','2019-12-23 17:15:14',NULL),(39,7,'BA7fdSkp8ds','2019-12-23 17:15:46',NULL),(40,7,'MzvXWwp25Qk','2019-12-23 17:42:12',NULL),(41,7,'kOHB85vDuow','2019-12-23 18:10:24',NULL);
+INSERT INTO `movies` VALUES (24,4,'0xSiBpUdW4E','2019-12-20 10:24:10',6),(25,4,'ZIn20Rmj030','2019-12-20 10:24:43',2),(26,4,'hzWDXge2ANM','2019-12-20 10:24:56',3),(30,4,'FQHHA4SSXtg','2019-12-23 09:55:37',4),(37,7,'fhseD2tRLUY','2019-12-23 17:13:21',1),(38,7,'fYP_3QEb5Yk','2019-12-23 17:15:14',2),(39,7,'BA7fdSkp8ds','2019-12-23 17:15:46',7),(40,7,'MzvXWwp25Qk','2019-12-23 17:42:12',3),(41,7,'kOHB85vDuow','2019-12-23 18:10:24',4),(42,7,'2S24-y0Ij3Y','2019-12-24 16:36:15',5),(43,8,'ryJgDL9jzKk','2019-12-24 16:36:52',1),(45,7,'0xSiBpUdW4E','2019-12-24 18:23:32',6),(46,5,'aPHGClLjZWk','2019-12-25 09:43:45',1),(47,6,'RY0VC4A4saE','2019-12-25 09:50:12',1);
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,7 +151,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'sample@sample.com','花','$2y$10$KZQCDm9zN6kVFN9at2pCkuHlxISEixyW/Hh3RtKDm8Bbv0/fd/jQS','2019-12-17 16:33:22','2019-12-17 16:33:22'),(2,'mail@mail.com','aiko','$2y$10$2SfrB6SdrPZC2UUSFVoLe.ov6cMDlSLGL8BEQEBRQfnhwCpE88h8O','2019-12-18 16:12:45','2019-12-18 16:12:45'),(3,'aaa@aaa.com','田中太郎','$2y$10$qrEc5rW4R9dpKa5t.7GNJutlDssqrJAA1nPJuwv3coF12cttpLbBC','2019-12-19 14:53:12','2019-12-19 14:53:12');
+INSERT INTO `users` VALUES (1,'sample@sample.com','花','$2y$10$KZQCDm9zN6kVFN9at2pCkuHlxISEixyW/Hh3RtKDm8Bbv0/fd/jQS','2019-12-17 16:33:22','2019-12-17 16:33:22'),(2,'mail@mail.com','nana','$2y$10$HcnLEOO4BvbP7jZdL3uk7.5zgSIdAWKsbtca5FodcgykdlPrUk8bC','2019-12-18 16:12:45','2019-12-24 17:26:08'),(3,'aaa@aaa.com','田中太郎','$2y$10$qrEc5rW4R9dpKa5t.7GNJutlDssqrJAA1nPJuwv3coF12cttpLbBC','2019-12-19 14:53:12','2019-12-19 14:53:12');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -164,4 +164,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-24 12:00:00
+-- Dump completed on 2019-12-25 12:00:02

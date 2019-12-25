@@ -75,17 +75,16 @@ class MoviesController extends AppController
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Edit");
 		
-		$last = $this->Movies->find()->where(["playlist_id"=>$playlist_id])->order(["created_at"=>"desc"])->first();
-		var_dump($last);exit();
 		$playlist_movies= $this->Movies->find('all')
 			->contain('MovieDetails')
 			->where(['Movies.playlist_id'=>$playlist_id])
 			->order(['Movies.play_number'=>'ASC']);
 		
 		if($this->request->is("post")){
-			$number= $this->request->data;
+			$number= $this->request->data["newnumber"];
+			$number = explode(",", $number);
 			foreach($number as $key => $value){
-				$play_number= ['play_number'=>$key];
+				$play_number= ['play_number'=>$key+1];
 				$video_id = ['youtube_id'=>$value];
 				$this->Movies->updateAll($play_number,$video_id);
 			}

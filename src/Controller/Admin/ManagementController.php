@@ -10,6 +10,11 @@ use Cake\Core\Configure\Engine\PhpConfig;
 class ManagementController extends AppController
 {
 	function csvdownload($id = null){
+		
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("csvDownload");
+		
 		$user = $this->MyAuth->user();
 		$this->autoRender = false;
 		/*if($user !== "管理者"){

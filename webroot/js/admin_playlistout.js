@@ -1,4 +1,5 @@
-var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
+var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
+//var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 var url_string = window.location.href;
 var url = new URL(url_string);
 var youtube_id = url.searchParams.get("youtube_id");
@@ -29,8 +30,8 @@ console.log(keyword);
     	 
     	
          player = new YT.Player('player', {
-             height: '390',
-             width: '640',
+             height: '',
+             width: '800px',
              videoId: youtube_id,
              events: {
                  'onReady': onPlayerReady,
@@ -73,7 +74,7 @@ console.log(keyword);
  							'<td class="thum"><img src="' +
  							data.items[i].snippet.thumbnails.medium.url + '"/></td>' +
  							'<td class="details">' +
- 							'<a href="http://localhost/cake3youtube/playlists/play?youtube_id=' + data.items[i].id.videoId +
+ 							'<a href="http://localhost/cake3youtube/playlists/play?youtube_id=' + data.items[i].id.videoId +　'">' +
  							data.items[i].snippet.title +'</a><br />' +
  							'<span class="description">' + data.items[i].snippet.description +
  							'</span>' +

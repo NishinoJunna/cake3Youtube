@@ -11,9 +11,16 @@ class MoviesController extends AppController
 		$result= [];
 		
 		$movie = $this->Movies->newEntity();
+		
 		if($this->request->is('ajax')){
+			$last = $this->Movies->find()->where(["playlist_id"=>$this->request->data["playlist_id"]])->order(["created_at"=>"desc"])->first();
+			$movie->play_number = $last["play_number"]+1;
+			if(empty($last)){
+					$movie->play_number = 1;
+			}
 			$movie->playlist_id = $this->request->data["playlist_id"];
 			$movie->youtube_id = $this->request->data["youtube_id"];
+			
 			if($this->Movies->save($movie)){
 				$this->loadModel("MovieDetails");
 				$movie_detail = $this->MovieDetails->newEntity();
@@ -37,6 +44,11 @@ class MoviesController extends AppController
 	//https://img.youtube.com/vi/{youtube_video_id}/default.jpg これが準備されているyoutubeサムネイル
 	
 	public function delete($id = null){
+		
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("DeletePlaylists");
+		
 		$user_id = $this->MyAuth->user("id");
 		try{
 			$movie = $this->Movies->get($id);
@@ -59,15 +71,24 @@ class MoviesController extends AppController
 		
 	}
 	public function edit($playlist_id=null){
-		$playlist_movies= $this->Movies->find('all')
-			->contain('MovieDetails')
-			->where(['Movies.playlist_id'=>$playlist_id])
-			->order(['Movies.play_number'=>'ASC']);
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("Edit");
 		
+		try{
+			$playlist_movies= $this->Movies->find('all')
+				->contain('MovieDetails')
+				->where(['Movies.playlist_id'=>$playlist_id])
+				->order(['Movies.play_number'=>'ASC']);
+		}catch(Exception $e){
+			$this->Flash->error(__("不正なIDです"));
+			return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
+		}
 		if($this->request->is("post")){
-			$number= $this->request->data;
+			$number= $this->request->data["newnumber"];
+			$number = explode(",", $number);
 			foreach($number as $key => $value){
-				$play_number= ['play_number'=>$key];
+				$play_number= ['play_number'=>$key+1];
 				$video_id = ['youtube_id'=>$value];
 				$this->Movies->updateAll($play_number,$video_id);
 			}
@@ -77,28 +98,37 @@ class MoviesController extends AppController
 	}
 	
 	public function view($playlist_id){
-		//追加
-		$user = $this->MyAuth->user();
-		$this->loadModel("Playlists");
-		$playlist = $this->Playlists->get($playlist_id);
-		$mine = 0;
-		if($user["id"]===$playlist["user_id"]){
-			$mine = 1;
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("ViewPlaylists");
+		try{
+			//追加
+			$user = $this->MyAuth->user();
+			$this->loadModel("Playlists");
+			$playlist = $this->Playlists->get($playlist_id);
+			$mine = 0;
+			if($user["id"]===$playlist["user_id"]){
+				$mine = 1;
+			}
+			//by 西野
+			$movies= $this->Movies
+				->find("all")
+				->contain('MovieDetails')
+				->where(["playlist_id"=>$playlist_id])
+				->order(["play_number"=>"ASC"])
+				->toArray();
+			$movi=$this->Movies
+				->find("all")
+				->contain('MovieDetails')
+				->where(["playlist_id"=>$playlist_id])
+				->order(["play_number"=>"ASC"])
+				->first();
+			$this->set(compact("movies","playlist_id","movi","mine","playlist"));
+		}catch(Exception $e){
+			$this->Flash->error(__("不正なIDです"));
+			return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
 		}
-		//by 西野
-		$movies= $this->Movies
-			->find("all")
-			->contain('MovieDetails')
-			->where(["playlist_id"=>$playlist_id])
-			->order(["play_number"=>"ASC"])
-			->toArray();
-		$movi=$this->Movies
-			->find("all")
-			->contain('MovieDetails')
-			->where(["playlist_id"=>$playlist_id])
-			->order(["play_number"=>"ASC"])
-			->first();
-		$this->set(compact("movies","playlist_id","movi","mine"));
+		
 
 	}
 }

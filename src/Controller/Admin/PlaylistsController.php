@@ -7,7 +7,11 @@ use \Exception;
 class PlaylistsController extends AppController
 {
 	function mylist()
-	{
+	{	
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("Mylist");
+		
 		$user =$this->MyAuth->user();
 		
 		$my_playlists= $this->Playlists
@@ -19,7 +23,11 @@ class PlaylistsController extends AppController
 	}
 
 	function add()
-	{
+	{	
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("addPlaylist");
+		
 		$username = $this->MyAuth->user();
 		$playlist = $this->Playlists->newEntity();
 		if ($this->request->is('post')){
@@ -36,6 +44,9 @@ class PlaylistsController extends AppController
 	}
 	function edit($id = null)
 	{
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("EditPlaylist");
 		$playlist = $this->Playlists->get($id, [
 				'contain'	=> []
 		]);
@@ -51,10 +62,17 @@ class PlaylistsController extends AppController
 	}
 	
 	public function play($playlist_id = null){
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("Play");
+		//追加
+		$user = $this->MyAuth->user();
+		$playlists = $this->Playlists->find('list')->where(["user_id"=>$user["id"]]);
+		$this->loadModel("Movies");
+		$movie = $this->Movies->newEntity();
+		//by 西野
 		$youtube_id = "";
 		$comment = $this->loadModel('Comments');
-		$movie = "";
-		$playlists = "";
 		$nb = "";
 		if(isset($_GET["playlist_id"]) && isset($_GET["youtube_id"]) ){
 			$playlist_id = $_GET["playlist_id"];
@@ -82,6 +100,10 @@ class PlaylistsController extends AppController
 	}
 	
 	public function delete($id = null){
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("DeletePlaylist");
+		
 		$user_id = $this->MyAuth->user("id");
 		try{
 			$playlist = $this->Playlists->get($id, [

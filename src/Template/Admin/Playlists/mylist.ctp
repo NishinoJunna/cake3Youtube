@@ -6,10 +6,17 @@
 		<input type="button" id="yes" value="はい" />&nbsp;&nbsp;<input type="button" id="non" value="いええ" />
 	</div><!--ask-->
 
+
 <?php $i = 0 ?>
 <?php foreach($my_playlists as $playlist) :?> 
 	<div class = "playlist_box">
-		<div class = "movie_count">
+		<?php if(!empty($playlist->movies[0]->youtube_id)): ?>
+		<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $playlist->movies[0]->youtube_id;?>/mqdefault.jpg);
+        	background-repeat: no-repeat;
+        	background-size: 260px 180px;">
+        <?php else: ?>
+        <div class = "movie_count">
+        <?php endif; ?>
 			<p class = "count"><span><?=  h(count($playlist->movies))?></span></p>
 		</div><!-- movie_count -->
 		<div class = "description">
@@ -19,13 +26,14 @@
 			</p>
 		</div><!-- .description -->
 		<div class = "actions">
-			<p class = "edit"><?=$this->html->link("変更",["action"=>"edit",$playlist->id]) ?></p>
-			<p class ="edit"><?= $this->Html->link("並び替え",["controller"=>"Movies","action"=>"edit",$playlist->id])?></p>
-			<p class ="edit"><?= $this->Html->link("動画一覧",["controller"=>"Movies","action"=>"view",$playlist->id])?></p>
+			<p class ="edit"><?=$this->html->link("変更",["action"=>"edit",$playlist->id]) ?></p>
+			<p class ="edit"><?= $this->Html->link("順番",["controller"=>"Movies","action"=>"edit",$playlist->id])?></p>
+			<p class ="edit"><?= $this->Html->link("一覧",["controller"=>"Movies","action"=>"view",$playlist->id])?></p>
 			<div class="nb_box">
 				<input type="hidden" id="nb<?= $i ?>" value="<?= $playlist->id ?>" />
-				<input type="button" class="btn" value="プレイリストを削除する" />
+				<input type="button" class="btn" value="プレイリストを削除" />
 			</div>
+
 		</div><!-- actions -->
 	</div><!-- .playlist_box -->
 

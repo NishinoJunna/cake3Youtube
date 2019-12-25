@@ -73,7 +73,12 @@ body{
 	        	border-left: solid red 2rem;
 	        	padding-left: 1rem;
 	        	letter-spacing: 0.2em;
+	        	vertical-align: middle;
+	        	display: inline;
 	        }
+	    .page_title_centaling{
+	    	position:relative;
+	    }
 	    body,
 		.col-sm-10{
 			background: linear-gradient(-160deg,lavender,lightpink);
@@ -275,7 +280,7 @@ body{
 			border-left: crimson solid 2rem;
 			border-right:crimson solid 2rem;
 			padding-left:1rem;
-			border-radius: 6rem;;
+			border-radius: 6rem;
 		}
 		.trend_movies_container{
 			width:800px;

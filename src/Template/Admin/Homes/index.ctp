@@ -3,7 +3,9 @@
 
 
 <div class="admin_homes_index_form">
+<div class="page_title_centaling">
 	<h2 class= "page_title">WELCOME!!</h2>
+</div>
 	<?php 
 		echo $this->Form->create($search,['type' => 'get']);
 		echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$keyword]);
@@ -17,7 +19,7 @@
 	<div class= "playlist_movies_container">
 		<?php foreach($trend_movies as $trend_movie): ?>
 		<div class="movies">
-			<div class= "movies_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg); background-repeat: no-repeat;
+			<div class= "movies_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/mqdefault.jpg); background-repeat: no-repeat;
 			background-size:240px 160px;">
 			</div><!-- movies_box -->
 			<p class ="movie_title"><?=h($trend_movie->title) ?></p>

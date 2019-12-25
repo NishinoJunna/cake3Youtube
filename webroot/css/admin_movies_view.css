@@ -47,7 +47,7 @@
 	
 	.link_box{
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		margin:1rem 3rem;
 	}
 	
@@ -63,7 +63,7 @@
 		border: 0.2rem solid gray;
 		box-sizing: border-box;
 		border-radius: 4px;
-		padding: 0.2rem;
+		padding: 0.6rem;
 	}
 	
 	.link_box .link a:hover{

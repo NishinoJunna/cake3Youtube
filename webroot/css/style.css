@@ -30,14 +30,12 @@ body{
             width: 1200px;
         }
         #player{
-            width: 600px;
+            width: 800px;
             background-color: #fff;
             margin-top: 20px;
             padding: 20px;
         }
-        #main{
-            
-        }
+ 
         #movie_title{
             font-size: 1.2em;
             margin-bottom: 20px;

@@ -1,4 +1,5 @@
 <?php $this->prepend('script', $this->Html->script('admin_searchout')); ?>
+<?php $this->prepend('css', $this->Html->css('admin_movies_view')); ?>
 <h1 class= "page_title">Welcome!!</h1>
 			<?php 
 				echo $this->Form->create($search,['type' => 'get']);
@@ -13,24 +14,22 @@
 </form> -->
 
 <div id ="homepage_container">
-<h2 class="page_sub_title">Check Trend Movie</h2>
-	<div class= "trend_movies_container">
-	
+<h2 class="page_sub_title">Check Trend Movies</h2>
+	<div class= "playlist_movies_container">
 		<?php foreach($trend_movies as $trend_movie): ?>
-	
-		<div class= "trend_movie_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg); background-repeat: no-repeat;
-		background-size:contain;">
-			<div class ="trend_movie_details">
-				<p class ="trend_movie_title"><?=h($trend_movie->title) ?></p>
-			</div><!-- movie_details -->
-			<a href="http://localhost/cake3youtube/playlists/play?youtube_id=<?php echo $trend_movie->youtube_id ?>" /><p class= "check_plyalist_contents">動画を再生</p></a>
-		</div><!-- trend_movie_box -->
-	
+		<div class="movies">
+			<div class= "movies_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/mqdefault.jpg); background-repeat: no-repeat;
+			background-size:240px 160px;">
+			</div><!-- movies_box -->
+			<p class ="movie_title"><?=h($trend_movie->title) ?></p>
+			<div class="link_box">
+				<p class= "link"><a href="http://localhost/cake3youtube/playlists/play?youtube_id=<?php echo $trend_movie->youtube_id ?>" >動画を再生</a></p>
+			</div><!-- link_box -->
+		</div><!-- movies -->
 		<?php endforeach; ?>
-	
-	</div><!-- trend_movies_containe -->
+	</div><!-- playlist_movies_containe -->
 
-	<h2 class="page_sub_title">Check Trend Playlist</h2>
+	<h2 class="page_sub_title">Check Trend Playlists</h2>
 		
 		<?php foreach($trend_playlists as $key => $trend_playlist): ?>
 		

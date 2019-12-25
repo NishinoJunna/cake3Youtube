@@ -30,8 +30,8 @@ console.log(keyword);
     	 
     	
          player = new YT.Player('player', {
-             height: '390',
-             width: '640',
+             height: '',
+             width: '800px',
              videoId: youtube_id,
              events: {
                  'onReady': onPlayerReady,

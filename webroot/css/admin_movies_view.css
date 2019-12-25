@@ -3,33 +3,73 @@
 		flex-wrap: wrap;
 	}
 	
-	.movies_box{
-		width: 25%;
-		margin:2rem;
-		height: 180px;
-		border: solid 1px black;
-		border-radius: 10px;
+	.playlist_play_link{
+		margin-left: 75%;
+	}
+	.playlist_play_link a{
+		text-decoration: none;
+		box-sizing: border-box;
+		border: solid 0.2rem gray;
+		border-radius: 4px;
+		background-color: white;
+		padding:0.5rem;
 	}
 	
-	.title_box{
-		width:100%;
-		height:100%;
-		background: rgba(255,255,255,0.15);
-		text-align:center;
-		position: relative;
-		
-		
+	.playlist_play_link a:hover{
+		background-color: violet;
+	}
+	
+	.movies_box{
+		width:30%;
+		min-width:240px;
+		height:160px !important;
+		max-height:160px;
+		margin:2rem;
+		height: 180px;
+		max-height: 180px;
+		border: solid 1px black;
+		border-radius: 10px;
+		position:relative;
 	}
 	
 	.movie_title{
-		width: 80%;
-		margin: auto;
-		color:coral;
-		font-size: 1.7rem;
+		height: 4rem;
+		max-height:4rem;
+		max-width:240px;
+		text-align:center;
+		position: relative;
+		overflow: hidden;
+		margin:0 1rem;
+		color:#2b2b2b;
+		font-family: serif;
 		font-weight: bold;
-		padding-top: 1rem;
 	}
 	
+	.link_box{
+		display: flex;
+		justify-content: space-between;
+		margin:0.5rem 3rem 0 3rem;;
+	}
+	
+	.link_box .link{
+		margin: 0;
+	}
+	
+	.link_box .link a{
+		color:#4b4b4b;
+		text-decoration: none;
+		font-size: 1.1rem;
+		background-color: coral;
+		border: 0.2rem solid gray;
+		box-sizing: border-box;
+		border-radius: 4px;
+		padding: 0.2rem;
+	}
+	
+	.link_box .link a:hover{
+		background-color: white;
+		color: coral;
+	}
 	.play_number{
 		position: absolute;
 		height: 20px;
@@ -37,8 +77,24 @@
 		left:90%;
 		font-size: 2rem;
 		font-weight: bold;
-		color: red;
+		color: gray;
 		opacity: 0.8;
 	}
 	
+	.admin_homes_index_form{
+		display: flex;
+		justify-content:space-between;
+	}
+	.admin_homes_index_form form{
+		display: flex;
+	}
 	
+	.admin_homes_index_form .btn-default{
+		height: 3.5rem;
+		margin-top:2rem;
+	}
+	
+	#homepage_container .playlist_movies_container{
+		margin-bottom: 5rem;
+		
+	}

@@ -2,7 +2,7 @@
 <?php $this->prepend('css', $this->Html->css('admin_movies_view')); ?>
 
 <h2 class="page_title"><?php echo $playlist->name;?></h2>
-
+<?php $nb = count($movies); ?>
 <p class="playlist_play_link">
 	<a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $playlist_id ?>&youtube_id=<?= $movi->movie_detail->youtube_id ?>&nb=<?= count($movies) ?>">
 		このプレイリストを再生
@@ -21,7 +21,7 @@
 			<?php if($mine): ?>
 			<p class="link"><?=$this->Html->Link("プレイリストから削除",["controller"=>"movies","action"=>"delete",$movie->id]) ?></p>
 			<?php endif; ?>
-			<p class= "link"><?=$this->Html->link("この動画を再生" , ["controller"=>"playlists","action"=>"play",$movie->id])?></p>
+			<p class= "link"><?=$this->Html->link("この動画を再生" , "http://localhost/cake3youtube/admin/playlists/play?playlist_id=$playlist_id&youtube_id=$movie->youtube_id&nb=$nb") ?></p>
 		</div><!-- link_box -->
 	</div><!-- movies -->
 	<?php endforeach ;?>

@@ -75,12 +75,19 @@ class MoviesController extends AppController
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Edit");
-		
+		$user_id = $this->MyAuth->user("id");
 		try{
-			$playlist_movies= $this->Movies->find('all')
-				->contain('MovieDetails')
-				->where(['Movies.playlist_id'=>$playlist_id])
-				->order(['Movies.play_number'=>'ASC']);
+			$playlist = $this->Movies->Playlists->get($playlist_id);
+			//自分以外のプレイリスト編集×
+			if($playlist["user_id"]!==$user_id){
+				throw new Exception();
+			}else{
+				
+				$playlist_movies= $this->Movies->find('all')
+					->contain('MovieDetails')
+					->where(['Movies.playlist_id'=>$playlist_id])
+					->order(['Movies.play_number'=>'ASC']);
+			}
 		}catch(Exception $e){
 			$this->Flash->error(__("不正なIDです"));
 			return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
@@ -98,20 +105,25 @@ class MoviesController extends AppController
 		$this->set(compact('playlist_movies'));
 	}
 	
-	public function view($playlist_id){
+	public function view($playlist_id = null){
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("ViewPlaylists");
 		try{
-			//追加
+			
 			$user = $this->MyAuth->user();
 			$this->loadModel("Playlists");
 			$playlist = $this->Playlists->get($playlist_id);
+			//自分以外のプレイリスト動画削除をしないようにする
 			$mine = 0;
 			if($user["id"]===$playlist["user_id"]){
 				$mine = 1;
+				//非公開のものは表示できない
+				if($playlist["status"] !== 1){
+					throw new Exception();
+				}
 			}
-			//by 西野
+			
 			$movies= $this->Movies
 				->find("all")
 				->contain('MovieDetails')

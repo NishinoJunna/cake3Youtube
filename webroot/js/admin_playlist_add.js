@@ -19,9 +19,12 @@ function playlistAddRequest(event){
 function successPlaylistAddAction(result){
 	/*$("select option:first").addClass("ajax");*/
 	alert("プレイリストに動画を登録しました");
-	}
+	document.getElementById('adminPlaylistAdd').options[0].selected = true;
+}
+
 
 
 function errorPlaylistAddAction(result){
 	alert("この動画は既にプレイリストに登録されています");
+	document.getElementById('adminPlaylistAdd').options[0].selected = true;
 }

@@ -24,7 +24,7 @@
 			</div><!-- movies_box -->
 			<p class ="movie_title"><?=h($trend_movie->title) ?></p>
 			<div class="link_box">
-				<p class= "link"><?=$this->Html->link("この動画を再生" , ["action"=>"play",$trend_movie->youtube_id])?></p>
+				<p class= "link"><?=$this->Html->link("この動画を再生" , "/admin/homes/play?youtube_id=$trend_movie->youtube_id") ?></p>
 			</div>
 		</div><!-- movies -->
 		<?php endforeach; ?>
@@ -48,8 +48,14 @@
 			</div><!-- .description -->
 			<div class = "actions">
 				<p class = "edit"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
+				<p class = "edit">
+					<a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $trend_playlist->id ?>&youtube_id=<?php echo $first[$key]->youtube_id ?>&nb=">
+						このプレイリストを再生
+					</a>
+				</p>
 			</div><!-- actions -->
 	</div><!-- playlist_box -->
+
 		<?php endforeach; ?>
 
 		<div class="paginator">

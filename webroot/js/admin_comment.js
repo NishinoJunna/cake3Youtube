@@ -38,6 +38,7 @@ function commentRequest(event){
 	}
 	
 	function errorMessage(result){
+		alert("コメントを書いてください");
 		console.log(result);
 	}
 	

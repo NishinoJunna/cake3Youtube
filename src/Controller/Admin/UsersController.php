@@ -11,6 +11,9 @@ class UsersController extends AppController{
 
 	public function edit()
 	{
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("Edit");
 		//ログインユーザのIDをMyAuthから取り出す（セッション）
 		$id = $this->MyAuth->user("id");
 		$user = $this->Users->get($id, [

@@ -641,6 +641,7 @@ nMylist:2019/12/26 05:39,::1,,http://localhost/cake3youtube/admin/playlists/add
 nHome:2019/12/26 05:39,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 nViewPlaylists:2019/12/26 05:39,::1,,http://localhost/cake3youtube/admin/homes
 nPlay:2019/12/26 05:40,::1,,http://localhost/cake3youtube/admin/movies/view/1
+<<<<<<< HEAD
 >>>>>>> patient
 nHome:2019/12/26 05:50,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 nMylist:2019/12/26 05:50,::1,,http://localhost/cake3youtube/admin/homes
@@ -667,4 +668,38 @@ nViewPlaylists:2019/12/26 06:13,::1,,http://localhost/cake3youtube/
 nViewPlaylists:2019/12/26 06:13,::1,,http://localhost/cake3youtube/
 nViewPlaylists:2019/12/26 06:14,::1,,http://localhost/cake3youtube/
 nViewPlaylists:2019/12/26 06:14,::1,,http://localhost/cake3youtube/
+=======
+nHome:2019/12/26 05:54,::1,,http://localhost/cake3youtube/users/login
+nPlay:2019/12/26 05:54,::1,,http://localhost/cake3youtube/admin/homes
+nPlay:2019/12/26 05:54,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=ZvNViwHjSa8
+nPlay:2019/12/26 05:55,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=eWnLRboP6LI
+nPlay:2019/12/26 06:02,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=eWnLRboP6LI
+nMylist:2019/12/26 06:02,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=nSblaSqpbUg
+nHome:2019/12/26 06:02,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nPlay:2019/12/26 06:02,::1,,http://localhost/cake3youtube/admin/homes
+nHome:2019/12/26 06:05,::1,,http://localhost/cake3youtube/users/login
+nPlay:2019/12/26 06:06,::1,,http://localhost/cake3youtube/admin/homes
+nPlay:2019/12/26 06:06,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=3I2VAqrWD8I&nb=
+nMylist:2019/12/26 06:06,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=L3pqPw9ipCg&nb=3
+nHome:2019/12/26 06:06,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nMylist:2019/12/26 06:06,::1,,http://localhost/cake3youtube/admin/homes
+nHome:2019/12/26 06:06,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nHome:2019/12/26 06:07,::1,,http://localhost/cake3youtube/admin/homes
+nHome:2019/12/26 06:09,::1,,refererなし
+nHome:2019/12/26 06:11,::1,,refererなし
+nMylist:2019/12/26 06:11,::1,,http://localhost/cake3youtube/admin/
+nViewPlaylists:2019/12/26 06:11,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nPlay:2019/12/26 06:12,::1,,http://localhost/cake3youtube/admin/movies/view/1
+nPlay:2019/12/26 06:12,::1,,refererなし
+nHome:2019/12/26 06:12,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=&nb=3
+nPlay:2019/12/26 06:12,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=&nb=3
+nPlay:2019/12/26 06:12,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=&nb=3
+nPlay:2019/12/26 06:12,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=undefined&nb=3
+nPlay:2019/12/26 06:12,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=undefined&nb=3
+nHome:2019/12/26 06:12,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=undefined&nb=3
+>>>>>>> patient
+nPlay:2019/12/26 06:17,::1,,http://localhost/cake3youtube/users/login
+nMylist:2019/12/26 06:17,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=4&youtube_id=hzWDXge2ANM&nb=
+nMylist:2019/12/26 06:19,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nHome:2019/12/26 06:19,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 n

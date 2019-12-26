@@ -48,9 +48,17 @@
 
 
 .button_add_playlist{
-	margin: 5rem auto;
+	margin: 5rem 4rem 0 auto;
+	width:25%;
 }
 
+.link_add_before_login{
+	width:35%;
+	min-width: 275px;
+	font-size: 1.5rem;
+	margin-left:auto;
+	margin-right: 5rem;
+}
 .comment_post_area{
 	margin: 5rem auto;
 }

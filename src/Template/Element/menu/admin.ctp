@@ -1,7 +1,7 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-		<?=$this->Html->link("title",["controller"=>"Homes","action"=>"index"],["class"=>"navbar-brand"]); ?>
+		<?=$this->Html->link("YOUTUBE＋",["controller"=>"Homes","action"=>"index"],["class"=>"navbar-brand"]); ?>
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
@@ -34,7 +34,7 @@
 					</ul>
 				</li>
 				<?php /*もし管理者なら*/ ?>
-				<li class="dropdown"　style="font-color:blue;">
+				<li class="dropdown" style="font-color:blue;">
 					<?=$this->Html->link("DBのダウンロード(CSV)","#",["data-toggle"=>"dropdown"]); ?>
 					<ul class="dropdown-menu">
 						<li><?=$this->Html->link("Usersテーブル","/admin/management/csvdownload/users") ?></li>

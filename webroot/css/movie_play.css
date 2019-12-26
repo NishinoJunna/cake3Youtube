@@ -45,11 +45,17 @@
 	font-size: 20px;
 	min-width:700px;
 }
-.add_playlist{
+
+.button_add_playlist{
 	width: 25%;
 	margin:0 4rem 0 auto;
 	font-size:1.2rem;
 	min-width:140px;
+}
+
+.add_button{
+		margin: 5rem 4rem 0 auto;
+	width:25%;
 }
 
 .link_add_before_login{

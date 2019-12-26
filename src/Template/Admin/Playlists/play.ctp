@@ -66,9 +66,6 @@
 	        	<p class="movie_title"><a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $playlist_id ?>&youtube_id=<?php echo $playlist_movie->youtube_id; ?>&nb=<?php $nb ?>">
 	        		<?php echo $playlist_movie->movie_detail->title;?>
 	        	</a></p><!-- movie-title -->
-				<div>
-					<p><?php echo $playlist_movie->play_number;?></p>
-				</div>
 			</div><!-- flex_right_box -->
 			<input type="hidden" id="<?php echo $playlist_movie->youtube_id;?>" value="<?php echo $i ?>" />
 	        <input type="hidden" id="video<?php echo $i;?>" value="<?php echo $playlist_movie->youtube_id; ?>" />

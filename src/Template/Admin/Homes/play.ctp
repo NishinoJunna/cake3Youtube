@@ -16,7 +16,7 @@
 	<div class="left_play_container">	
 		<div id="player"></div>
 		<p class ="movie_title"></p>
-		<div class="button_add_playlist">
+		<div class="add_button">
 			<?php 
 				echo $this->Form->create($movie,["id" =>"playlistAdd"],array("url"=>"/admin/movies/addplaylistajax"));
 				echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>"","id"=>"videoid_add"]);
@@ -45,7 +45,6 @@
 		</div><!-- comment_box -->
 		<?php endif; ?>
 	</div><!--left_play-container -->
-	
 	<div class="right_play_container">
 		
 	</div><!-- right_play_container -->

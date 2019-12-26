@@ -777,4 +777,12 @@ nHome:2019/12/26 06:39,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 nHome:2019/12/26 06:39,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 nHome:2019/12/26 06:43,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 nHome:2019/12/26 06:43,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nHome:2019/12/26 06:46,::1,,http://localhost/cake3youtube/admin/homes
+nMylist:2019/12/26 06:46,::1,,http://localhost/cake3youtube/admin/homes
+nViewPlaylists:2019/12/26 06:46,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nMylist:2019/12/26 06:46,::1,,http://localhost/cake3youtube/admin/movies/view/3
+nEdit:2019/12/26 06:46,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nHome:2019/12/26 06:46,::1,,http://localhost/cake3youtube/admin/movies/edit/3
+nViewPlaylists:2019/12/26 06:46,::1,,http://localhost/cake3youtube/admin/homes
+nHome:2019/12/26 06:46,::1,,http://localhost/cake3youtube/admin/movies/view/6
 n

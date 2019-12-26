@@ -62,6 +62,9 @@ class PlaylistsController extends AppController
 		if(isset($_GET["search"])){
 			$search = $_GET["search"];
 		}
+		if($youtube_id == null || $youtube_id == ""){
+			return $this->redirect(['action' => 'index']);
+		}
 		$comments = $this->loadModel('Comments')
 		->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
 		->contain('Users')
@@ -93,7 +96,7 @@ class PlaylistsController extends AppController
 		$nb = count($playlist_movies);
 		//var_dump($nb); die();
 		
-		if($playlist_id == "" || $playlist_id == null){
+		if($playlist_id == "" || $playlist_id == null || $youtube_id == null || $youtube_id == ""){
 			return $this->redirect(['action' => 'index']);
 		}
 		$search = "";

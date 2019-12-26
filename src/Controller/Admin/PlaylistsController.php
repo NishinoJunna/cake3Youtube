@@ -101,7 +101,7 @@ class PlaylistsController extends AppController
 			return $this->redirect(["controller"=>"homes",'action' => 'index']);
 		}
 		//var_dump($nb); die();
-		if($playlist_id == "" || $playlist_id == null){
+		if($playlist_id == "" || $playlist_id == null || $youtube_id == null || $youtube_id == ""){
 			return $this->redirect(["controller"=>"homes",'action' => 'index']);
 		}
 		$search = "";

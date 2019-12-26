@@ -80,6 +80,9 @@ class HomesController extends AppController{
 		if(isset($_GET["search"])){
 			$search = $_GET["search"];
 		}
+		if($youtube_id == null || $youtube_id == ""){
+			return $this->redirect(['action' => 'index']);
+		}
 		$comments = $this->loadModel('Comments')
 					->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
 					->contain('Users')

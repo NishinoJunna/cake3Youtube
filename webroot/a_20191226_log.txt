@@ -126,4 +126,14 @@ nPlay:2019/12/26 06:37,::1,,http://localhost/cake3youtube/admin/homes
 nPlay:2019/12/26 06:37,::1,,http://localhost/cake3youtube/admin/homes
 nPlay:2019/12/26 06:37,::1,,refererなし
 nHome:2019/12/26 06:37,::1,,refererなし
+nHome:2019/12/26 07:54,::1,,http://localhost/cake3youtube/users/login
+nMylist:2019/12/26 07:54,::1,,http://localhost/cake3youtube/admin/homes
+nDeletePlaylist:2019/12/26 07:54,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nMylist:2019/12/26 07:54,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nMylist:2019/12/26 07:54,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nEdit:2019/12/26 07:54,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nEdit:2019/12/26 07:55,::1,,http://localhost/cake3youtube/admin/movies/edit/3
+nEdit:2019/12/26 07:55,::1,,http://localhost/cake3youtube/admin/movies/edit/3
+nViewPlaylists:2019/12/26 07:55,::1,,http://localhost/cake3youtube/admin/movies/edit/3
+nPlay:2019/12/26 07:55,::1,,http://localhost/cake3youtube/admin/movies/view/3
 n

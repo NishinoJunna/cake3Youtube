@@ -165,4 +165,21 @@ nPlay:2019/12/26 04:01,::1,,http://localhost/cake3youtube/users/login
 nHome:2019/12/26 04:03,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=ugRc5jx80yg&search=test
 nPlay:2019/12/26 04:03,::1,,http://localhost/cake3youtube/admin/homes
 nPlay:2019/12/26 04:04,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=KwMOZEfDZ3k&nb=
+nPlay:2019/12/26 04:06,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=u44js5YTEf4&nb=4
+nHome:2019/12/26 04:06,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=DD87n0WpFvA&nb=4
+nPlay:2019/12/26 04:06,::1,,http://localhost/cake3youtube/admin/homes/index?keyword=hero%20aca%20movie
+nHome:2019/12/26 04:28,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=P2DEipI1obI&search=hero%20aca%20movie
+nHome:2019/12/26 04:33,::1,,http://localhost/cake3youtube/users/login
+ncsvDownload:2019/12/26 04:35,::1,,http://localhost/cake3youtube/admin/homes
+nMylist:2019/12/26 05:19,::1,,http://localhost/cake3youtube/users/login
+nHome:2019/12/26 05:19,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nMylist:2019/12/26 05:19,::1,,http://localhost/cake3youtube/admin/homes
+nHome:2019/12/26 05:19,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nMylist:2019/12/26 05:19,::1,,http://localhost/cake3youtube/admin/homes
+nViewPlaylists:2019/12/26 05:19,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nPlay:2019/12/26 05:20,::1,,http://localhost/cake3youtube/admin/movies/view/12
+nViewPlaylists:2019/12/26 05:20,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+naddPlaylist:2019/12/26 05:20,::1,,http://localhost/cake3youtube/admin/movies/view/12
+nMylist:2019/12/26 05:21,::1,,http://localhost/cake3youtube/admin/playlists/add
+nHome:2019/12/26 05:21,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 n

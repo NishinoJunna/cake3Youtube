@@ -25,9 +25,16 @@ class HomesController extends AppController{
 		->where(function ($exp, $q) {
 			return $exp->equalFields('Playlists.id', 'Movies.playlist_id');
 		});
-		$this->loadModel("MovieDetails");
+		$trend_movies = $this->Movies
+		->find("all",array("order" => "rand()","limit" => 8))
+		->contain(["Playlists","MovieDetails"])
+		->where(["Playlists.status"=>"1"])->toArray();
+			
+			
+		/*	修正しました。
+		 * $this->loadModel("MovieDetails");
 		$trend_movies = $this->MovieDetails
-		->find("all",array("order" => "rand()","limit" => 8));
+		->find("all",array("order" => "rand()","limit" => 8));*/
 		$this->loadModel("Playlists");
 		
 		$this->paginate = ["limit"=>5,["contain"=>"Users"]];

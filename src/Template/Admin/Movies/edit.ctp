@@ -6,6 +6,7 @@
 
 
 <div id= "shuffle_movies_container">
+<?php if(!empty($playlist_movies->toArray())): ?>
 	<?= $this->Form->create()?>
 	<h3>☞左上から横に順番になっています</h3>
 	<div class= "shuffle_left_container">
@@ -27,6 +28,7 @@
 	<?= $this->Form->button("保存",["class"=>"submit"])?>
 	<?= $this->Form->end?>
 
+<?php endif; ?>
 
 
 

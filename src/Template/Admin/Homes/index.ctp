@@ -14,7 +14,7 @@
 			<div class= "movies_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/mqdefault.jpg); background-repeat: no-repeat;
 			background-size:240px 160px;">
 			</div><!-- movies_box -->
-			<p class ="movie_title"><?=h($trend_movie->title) ?></p>
+			<p class ="movie_title"><?=h($trend_movie->movie_detail->title) ?></p>
 			<div class="link_box">
 				<p class= "link"><?=$this->Html->link("この動画を再生" , "/admin/homes/play?youtube_id=$trend_movie->youtube_id") ?></p>
 			</div>

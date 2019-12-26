@@ -3,11 +3,12 @@
 <?php $this->prepend('css', $this->Html->css('admin_movies_view')); ?>
 
 <h2 class="page_title"><?php echo $playlist->name;?></h2>
-<?php $nb = count($movies); ?>
 <p class="playlist_play_link">
+<?php  if(!empty($movi->movie_detail->youtube_id)): ?>
 	<a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $playlist_id ?>&youtube_id=<?= $movi->movie_detail->youtube_id ?>&nb=<?= count($movies) ?>">
 		このプレイリストを再生
 	</a>
+<?php endif; ?>
 </p>
 <div class="playlist_movies_container">
 	<?php foreach($movies as $movie) :?>

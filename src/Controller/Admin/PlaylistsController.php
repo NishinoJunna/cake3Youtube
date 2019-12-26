@@ -95,7 +95,11 @@ class PlaylistsController extends AppController
 			$youtube_id = $_GET["youtube_id"];
 			$nb = $_GET["nb"];
 		}
-		
+		$status = $this->Playlists->get($_GET["playlist_id"]);
+		if($status["status"]==0 && $status["user_id"] != $user["id"]){
+			$this->Flash->error(__("不正なIDです"));
+			return $this->redirect(["controller"=>"homes",'action' => 'index']);
+		}
 		//var_dump($nb); die();
 		if($playlist_id == "" || $playlist_id == null){
 			return $this->redirect(["controller"=>"homes",'action' => 'index']);

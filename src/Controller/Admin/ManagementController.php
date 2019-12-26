@@ -29,29 +29,33 @@ class ManagementController extends AppController
 			if($id === "users"){
 				$this->loadModel("Users");
 				$users = $this->Users->find("all")->toArray();
+				$buf = 'ID , メールアドレス , 名前 , 作成日 , 更新日'."\n";
 				foreach($users as $u){
 					$buf .= '"' . $u["id"] . '","' . $u["email"] . '", "' . $u["name"] . '","' . $u["created_at"] . '","' . $u["modified_at"] . '"' . "\n";
 				}
 			}else if($id === "playlists"){
 				$this->loadModel("Playlists");
 				$playlists = $this->Playlists->find('all')->toArray();
+				$buf = 'ID , ユーザID , プレイリスト名 , 公開ステータス , 説明 , 作成日 , 更新日'."\n";
 				foreach($playlists as $p){
 					$buf .= '"' . $p["id"] . '","' . $p["user_id"] 
-							. '", "' . $p["name"] . '", "' . $p["status"] . '","' . '", "' . $p["description"]
+							. '", "' . $p["name"] . '", "' . $p["status"] . '", "' . $p["description"]
 							. $value["created_at"] . '","' . $value["modified_at"] . '"' . "\n";
 				}
 			}else if($id === "movies"){
 				$this->loadModel("Movies");
 				$movies = $this->Movies->find("all")->toArray();
+				$buf = 'ID , プレイリストID , 動画ID , 作成日'."\n";
 				foreach($movies as $m){
-					$buf .= '"' . $m["id"] . '","' . $m["playlist_id"] . '", "' . $m["youtube_id"] . '","' . $m["created_at"] . "\n";
+					$buf .= '"' . $m["id"] . '","' . $m["playlist_id"] . '", "' . $m["youtube_id"] . '","' . $m["created_at"] . '"' . "\n";
 				}
 				
 			}else if($id === "comments"){
 				$this->loadModel("Comments");
 				$comments = $this->Comments->find("all")->toArray();
+				$buf = 'ID , 動画ID , ユーザID , 内容 , 作成日'."\n";
 				foreach($comments as $c){
-					$buf .= '"' . $c["id"] . '","' . $c["youtube_id"] . '", "' . $c["user_id"] . '", "' . $c["content"].  '","' . $c["created_at"] . "\n";
+					$buf .= '"' . $c["id"] . '","' . $c["youtube_id"] . '", "' . $c["user_id"] . '", "' . $c["content"].  '","' . $c["created_at"] . '"' . "\n";
 				}
 			}
 		}else{

@@ -9,17 +9,7 @@
 .form_box form{
 	margin:auto 0;
 }
-.keyword_box form{
-	display: flex;
-	padding:2rem;
-}
 
-.btn-default{
-	width:5rem;
-	height: 3.3rem;
-	margin:auto 0;
-	padding:0;
-}
 #playlist_play_container{
 	display: flex;
 }

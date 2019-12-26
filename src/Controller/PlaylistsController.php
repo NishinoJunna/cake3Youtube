@@ -21,23 +21,24 @@ class PlaylistsController extends AppController
 		});
 		$this->loadModel("Playlists");
 		$this->paginate = ["limit"=>5,["contain"=>"Users"]];
-		$trend_playlists = $this->Playlists->find()->contain("Users")
+		$trend_playlists = $this->Playlists->find()->contain(["Users","Movies"])
 		->where(function ($exp, $q) use ($subquery) {
 			return $exp->exists($subquery);
-		});
-			//var_dump($trend_playlists);exit;
-			$first = array();
-			$tp = $trend_playlists->toArray();
-			foreach($trend_playlists as $key => $t){
-				$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->toArray();
-				if($a){
-					$first[] = $a[0];
-				}
+		})
+		->andWhere(["status"=>1]);
+		//プレイリスト最初の動画IDをとる
+		$first = array();
+		$tp = $trend_playlists->toArray();
+		foreach($trend_playlists as $key => $t){
+			$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->order(["play_number"=>"asc"])->toArray();
+			if($a){
+				$first[] = $a[0];
 			}
+		}
 		
 		$trend_playlists = $this->paginate($trend_playlists);
 		$this->set(compact("trend_movies","trend_playlists","first"));
-		//by 西野
+		
 		$search = "";
 		$keyword = "";
 		if(isset($_GET["keyword"])){
@@ -53,6 +54,7 @@ class PlaylistsController extends AppController
 	public function play()
 	{
 		$search = "";
+		$keyword = "";
 		$comment = $this->loadModel('Comments');
 		if(isset($_GET["youtube_id"])){
 			$youtube_id = $_GET["youtube_id"];
@@ -65,10 +67,11 @@ class PlaylistsController extends AppController
 		->contain('Users')
 		->where(['youtube_id'=>$youtube_id]);
 		//var_dump($comments); die();
-		$this->set(compact('comment','comments','search'));
+		$this->set(compact('comment','comments','search',"keyword"));
 	}
 	public function playlist()
 	{
+		$keyword="";
 		$search = "";
 		$playlist_id = null;
 		$youtube_id = "";
@@ -98,7 +101,7 @@ class PlaylistsController extends AppController
 		->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
 		->contain('Users')
 		->where(['youtube_id'=>$youtube_id]);
-		$this->set(compact("playlist_movies","playlist_id","nb","comments","comment","search"));
+		$this->set(compact("playlist_movies","playlist_id","nb","comments","comment","search","keyword"));
 	}
 	
 }

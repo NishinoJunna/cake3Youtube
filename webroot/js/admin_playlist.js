@@ -78,7 +78,7 @@ console.log(keyword);
 								</div>
 			 						<div class="details">
 			 							<p class= "related_movie_title">
-			 								<a href="http://localhost/cake3youtube/playlists/play?youtube_id=${data.items[i].id.videoId}">
+			 								<a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=${data.items[i].id.videoId}">
 			 									${data.items[i].snippet.title}</a>
 			 							</p>
 			 						</div><!--details-->
@@ -91,7 +91,7 @@ console.log(keyword);
 			console.log(datas);
 			
 			console.log(datas);
-			var tr_tags = $(".right_play_container tr");
+			var tr_tags = $(".right_play_container .movie_box");
             
             tr_tags.on('click',function(){
             	var rank = tr_tags.index(this);

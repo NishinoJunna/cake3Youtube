@@ -32,15 +32,16 @@ class HomesController extends AppController{
 		
 		$this->paginate = ["limit"=>5,["contain"=>"Users"]];
 		
-		$trend_playlists = $this->Playlists->find()->contain("Users")
+		$trend_playlists = $this->Playlists->find()->contain(["Users","Movies"])
 		->where(function ($exp, $q) use ($subquery) {
 			return $exp->exists($subquery);
-		});
-		//var_dump($trend_playlists);exit;
+		})
+		->andWhere(["status"=>1]);
+		//プレイリスト最初の動画IDをとる
 		$first = array();
 		$tp = $trend_playlists->toArray();
 		foreach($trend_playlists as $key => $t){
-			$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->toArray();
+			$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->order(["play_number"=>"Asc"])->toArray();
 			if($a){
 				$first[] = $a[0];
 			}
@@ -49,7 +50,7 @@ class HomesController extends AppController{
 		$trend_playlists = $this->paginate($trend_playlists);
 		$comment = $this->loadModel('Comments');
 		$this->set(compact('comment',"trend_movies","trend_playlists","first","count"));
-		// by 西野
+		
 
 		$search = 0;
 		
@@ -60,6 +61,7 @@ class HomesController extends AppController{
 	
 	public function play(){
 		// アクセスログ生成
+		$keyword = "";
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Play");
 		
@@ -81,7 +83,7 @@ class HomesController extends AppController{
 		$playlists = $this->Playlists->find('list')->where(["user_id"=>$user["id"]]);
 		$this->loadModel("Movies");
 		$movie = $this->Movies->newEntity();
-		$this->set(compact('comment','comments','playlists','movie','search'));
+		$this->set(compact('comment','comments','playlists','movie','search',"keyword"));
 
 	}
 }

@@ -11,6 +11,8 @@ class UsersController extends AppController{
 
 	public function edit()
 	{
+		$search = "";
+		$keyword = "";
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Edit");
@@ -30,6 +32,6 @@ class UsersController extends AppController{
 		}
 		//パスワードは表示しない
 		unset($user["password"]);
-		$this->set(compact('user'));
+		$this->set(compact('user',"search","keyword"));
 	}
 }

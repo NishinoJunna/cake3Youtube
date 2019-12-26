@@ -2,6 +2,7 @@
 <?php $this->prepend('css', $this->Html->css('admin_playlists_play')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_playlist_add')); ?>
+<?php $this->prepend('script', $this->Html->script('search')); ?>	
 
 <input type="hidden" id="nb" value="<?= $nb ?>" />
 <h2 class= "page_title">Playlist Play</h2>
@@ -24,7 +25,7 @@
 				echo $this->Form->create($movie,["id" =>"playlistAdd"],array("url"=>"/admin/movies/addplaylistajax"));
 				echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>"","id"=>"videoid_add"]);
 				echo $this->Form->input("title",["type"=>"hidden","value"=>"","id"=>"title_add"]);
-				echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストに追加","label"=>false,"class"=>"add_playlist"]);
+				echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストに追加","label"=>false,"id"=>"adminPlaylistAdd"]);
 				echo $this->Form->end();
 			?>
 		</div>

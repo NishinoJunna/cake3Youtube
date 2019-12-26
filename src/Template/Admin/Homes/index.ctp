@@ -3,15 +3,7 @@
 
 
 <div class="admin_homes_index_form">
-<div class="page_title_centaling">
 	<h2 class= "page_title">WELCOME!!</h2>
-</div>
-	<?php 
-		echo $this->Form->create($search,['type' => 'get']);
-		echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$keyword]);
-		echo $this->Form->button("検索",["action"=>"index", 'id'=>'btn1']);
-		echo $this->Form->end();
-	?>
 </div>
 
 <div id ="homepage_container">
@@ -37,7 +29,7 @@
 			<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $first[$key]->youtube_id ?>/mqdefault.jpg);
         	background-repeat: no-repeat;
         	background-size: 260px 180px;">
-					<p class ="count"><span>件</span></p>
+					<p class ="count"><span><?=  h(count($trend_playlist->movies))?></span></p>
 			</div><!-- movie_count -->
 			<div class = "description">
 				<h3 class ="title">【<?=h($trend_playlist->name) ?>】</h3>

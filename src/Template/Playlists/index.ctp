@@ -1,17 +1,6 @@
 <?php $this->prepend('script', $this->Html->script('admin_searchout')); ?>
 <?php $this->prepend('css', $this->Html->css('admin_movies_view')); ?>
 <h1 class= "page_title">Welcome!!</h1>
-			<?php 
-				echo $this->Form->create($search,['type' => 'get']);
-				echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$keyword]);
-				echo $this->Form->button("検索",["action"=>"index", 'id'=>'btn1']);
-				echo $this->Form->end();
-			?>
-<!--
-<form action="index" method="get">
-				<input type="text" id="keyword" value="" />
-				<input type="button" id="btn1" value="検索" />
-</form> -->
 
 <div id ="homepage_container">
 <h2 class="page_sub_title">Check Trend Movies</h2>
@@ -38,7 +27,7 @@
 				<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $first[$key]->youtube_id ?>/mqdefault.jpg);
         	background-repeat: no-repeat;
         	background-size: cover;">
-					<p class = "count"><span>動画件数</span></p>
+					<p class = "count"><span><?=  h(count($trend_playlist->movies))?></span></p>
 				</div><!-- movie_count -->
 				<div class = "description">
 					<h3 class ="title"><?=h($trend_playlist->name) ?></h3>

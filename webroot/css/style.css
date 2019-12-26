@@ -335,3 +335,22 @@ body{
     		color: white;
 			text-decoration:none;
 		}
+		//nishino
+		.submit_search{
+		display: flex;
+		justify-content:space-between;
+	}
+	.submit_search form{
+		display: flex;
+	}
+	
+	.submit_search .btn-default{
+		height: 3.5rem;
+		margin-top:2rem;
+	}
+	
+	#homepage_container .playlist_movies_container{
+		margin-bottom: 5rem;
+		
+	}
+		

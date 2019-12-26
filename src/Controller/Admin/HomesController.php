@@ -9,12 +9,11 @@ class HomesController extends AppController{
 		
 		$keyword = "";
 		if(isset($_GET["keyword"])){
+			if($_GET["keyword"] == ""){
+				return $this->redirect(["action"=>"index"]);
+			}
 			$keyword = $_GET["keyword"];
 		}
-		
-
-
-		
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Home");
@@ -42,7 +41,7 @@ class HomesController extends AppController{
 		$first = array();
 		$tp = $trend_playlists->toArray();
 		foreach($trend_playlists as $key => $t){
-			$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->order(["play_number"=>"asc"])->toArray();
+			$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->order(["play_number"=>"Asc"])->toArray();
 			if($a){
 				$first[] = $a[0];
 			}
@@ -62,6 +61,7 @@ class HomesController extends AppController{
 	
 	public function play(){
 		// アクセスログ生成
+		$keyword = "";
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Play");
 		
@@ -83,7 +83,7 @@ class HomesController extends AppController{
 		$playlists = $this->Playlists->find('list')->where(["user_id"=>$user["id"]]);
 		$this->loadModel("Movies");
 		$movie = $this->Movies->newEntity();
-		$this->set(compact('comment','comments','playlists','movie','search'));
+		$this->set(compact('comment','comments','playlists','movie','search',"keyword"));
 
 	}
 }

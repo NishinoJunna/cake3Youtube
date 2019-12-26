@@ -11,6 +11,8 @@ class UsersController extends AppController{
 	}
 	
 	public function login(){
+		$search = "";
+		$keyword = "";
 		$user =$this->Users->newEntity();
 		if($this->request->is('post')){
 			$user=$this->MyAuth->identify();
@@ -21,9 +23,11 @@ class UsersController extends AppController{
 				$this->Flash->error(__('ID,またはパスワードが違っています'));
 			}
 		}
-		$this->set(compact('user'));
+		$this->set(compact('user',"keyword","search"));
 	}
 	public function register(){
+		$search = "";
+		$keyword = "";
 		$user =$this->Users->newEntity();
 		if($this->request->is('post')){
 			$user = $this->Users->patchEntity($user, $this->request->data);
@@ -34,6 +38,6 @@ class UsersController extends AppController{
 			}
 			$this->Flash->error(__('ユーザ登録に失敗しました'));
 		}
-		$this->set(compact('user'));
+		$this->set(compact('user',"keyword","search"));
 	}
 }

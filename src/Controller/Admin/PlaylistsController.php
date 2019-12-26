@@ -8,6 +8,8 @@ class PlaylistsController extends AppController
 {
 	function mylist()
 	{	
+		$search = "";
+		$keyword = "";
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Mylist");
@@ -19,11 +21,13 @@ class PlaylistsController extends AppController
 			->contain('Movies')
 			->where(['Playlists.user_id'=>$user['id']]);
 		
-		$this->set(compact('user','my_playlists'));
+		$this->set(compact('user','my_playlists',"search","keyword"));
 	}
 
 	function add()
 	{	
+		$search = "";
+		$keyword = "";
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("addPlaylist");
@@ -40,10 +44,12 @@ class PlaylistsController extends AppController
 			}
 			$this->Flash->error(__('プレイリストの新規登録に失敗しました'));
 		}
-		$this->set(compact('playlist'));
+		$this->set(compact('playlist',"search","keyword"));
 	}
 	function edit($id = null)
 	{
+		$search = "";
+		$keyword = "";
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("EditPlaylist");
@@ -63,7 +69,7 @@ class PlaylistsController extends AppController
 				}
 				$this->Flash->error(__('プレイリストの更新に失敗しました'));
 			}
-			$this->set(compact('playlist'));
+			$this->set(compact('playlist',"search","keyword"));
 		}catch(Exception $e){
 			$this->Flash->error(__("不正なIDです"));
 			return $this->redirect(["action"=>"mylist"]);
@@ -72,6 +78,7 @@ class PlaylistsController extends AppController
 	
 	public function play($playlist_id = null){
 		// アクセスログ生成
+		$keyword = "";
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Play");
 		//追加
@@ -88,6 +95,11 @@ class PlaylistsController extends AppController
 			$youtube_id = $_GET["youtube_id"];
 			$nb = $_GET["nb"];
 		}
+		
+		//var_dump($nb); die();
+		if($playlist_id == "" || $playlist_id == null){
+			return $this->redirect(["controller"=>"homes",'action' => 'index']);
+		}
 		$search = "";
 		$comments = $this->loadModel('Comments')
 			->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
@@ -99,7 +111,8 @@ class PlaylistsController extends AppController
 			->where(["playlist_id"=>$playlist_id])
 			->order(["play_number"=>"ASC"])
 			->toArray();
-		$this->set(compact("playlist_movies","search","comments","comment","movie","playlists","playlist_id","nb"));
+		$nb = count($playlist_movies);
+		$this->set(compact("playlist_movies","search","comments","comment","movie","playlists","playlist_id","nb","keyword"));
 	}
 	
 	public function delete($id = null){

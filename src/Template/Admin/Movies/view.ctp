@@ -1,3 +1,4 @@
+<?php $this->prepend('script', $this->Html->script('search')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_movies_view')); ?>
 <?php $this->prepend('css', $this->Html->css('admin_movies_view')); ?>
 
@@ -21,7 +22,7 @@
 			<?php if($mine): ?>
 			<p class="link"><?=$this->Html->Link("プレイリストから削除",["controller"=>"movies","action"=>"delete",$movie->id]) ?></p>
 			<?php endif; ?>
-			<p class= "link"><?=$this->Html->link("この動画を再生" , "http://localhost/cake3youtube/admin/playlists/play?playlist_id=$playlist_id&youtube_id=$movie->youtube_id&nb=$nb") ?></p>
+			<p class= "link"><?=$this->Html->link("この動画を再生" , "http://localhost/cake3youtube/admin/playlists/play?playlist_id=$playlist_id&youtube_id=$movie->youtube_id&nb=") ?></p>
 		</div><!-- link_box -->
 	</div><!-- movies -->
 	<?php endforeach ;?>

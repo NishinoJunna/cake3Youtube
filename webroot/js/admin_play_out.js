@@ -1,12 +1,5 @@
 //var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
-
-var url_string = window.location.href;
-var url = new URL(url_string);
-if(url.searchParams.get("youtube_id")==undefined||url.searchParams.get("playlist_id")==undefined||url.searchParams.get("nb")==undefined){
-	 window.location.href = "http://localhost/cake3youtube/admin/homes";
-}
-
 var googleApiClientReady = function(){
 	init();
 };
@@ -22,9 +15,6 @@ var init = function(){
  var playlist_id = url.searchParams.get("playlist_id");
  var nb = url.searchParams.get("nb");
  
- 
- 
- 
  var create = new Boolean(true);
  var tag = document.createElement('script');
  tag.src = 'http://www.youtube.com/player_api';
@@ -36,12 +26,13 @@ var init = function(){
 	 	var rank = movie_box.index(this) + 1;
 	 	console.log(rank);
 	 	youtube_id = $('#video' + rank).val();
-	 	window.location.href = "http://localhost/cake3youtube/admin/playlists/play?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
+	 	window.location.href = "http://localhost/cake3youtube/playlists/playlist?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
 	 });
 	 nb = $('#nb').val();
 	 if(youtube_id == null || youtube_id == "" ){
-		 window.location.href = "http://localhost/cake3youtube/admin/homes/index";
+		 window.location.href = "http://localhost/cake3youtube/playlists/index";
 	 }
+	 console.log(nb);
      player = new YT.Player('player', {
          videoId: youtube_id,
          events: {
@@ -57,10 +48,9 @@ var init = function(){
      console.log(current);
      $('.playlist_right_container #color' + current).css("border","aqua 1rem solid");
      $('#commentAdd #youtube_id').val(youtube_id);
+     $('.out_playlist_add').attr("href","http://localhost/cake3youtube/admin/homes/play?youtube_id="+youtube_id);
      /*$('h2.movie_title').html(event.target.getVideoData().title);
-     search(youtube_id);*/
-     $('#videoid_add').val(youtube_id);
-     $('#title_add').val(event.target.getVideoData().title);
+     $('#title_add').val(event.target.getVideoData().title);*/
 			
  }
  function onPlayerStateChange(event){
@@ -97,7 +87,7 @@ var init = function(){
          current = 1;
      }
      youtube_id = $('#video' + current).val();
-     window.location.href = "http://localhost/cake3youtube/admin/playlists/play?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
+     window.location.href = "http://localhost/cake3youtube/playlists/playlist?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
      
 }
 
@@ -109,7 +99,7 @@ function playPrev(){
 	}
 	youtube_id = $('#video' + current).val();
  //console.log(datas[current]["videoId"]);
-	window.location.href = "http://localhost/cake3youtube/admin/playlists/play?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
+	window.location.href = "http://localhost/cake3youtube/playlists/playlist?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
  //videoInfo(current);
 }
 function exe(){
@@ -121,9 +111,15 @@ function exe(){
 }
 $(function(){
  	$('#btn1').on('click',admin1);
+ 	$('#comm').on('click',admin2);
  });
 
 function admin1(){
-		window.location.href = "http://localhost/cake3youtube/admin/homes/index?keyword=" + $("#keyword").val();
+		window.location.href = "http://localhost/cake3youtube/playlists/index?keyword=" + $("#keyword").val();
 		return false;
 };
+function admin2(){
+	alert("ログインが必須です。");
+	window.location.href = "http://localhost/cake3youtube/users/login";
+	return false;
+}

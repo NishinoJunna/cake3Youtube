@@ -2,17 +2,12 @@
 <?php $this->prepend('css', $this->Html->css('admin_playlists_play')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_playlist_add')); ?>
+<?php $this->prepend('script', $this->Html->script('search')); ?>	
 
-
+<input type="hidden" id="nb" value="<?= $nb ?>" />
 <h2 class= "page_title">Playlist Play</h2>
 <div class="form_box">
 	<div class="keyword_box">
-		<?php
-			echo $this->Form->create($search,['type' => 'get']);
-			echo $this->Form->input('keyword',["label"=>"", 'id'=>"keyword", "value"=>$search]);
-			echo $this->Form->button("検索",[ 'id'=>'btn1']);
-			echo $this->Form->end();
-		?>
 	</div><!-- keyword_box -->		
 	<form>
 	    <input type="button" value=" < <" id="prev" />
@@ -20,6 +15,7 @@
 	    <input type="button" value=" > > " id="next" />
 	</form>
 </div><!-- form_box -->
+
 
 <div id= "playlist_play_container">
 	<div class="playlist_left_container">
@@ -31,7 +27,7 @@
 				echo $this->Form->create($movie,["id" =>"playlistAdd"],array("url"=>"/admin/movies/addplaylistajax"));
 				echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>"","id"=>"videoid_add"]);
 				echo $this->Form->input("title",["type"=>"hidden","value"=>"","id"=>"title_add"]);
-				echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストに追加","label"=>false,"class"=>"add_playlist"]);
+				echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストに追加","label"=>false,"id"=>"adminPlaylistAdd"]);
 				echo $this->Form->end();
 			?>
 		</div>
@@ -73,13 +69,13 @@
 	        		<?php echo $playlist_movie->movie_detail->title;?>
 	        	</a></p><!-- movie-title -->
 				<div>
-					<p><?php echo $playlist_movie->play_number; $i++;?></p>
+					<p><?php echo $playlist_movie->play_number;?></p>
 				</div>
 			</div><!-- flex_right_box -->
 			<input type="hidden" id="<?php echo $playlist_movie->youtube_id;?>" value="<?php echo $i ?>" />
 	        <input type="hidden" id="video<?php echo $i;?>" value="<?php echo $playlist_movie->youtube_id; ?>" />
 		</div><!-- flex_box -->	
-		<?php endforeach; ?>
+		<?php  $i++; endforeach; ?>
 	</div><!-- playlist_right_container-->
 </div><!-- playlist_play_container -->
 

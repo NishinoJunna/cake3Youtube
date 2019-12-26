@@ -1,13 +1,5 @@
 <?php $this->prepend('script', $this->Html->script('admin_playlistout')); ?>
-
-
- 			<?php
-				echo $this->Form->create($search,['type' => 'get']);
-				echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$search]);
-				echo $this->Form->button("検索",[ 'id'=>'btn1']);
-				echo $this->Form->end();
-			?>
-			
+<?php $this->prepend('script', $this->Html->script('searchout')); ?>			
             <form>
                 <input type="button" value=" < <" id="prev" />
 		        <input type="button" value="再生" id="exe" />

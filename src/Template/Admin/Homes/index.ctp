@@ -4,12 +4,6 @@
 
 <div class="admin_homes_index_form">
 	<h2 class= "page_title">WELCOME!!</h2>
-	<?php 
-		echo $this->Form->create($search,['type' => 'get']);
-		echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$keyword]);
-		echo $this->Form->button("検索",["action"=>"index", 'id'=>'btn1']);
-		echo $this->Form->end();
-	?>
 </div>
 
 <div id ="homepage_container">
@@ -46,8 +40,14 @@
 			</div><!-- .description -->
 			<div class = "actions">
 				<p class = "edit"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
+				<p class = "edit">
+					<a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $trend_playlist->id ?>&youtube_id=<?php echo $first[$key]->youtube_id ?>&nb=">
+						このプレイリストを再生
+					</a>
+				</p>
 			</div><!-- actions -->
 	</div><!-- playlist_box -->
+
 		<?php endforeach; ?>
 
 		<div class="paginator">

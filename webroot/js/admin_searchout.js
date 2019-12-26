@@ -74,6 +74,7 @@ var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
             	$("#search").hide();
             	
             	window.location.href = 'http://localhost/cake3youtube/playlists/play?youtube_id='+datas[rank]["videoId"];
+
             	
             });
 		});

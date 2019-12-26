@@ -21,6 +21,10 @@ class CommentsController extends AppController
 			$comment->content = $this->request->data['content'];
 			$comment->user_id = $user_id;
 			$comment->youtube_id = $this->request->data['youtube_id'];
+			if($comment->content == ""){
+				$result['errors']="コメントはありません";
+				return;
+			}
 			if($this->Comments->save($comment)){
 				$comments = $this->Comments->find('all')
 								->contain("Users")
@@ -30,7 +34,7 @@ class CommentsController extends AppController
 				foreach ($comments as $com)
 				{
 					$result["user_name"][] = $com->user->name;
-					$result["content"][] = $com->content;
+					$result["content"][] = nl2br($com->content);
 					$result["created_at"][] = h($com->created_at->format("Y年m月d日H時i分"));
 					
 				}

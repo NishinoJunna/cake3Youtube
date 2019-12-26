@@ -39,7 +39,7 @@
 				<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $first[$key]->youtube_id ?>/mqdefault.jpg);
         	background-repeat: no-repeat;
         	background-size: cover;">
-					<p class = "count"><span>動画件数</span></p>
+					<p class = "count"><span><?=  h(count($trend_playlist->movies))?></span></p>
 				</div><!-- movie_count -->
 				<div class = "description">
 					<h3 class ="title"><?=h($trend_playlist->name) ?></h3>

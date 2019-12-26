@@ -13,7 +13,7 @@ class MoviesController extends AppController
 		$movie = $this->Movies->newEntity();
 		
 		if($this->request->is('ajax')){
-			$last = $this->Movies->find()->where(["playlist_id"=>$this->request->data["playlist_id"]])->order(["created_at"=>"desc"])->first();
+			$last = $this->Movies->find()->where(["playlist_id"=>$this->request->data["playlist_id"]])->order(["play_number"=>"desc"])->first();
 			$movie->play_number = $last["play_number"]+1;
 			if(empty($last)){
 					$movie->play_number = 1;
@@ -58,12 +58,18 @@ class MoviesController extends AppController
 			}else{
 				$this->request->is(['post','delete']);
 				if($this->Movies->delete($movie)){
-					
+					$movies = $this->Movies->find()->where(["playlist_id"=>$movie["playlist_id"]])
+													->order(["play_number"=>"asc"])->toArray();
+					foreach($movies as $key => $m){
+						$play_number = ["play_number"=>$key+1];
+						$video_id = ["youtube_id"=>$m->youtube_id,"playlist_id"=>$movie["playlist_id"]];
+						$this->Movies->updateAll($play_number,$video_id);
+					}
 					$this->Flash->success(__('プレイリストから削除しました'));
 				}else{
 					$this->Flash->error(__('削除に失敗しました'));
 				}
-				return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);
+				return $this->redirect(["controller"=>"movies","action"=>"view",$movie["playlist_id"]]);
 			}
 		}catch(Exception $e){	
 			$this->Flash->error(__("不正なIDです"));
@@ -118,10 +124,10 @@ class MoviesController extends AppController
 			$mine = 0;
 			if($user["id"]===$playlist["user_id"]){
 				$mine = 1;
-				//非公開のものは表示できない
-				if($playlist["status"] !== 1){
-					throw new Exception();
-				}
+			}
+			//非公開のものは表示できない
+			if($mine==0 && $playlist["status"] !== 1){
+				throw new Exception();
 			}
 			
 			$movies= $this->Movies

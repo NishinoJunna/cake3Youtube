@@ -1,4 +1,4 @@
-var apiKey = 'AIzaSyAyvuTLQlXGhiqc5i85uuw9ewsMRXJkHKQ';
+var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 //var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
 var url_string = window.location.href;
 var url = new URL(url_string);
@@ -150,7 +150,7 @@ console.log(keyword);
      
      function playNext(){
          console.log(datas[0]["videoId"]);
-         window.location.href = "http://localhost/cake3youtube/homes/play?youtube_id=" + datas[0]["videoId"];
+         window.location.href = "http://localhost/cake3youtube/playlists/play?youtube_id=" + datas[0]["videoId"];
          
  }
 
@@ -160,7 +160,7 @@ console.log(keyword);
          current = datas.length - 1;
      }
      console.log(datas[current]["videoId"]);
-     window.location.href = "http://localhost/cake3youtube/homes/play?youtube_id=" + datas[current]["videoId"] + '&search=' + keyword;
+     window.location.href = "http://localhost/cake3youtube/playlists/play?youtube_id=" + datas[current]["videoId"] + '&search=' + keyword;
      //videoInfo(current);
  }
  function exe(){

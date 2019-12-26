@@ -442,4 +442,7 @@ nMylist:2019/12/26 04:19,::1,,http://localhost/cake3youtube/admin/homes
 nMylist:2019/12/26 04:20,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 nEdit:2019/12/26 04:20,::1,,http://localhost/cake3youtube/admin/playlists/mylist
 nHome:2019/12/26 04:20,::1,,http://localhost/cake3youtube/admin/movies/edit/7
+nMylist:2019/12/26 04:21,::1,,http://localhost/cake3youtube/admin/homes
+nEdit:2019/12/26 04:21,::1,,http://localhost/cake3youtube/admin/playlists/mylist
+nMylist:2019/12/26 04:21,::1,,http://localhost/cake3youtube/admin/movies/edit/7
 n

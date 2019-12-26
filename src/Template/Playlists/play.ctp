@@ -15,11 +15,11 @@
             </form>
 
 <div id="play" class="play_container">
-	<div class="left_play_container">
-		<h2 class ="movie_title"></h2>	
+	<div class="left_play_container">	
 		<div id="player">
 		</div><!-- player -->
-		<div class="button_add_playlist">
+		<p class ="movie_title"></p>
+		<div class="button_add_playlist link_add_before_login">
 		<?=$this->Html->link("ログインしてプレイリストに追加する","#",["class"=>"out_playlist_add"]) ?>
 		</div>
 		
@@ -28,7 +28,7 @@
 				echo $this->Form->input("content",["label"=>false,"id"=>"comment", "style"=>"resize:none;", "value"=>""]); 
 				echo $this->Form->input('youtube_id',['value'=>"",'type'=>'hidden',"id"=>"youtube_id"]);
 			?>
-			<button type="button" id="comm">コメント</button>
+			<button type="button" id="comm" class= "comment_button">コメント</button>
 		</div><!--comment_post_area-->
 		
 		<?php if(isset($comments)): ?>

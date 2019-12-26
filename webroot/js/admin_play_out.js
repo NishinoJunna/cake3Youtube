@@ -1,5 +1,5 @@
-//var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
-var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
+var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+//var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
 var googleApiClientReady = function(){
 	init();
 };
@@ -46,7 +46,7 @@ var init = function(){
      event.target.playVideo();
      current = $('#' + youtube_id).val();
      console.log(current);
-     $('.playlist_right_container #color' + current).css("border","aqua 1rem solid");
+     $('.playlist_right_container #color' + current).css("border","violet 0.5rem solid");
      $('#commentAdd #youtube_id').val(youtube_id);
      $('.out_playlist_add').attr("href","http://localhost/cake3youtube/admin/homes/play?youtube_id="+youtube_id);
      /*$('h2.movie_title').html(event.target.getVideoData().title);

@@ -19,7 +19,6 @@
 	height: 3.3rem;
 	margin:auto 0;
 	padding:0;
-	
 }
 #playlist_play_container{
 	display: flex;
@@ -27,7 +26,7 @@
 
 .playlist_left_container{
 	font-size: 20px;
-	min-width:600px;
+	min-width:800px;
 }
 
 .playlist_right_container{
@@ -74,14 +73,6 @@
 	width: 800px;
 	margin: 0 auto;
 }
-background-color:black!important;
-}
-.iframe_box iframe{
-	display: block !important;
-	margin-left: 50px !important;
-	width: 90% !important;
-	height: 400px !important;
-}
 
 .topic{
 	text-align: center;
@@ -91,9 +82,10 @@ background-color:black!important;
 
 
 .add_playlist{
-	width: 30%;
+	width: 25%;
 	margin:0 4rem 0 auto;
-	font-size:1.4rem;	
+	font-size:1.2rem;
+	min-width:140px;
 }
 
 .comment_post_area{

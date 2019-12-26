@@ -25,16 +25,7 @@ body{
             opacity: 0.5;
             z-index: 9999;
         }
-        #main_box{
-            margin: 0 auto;
-            width: 1200px;
-        }
-        #player{
-            width: 800px;
-            background-color: #fff;
-            margin-top: 20px;
-            padding: 20px;
-        }
+
  
         #movie_title{
             font-size: 1.2em;
@@ -73,7 +64,16 @@ body{
 	        	letter-spacing: 0.2em;
 	        	vertical-align: middle;
 	        	display: inline;
-	        }
+	    }
+	    
+	    #player{
+	    	display: block;
+            width: 700px;
+            height: 400px;
+            background-color: black;
+            margin: 0 auto;
+            padding: 20px;
+        }
 	    .page_title_centaling{
 	    	position:relative;
 	    }
@@ -153,6 +153,18 @@ body{
         	height: 180px;
         }
         
+        .delete_playlist_button{
+        	background-color: orange;
+        	width:90%;
+        	border: 0.3rem solid black;
+        	border-radius: 2rem;
+        	font-weight: bold;
+        }
+        
+         .delete_playlist_button:hover{
+         	background-color: white;
+         	color: orange;
+         }
         .description h3{
         	margin:0;
         }
@@ -172,7 +184,6 @@ body{
         	font-weight: bold;
         	margin:1rem auto 1rem auto;
         	background-color: orangered;
-        	color: white;
         	box-sizing: border-box;
         }
         
@@ -182,8 +193,8 @@ body{
         }
         
         .edit a{
-        	color:white;
-        	padding:1rem;
+        	color:black;
+        	padding:1rem 2.5rem;
         }
         .actions a:hover{
         	text-decoration: none;

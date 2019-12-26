@@ -71,11 +71,11 @@ console.log(keyword);
  	                			"description" : data.items[i].snippet.description };
  						$('.right_play_container').append(`
  							<div class="movie_box">
-	 							<div class="movies_box" style="background-image:url(${data.items[i].snippet.thumbnails.default.url});background-repeat: no-repeat;
-			background-size:100%;">
+	 							<div class="movies_box" style="background-image:url(${data.items[i].snippet.thumbnails.medium.url});background-repeat: no-repeat;
+ 								background-size:100%;">
 	 							</div>
 	 							<div class="details">
-	 								<p class= "movie_title"><a href="http://localhost/cake3youtube/playlists/play?youtube_id=${data.items[i].id.videoId}">
+	 								<p class= "related_movie_title"><a href="http://localhost/cake3youtube/playlists/play?youtube_id=${data.items[i].id.videoId}">
 	 									${data.items[i].snippet.title}</a>
 	 								</p>
 	 							</div><!--details-->
@@ -118,7 +118,7 @@ console.log(keyword);
  	
  	function onPlayerReady(event){
          event.target.playVideo();
-         $('h2.movie_title').html(event.target.getVideoData().title);
+         $('p.movie_title').html(event.target.getVideoData().title);
          $('.out_playlist_add').attr("href","http://localhost/cake3youtube/admin/homes/play?youtube_id="+youtube_id);
          search(youtube_id);
  			

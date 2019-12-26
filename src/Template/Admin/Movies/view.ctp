@@ -21,9 +21,9 @@
 			<?php if($mine): ?>
 			<p class="link"><?=$this->Html->Link("プレイリストから削除",["controller"=>"movies","action"=>"delete",$movie->id]) ?></p>
 			<?php endif; ?>
-			<a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $playlist_id ?>&youtube_id=<?= $movie->youtube_id ?>&nb=">
-				このプレイリストを再生
-			</a>
+			<p class= "link"><a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $playlist_id ?>&youtube_id=<?= $movie->youtube_id ?>&nb=">
+				この動画から再生
+			</a></p>
 		</div><!-- link_box -->
 	</div><!-- movies -->
 	<?php endforeach ;?>

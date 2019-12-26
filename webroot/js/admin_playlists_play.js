@@ -39,7 +39,7 @@ var init = function(){
 	 	window.location.href = "http://localhost/cake3youtube/admin/playlists/play?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
 	 });
 	 nb = $('#nb').val();
-	 if(youtube_id == null || youtube_id == "" ){
+	 if(youtube_id == null || youtube_id == "" || youtube_id == "undefind" ){
 		 window.location.href = "http://localhost/cake3youtube/admin/homes/index";
 	 }
      player = new YT.Player('player', {

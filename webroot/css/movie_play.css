@@ -3,7 +3,7 @@
 	margin:1rem 0;
 	padding-bottom: 1rem;
 	border-bottom: solid gray 0.1rem;
-	
+	cursor:pointer;
 }
 
 .movie_box:first-child{
@@ -120,5 +120,3 @@
 	border-bottom: 0.2rem #ff0080 dotted;
 	box-sizing: border-box;
 }
-
-

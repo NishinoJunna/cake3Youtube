@@ -29,7 +29,7 @@ var init = function(){
 	 	window.location.href = "http://localhost/cake3youtube/playlists/playlist?playlist_id=" + playlist_id + "&youtube_id=" + youtube_id + "&nb=" + nb;
 	 });
 	 nb = $('#nb').val();
-	 if(youtube_id == null || youtube_id == "" ){
+	 if(youtube_id == null || youtube_id == "" || youtube_id == "undefind" ){
 		 window.location.href = "http://localhost/cake3youtube/playlists/index";
 	 }
 	 console.log(nb);

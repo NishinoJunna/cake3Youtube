@@ -1,16 +1,5 @@
 <?php $this->prepend('script', $this->Html->script('admin_searchout')); ?>
 <h1 class= "page_title">Welcome!!</h1>
-			<?php 
-				echo $this->Form->create($search,['type' => 'get']);
-				echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>$keyword]);
-				echo $this->Form->button("検索",["action"=>"index", 'id'=>'btn1']);
-				echo $this->Form->end();
-			?>
-<!--
-<form action="index" method="get">
-				<input type="text" id="keyword" value="" />
-				<input type="button" id="btn1" value="検索" />
-</form> -->
 
 <div id ="homepage_container">
 <h2 class="page_sub_title">Check Trend Movie</h2>

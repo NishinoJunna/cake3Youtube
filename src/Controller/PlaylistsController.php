@@ -53,6 +53,7 @@ class PlaylistsController extends AppController
 	public function play()
 	{
 		$search = "";
+		$keyword = "";
 		$comment = $this->loadModel('Comments');
 		if(isset($_GET["youtube_id"])){
 			$youtube_id = $_GET["youtube_id"];
@@ -65,10 +66,11 @@ class PlaylistsController extends AppController
 		->contain('Users')
 		->where(['youtube_id'=>$youtube_id]);
 		//var_dump($comments); die();
-		$this->set(compact('comment','comments','search'));
+		$this->set(compact('comment','comments','search',"keyword"));
 	}
 	public function playlist()
 	{
+		$keyword="";
 		$search = "";
 		$playlist_id = null;
 		$youtube_id = "";
@@ -98,7 +100,7 @@ class PlaylistsController extends AppController
 		->find('all',['order' =>['Comments.created_at' => 'DESC'] ])
 		->contain('Users')
 		->where(['youtube_id'=>$youtube_id]);
-		$this->set(compact("playlist_movies","playlist_id","nb","comments","comment","search"));
+		$this->set(compact("playlist_movies","playlist_id","nb","comments","comment","search","keyword"));
 	}
 	
 }

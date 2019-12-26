@@ -1,27 +1,30 @@
 var nb = null;
 $(function(){
- 	$('.btn').on('click',admin1);
- 	$('#yes').on('click',admin2);
- 	$('#non').on('click',admin3);
- 	
+ 	$('.del').on('click',ad1);
  });
-
-function admin1(){
-		$('#ask').show();
-		var nb_box = $(".btn");
+/*<p>全て削除をよろしいですか?</p>
+<input type="button" id="yes" value="はい" />&nbsp;&nbsp;<input type="button" id="non" value="いええ" />*/
+function ad1(){
+		
+		var nb_box = $(".del");
 		var rank = nb_box.index(this);
  	 	console.log(rank);
  	 	nb = rank;
-		
+ 	 	$('#ask' + nb).append(
+ 	 			`<p>全て削除をよろしいですか?</p>
+ 	 			<input type="button" id="yes" value="はい" />&nbsp;&nbsp;<input type="button" id="non" value="いええ" />`);
+ 	 	$('#yes').on('click',ad2);
+ 	 	$('#non').on('click',ad3);
 		return false;
 };
-function admin2(){
+function ad2(){
+	
 	console.log($('#nb' + nb).val());
 	window.location.href = "http://localhost/cake3youtube/admin/playlists/delete/" + $('#nb' + nb).val();
 	return false;
 };
-function admin3(){
-	$('#ask').hide();
+function ad3(){
+	$('#ask' + nb).html("");
 	//window.location.href = "http://localhost/cake3youtube/admin/playlists/mylist";
 	return false;
 };

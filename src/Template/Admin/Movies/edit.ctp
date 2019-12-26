@@ -1,3 +1,4 @@
+<?php $this->prepend('script', $this->Html->script('search')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_movies_edit')); ?>
 <?php $this->prepend('css', $this->Html->css('admin_movies_edit')); ?>
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>

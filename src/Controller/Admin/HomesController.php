@@ -60,6 +60,7 @@ class HomesController extends AppController{
 	
 	public function play(){
 		// アクセスログ生成
+		$keyword = "";
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Play");
 		
@@ -81,7 +82,7 @@ class HomesController extends AppController{
 		$playlists = $this->Playlists->find('list')->where(["user_id"=>$user["id"]]);
 		$this->loadModel("Movies");
 		$movie = $this->Movies->newEntity();
-		$this->set(compact('comment','comments','playlists','movie','search'));
+		$this->set(compact('comment','comments','playlists','movie','search',"keyword"));
 
 	}
 }

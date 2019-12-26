@@ -7,12 +7,6 @@
 <h2 class= "page_title">Playlist Play</h2>
 <div class="form_box">
 	<div class="keyword_box">
-		<?php
-			echo $this->Form->create($search,['type' => 'get']);
-			echo $this->Form->input('keyword',["label"=>"", 'id'=>"keyword", "value"=>$search]);
-			echo $this->Form->button("検索",[ 'id'=>'btn1']);
-			echo $this->Form->end();
-		?>
 	</div><!-- keyword_box -->		
 	<form>
 	    <input type="button" value=" < <" id="prev" />
@@ -32,7 +26,7 @@
 				echo $this->Form->create($movie,["id" =>"playlistAdd"],array("url"=>"/admin/movies/addplaylistajax"));
 				echo $this->Form->input("youtube_id",["type"=>"hidden","value"=>"","id"=>"videoid_add"]);
 				echo $this->Form->input("title",["type"=>"hidden","value"=>"","id"=>"title_add"]);
-				echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストに追加","label"=>false,"class"=>"add_playlist"]);
+				echo $this->Form->input("playlist_id",["options"=>$playlists,"empty"=>"プレイリストに追加","label"=>false,"id"=>"adminPlaylistAdd"]);
 				echo $this->Form->end();
 			?>
 		</div>

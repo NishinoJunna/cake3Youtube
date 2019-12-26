@@ -1,3 +1,4 @@
+<?php $this->prepend('script', $this->Html->script('searchout')); ?>
 <h1 class="page-header">ユーザ登録</h1>
 <?php
 echo $this->Form->create($user);

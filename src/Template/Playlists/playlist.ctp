@@ -2,12 +2,6 @@
 <?php $this->prepend('css', $this->Html->css('admin_playlists_play')); ?>
 
 <input type="hidden" id="nb" value="<?= $nb ?>" />
-<?php
-	echo $this->Form->create($search,['type' => 'get']);
-	echo $this->Form->input('keyword',["label"=>"", 'id'=>"keyword", "value"=>$search]);
-	echo $this->Form->button("検査",[ 'id'=>'btn1']);
-	echo $this->Form->end();
-?>
 			
 <form>
     <input type="button" value=" < <" id="prev" />

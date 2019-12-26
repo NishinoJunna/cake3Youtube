@@ -11,6 +11,18 @@
 				<li class="dropdown">
 					<?=$this->Html->link("プレイリスト新規作成","/admin/playlists/add"); ?>
 				</li>
+				<li class="dropdown">
+					<div class="submit_search">
+						<form>
+							<?php 
+								echo $this->Form->create($search,['type' => 'get']);
+								echo $this->Form->input('keyword',["label"=>"", "id"=>"keyword", "value"=>"$keyword"]);
+								echo $this->Form->button("検索",["action"=>"index", 'id'=>'btn10']);
+								echo $this->Form->end();
+							?>
+						</form>
+					</div><!-- search -->
+				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<p class="navbar-text">ようこそ、<?=$auth["name"]; ?>さん</p>

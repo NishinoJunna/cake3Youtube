@@ -1,3 +1,4 @@
+<?php $this->prepend('script', $this->Html->script('search')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_movies_view')); ?>
 <?php $this->prepend('css', $this->Html->css('admin_movies_view')); ?>
 

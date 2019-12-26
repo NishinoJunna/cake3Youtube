@@ -531,4 +531,24 @@ nPlay:2019/12/25 07:18,::1,,http://localhost/cake3youtube/admin/homes
 nPlay:2019/12/25 07:18,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=L3pqPw9ipCg
 nHome:2019/12/25 07:19,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=r7qovpFAGrQ
 nPlay:2019/12/25 07:20,::1,,http://localhost/cake3youtube/admin/homes
+nHome:2019/12/25 07:27,::1,,http://localhost/cake3youtube/admin/homes/play?youtube_id=DD87n0WpFvA
+nPlay:2019/12/25 07:27,::1,,http://localhost/cake3youtube/admin/homes
+nHome:2019/12/25 07:27,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=12&youtube_id=oXwNwVMsRi0&nb=
+nViewPlaylists:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/homes
+nHome:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/movies/view/11
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/homes
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=KwMOZEfDZ3k&nb=
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=oXwNwVMsRi0&nb=4
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=KwMOZEfDZ3k&nb=4
+nHome:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=u44js5YTEf4&nb=4
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/homes
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=KwMOZEfDZ3k&nb=
+nHome:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=3&youtube_id=oXwNwVMsRi0&nb=4
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/homes
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=3I2VAqrWD8I&nb=
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=p_XIfKuPpqw&nb=3
+nPlay:2019/12/25 07:28,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=L3pqPw9ipCg&nb=3
+nPlay:2019/12/25 07:34,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=L3pqPw9ipCg&nb=3
+nPlay:2019/12/25 07:34,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=3I2VAqrWD8I&nb=3
+nHome:2019/12/25 07:35,::1,,http://localhost/cake3youtube/admin/playlists/play?playlist_id=1&youtube_id=L3pqPw9ipCg&nb=3
 n

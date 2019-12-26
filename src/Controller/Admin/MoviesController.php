@@ -71,6 +71,8 @@ class MoviesController extends AppController
 		
 	}
 	public function edit($playlist_id=null){
+		$search = "";
+		$keyword = "";
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("Edit");
@@ -94,10 +96,12 @@ class MoviesController extends AppController
 			}
 			return $this->redirect(["action"=>"view",$playlist_id]);
 		}
-		$this->set(compact('playlist_movies'));
+		$this->set(compact('playlist_movies',"search","keyword"));
 	}
 	
 	public function view($playlist_id){
+		$search = "";
+		$keyword = "";
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("ViewPlaylists");
@@ -123,7 +127,7 @@ class MoviesController extends AppController
 				->where(["playlist_id"=>$playlist_id])
 				->order(["play_number"=>"ASC"])
 				->first();
-			$this->set(compact("movies","playlist_id","movi","mine","playlist"));
+			$this->set(compact("movies","playlist_id","movi","mine","playlist","search","keyword"));
 		}catch(Exception $e){
 			$this->Flash->error(__("不正なIDです"));
 			return $this->redirect(["controller"=>"playlists","action"=>"mylist"]);

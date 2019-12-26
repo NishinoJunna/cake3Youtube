@@ -104,6 +104,40 @@ class PlaylistsController extends AppController
 		$this->set(compact("playlist_movies","playlist_id","nb","comments","comment","search","keyword"));
 	}
 	
+	public function view($playlist_id){
+		$search = "";
+		$keyword = "";
+		// アクセスログ生成
+		$this->loadComponent('Math');
+		$this->Math->accesslog("ViewPlaylists");
+		try{
+
+			$playlist = $this->Playlists->get($playlist_id);
+			//非公開のものは表示できない
+			if($playlist["status"] !== 1){
+				throw new Exception();
+			}
+			$this->loadModel("Movies");
+			$movies= $this->Movies
+			->find("all")
+			->contain('MovieDetails')
+			->where(["playlist_id"=>$playlist_id])
+			->order(["play_number"=>"ASC"])
+			->toArray();
+			$movi=$this->Movies
+			->find("all")
+			->contain('MovieDetails')
+			->where(["playlist_id"=>$playlist_id])
+			->order(["play_number"=>"ASC"])
+			->first();
+			$this->set(compact("movies","playlist_id","movi","mine","playlist","search","keyword"));
+		}catch(Exception $e){
+			$this->Flash->error(__("不正なIDです"));
+			return $this->redirect(["controller"=>"homes"]);
+		}
+	
+	
+	}
 }
 
 

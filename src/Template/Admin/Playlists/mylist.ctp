@@ -33,7 +33,6 @@
 				<input type="hidden" id="nb<?= $i ?>" value="<?= $playlist->id ?>" />
 				<input type="button" class="del" value="プレイリストを削除" />
 			</div>
-
 		</div><!-- actions -->
 	</div><!-- .playlist_box -->
 

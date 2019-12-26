@@ -2,6 +2,7 @@
 <?php $this->prepend('css', $this->Html->css('admin_playlists_play')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_playlist_add')); ?>
+<?php $this->prepend('script', $this->Html->script('search')); ?>	
 
 <input type="hidden" id="nb" value="<?= $nb ?>" />
 <h2 class= "page_title">Playlist Play</h2>

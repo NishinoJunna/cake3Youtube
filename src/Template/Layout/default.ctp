@@ -19,6 +19,7 @@
 	$this->prepend('script', $this->Html->script([
 		'//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'
 	]));
+	
 ?>
 
 <!DOCTYPE html>

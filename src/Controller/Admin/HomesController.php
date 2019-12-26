@@ -40,7 +40,7 @@ class HomesController extends AppController{
 		$first = array();
 		$tp = $trend_playlists->toArray();
 		foreach($trend_playlists as $key => $t){
-			$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->toArray();
+			$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->order(["play_number"=>"Asc"])->toArray();
 			if($a){
 				$first[] = $a[0];
 			}

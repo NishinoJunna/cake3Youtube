@@ -1,6 +1,6 @@
 <?php $this->prepend('script', $this->Html->script('admin_playlist')); ?>
 <?php $this->prepend('script', $this->Html->script('admin_playlist_add')); ?>
-
+<?php $this->prepend('script', $this->Html->script('search')); ?>	
  <?php $this->prepend('script', $this->Html->script('admin_comment')); ?>
 			
             <form>

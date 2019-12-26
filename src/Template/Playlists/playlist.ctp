@@ -1,5 +1,6 @@
 <?php $this->prepend('script',$this->Html->script('admin_play_out')); ?>
 <?php $this->prepend('css', $this->Html->css('admin_playlists_play')); ?>
+<?php $this->prepend('script', $this->Html->script('searchout')); ?>	
 
 <input type="hidden" id="nb" value="<?= $nb ?>" />
 			

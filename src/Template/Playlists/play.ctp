@@ -1,5 +1,5 @@
 <?php $this->prepend('script', $this->Html->script('admin_playlistout')); ?>
-			
+<?php $this->prepend('script', $this->Html->script('searchout')); ?>			
             <form>
                 <input type="button" value=" < <" id="prev" />
 		        <input type="button" value="再生" id="exe" />

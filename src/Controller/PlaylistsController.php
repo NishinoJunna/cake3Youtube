@@ -21,23 +21,24 @@ class PlaylistsController extends AppController
 		});
 		$this->loadModel("Playlists");
 		$this->paginate = ["limit"=>5,["contain"=>"Users"]];
-		$trend_playlists = $this->Playlists->find()->contain("Users")
+		$trend_playlists = $this->Playlists->find()->contain(["Users","Movies"])
 		->where(function ($exp, $q) use ($subquery) {
 			return $exp->exists($subquery);
-		});
-			//var_dump($trend_playlists);exit;
-			$first = array();
-			$tp = $trend_playlists->toArray();
-			foreach($trend_playlists as $key => $t){
-				$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->order(["play_number"=>"Asc"])->toArray();
-				if($a){
-					$first[] = $a[0];
-				}
+		})
+		->andWhere(["status"=>1]);
+		//プレイリスト最初の動画IDをとる
+		$first = array();
+		$tp = $trend_playlists->toArray();
+		foreach($trend_playlists as $key => $t){
+			$a = $this->Playlists->Movies->find("all")->where(["playlist_id"=>$tp[$key]->id])->order(["play_number"=>"asc"])->toArray();
+			if($a){
+				$first[] = $a[0];
 			}
+		}
 		
 		$trend_playlists = $this->paginate($trend_playlists);
 		$this->set(compact("trend_movies","trend_playlists","first"));
-		//by 西野
+		
 		$search = "";
 		$keyword = "";
 		if(isset($_GET["keyword"])){

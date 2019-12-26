@@ -33,7 +33,7 @@ function commentRequest(event){
 					`<p class='comment_username'>${result['user_name'][key]}</p>
 					<p class= 'comment_content'>${result['content'][key]}</p>
 					<p class= 'comment_date'>${result['created_at'][key]}</p>
-					<hr>`);
+					`);
 		}
 	}
 	

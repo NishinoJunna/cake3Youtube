@@ -11,7 +11,7 @@
 	<div class= "playlist_movies_container">
 		<?php foreach($trend_movies as $trend_movie): ?>
 		<div class="movies">
-			<div class= "movies_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/default.jpg); background-repeat: no-repeat;
+			<div class= "movies_box"  style="background:url(https://i.ytimg.com/vi/<?php echo $trend_movie->youtube_id ?>/mqdefault.jpg); background-repeat: no-repeat;
 			background-size:240px 160px;">
 			</div><!-- movies_box -->
 			<p class ="movie_title"><?=h($trend_movie->title) ?></p>
@@ -29,7 +29,7 @@
 			<div class = "movie_count" style="background-image:url(https://i.ytimg.com/vi/<?php echo $first[$key]->youtube_id ?>/mqdefault.jpg);
         	background-repeat: no-repeat;
         	background-size: 260px 180px;">
-					<p class ="count"><span>件</span></p>
+					<p class ="count"><span><?=  h(count($trend_playlist->movies))?></span></p>
 			</div><!-- movie_count -->
 			<div class = "description">
 				<h3 class ="title">【<?=h($trend_playlist->name) ?>】</h3>
@@ -39,25 +39,23 @@
 				<p class= "publishedAt">作成者：<?=$trend_playlist->user->name ?></p>
 			</div><!-- .description -->
 			<div class = "actions">
-				<p class = "edit"><?=$this->Html->link("動画一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
+				<p class = "edit"><?=$this->Html->link("一覧",["controller"=>"movies","action"=>"view",$trend_playlist->id]) ?></p>
 				<p class = "edit">
 					<a href="http://localhost/cake3youtube/admin/playlists/play?playlist_id=<?= $trend_playlist->id ?>&youtube_id=<?php echo $first[$key]->youtube_id ?>&nb=">
-						このプレイリストを再生
+						再生
 					</a>
 				</p>
 			</div><!-- actions -->
 	</div><!-- playlist_box -->
-
-		<?php endforeach; ?>
-
-		<div class="paginator">
-			<ul class="pagination">
-				<?= $this->Paginator->numbers([
-					'before'	=>	$this->Paginator->first("<<"),
-					'after'		=>	$this->Paginator->last(">>"),
-				]) ?>
-			</ul>
-		</div>
+	<?php endforeach; ?>
+	<div class="paginator">
+		<ul class="pagination">
+			<?= $this->Paginator->numbers([
+				'before'	=>	$this->Paginator->first("<<"),
+				'after'		=>	$this->Paginator->last(">>"),
+			]) ?>
+		</ul>
+	</div>
 </div><!-- homepage_container -->
 
 

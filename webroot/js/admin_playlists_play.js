@@ -1,5 +1,12 @@
-//var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
-var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
+var apiKey = 'AIzaSyDhDHWAYFM1P-Y39DnrXrs3ltU0Qg1YLBU';
+//var apiKey = 'AIzaSyCDVnMfyohhkKLuU5QMPvoeLZF9kK_ZBlY';
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+if(url.searchParams.get("youtube_id")==undefined||url.searchParams.get("playlist_id")==undefined||url.searchParams.get("nb")==undefined){
+	 window.location.href = "http://localhost/cake3youtube/admin/homes";
+}
+
 var googleApiClientReady = function(){
 	init();
 };
@@ -14,6 +21,9 @@ var init = function(){
  var youtube_id = url.searchParams.get("youtube_id");
  var playlist_id = url.searchParams.get("playlist_id");
  var nb = url.searchParams.get("nb");
+ 
+ 
+ 
  
  var create = new Boolean(true);
  var tag = document.createElement('script');

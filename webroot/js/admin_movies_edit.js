@@ -3,15 +3,26 @@ $(function(){
 	$(".after_shuffle_box").hide();
 	
 	 jQuery( '.shuffle_left_container' ) . sortable();
-	    jQuery( '.shuffle_left_container' ) . disableSelection();
-	    jQuery( '.submit' ) . click( function() {
+	 jQuery( '.shuffle_left_container' ) . disableSelection();
+	 
+	 $('.shuffle_left_container').sortable({
+         update : function(ev, ui) {
+             console.log($(this).sortable("toArray"));
+             var count = $(this).children().length;
+             for(var i=0;i<count;i++){
+            	 $a = $(".shuffle_left_container p.number").eq(i).html(i+1);
+             }
+         }
+     });
+	 
+	 jQuery( '.submit' ) . click( function() {
 	    	var result = $(".shuffle_left_container").sortable("toArray");
 	    	console.log(result);
 	    	$("#result").val(result);
 	    	console.log("aaa");
 	    	 $("form").submit();
-	    } );
-	
+	 } );
+    
 	  /* $(".before").click(function(){
 		var test= $(this).html();
 		if(test != ""){

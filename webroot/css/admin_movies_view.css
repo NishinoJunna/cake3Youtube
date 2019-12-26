@@ -47,8 +47,8 @@
 	
 	.link_box{
 		display: flex;
-		justify-content: space-between;
-		margin:0.5rem 3rem 0 3rem;;
+		justify-content: center;
+		margin:1rem 3rem;
 	}
 	
 	.link_box .link{
@@ -63,7 +63,7 @@
 		border: 0.2rem solid gray;
 		box-sizing: border-box;
 		border-radius: 4px;
-		padding: 0.2rem;
+		padding: 0.6rem;
 	}
 	
 	.link_box .link a:hover{
@@ -77,8 +77,7 @@
 		left:90%;
 		font-size: 2rem;
 		font-weight: bold;
-		color: gray;
-		opacity: 0.8;
+		color: dimgray;
 	}
 	
 	.admin_homes_index_form{

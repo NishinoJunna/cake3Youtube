@@ -53,18 +53,27 @@ class PlaylistsController extends AppController
 		// アクセスログ生成
 		$this->loadComponent('Math');
 		$this->Math->accesslog("EditPlaylist");
-		$playlist = $this->Playlists->get($id, [
-				'contain'	=> []
-		]);
-		if($this->request->is(['patch', 'post', 'put'])){
-			$playlist = $this->Playlists->patchEntity($playlist, $this->request->data);
-			if($this->Playlists->save($playlist)){
-				$this->Flash->success(__('プレイリストを更新しました'));
-				return $this->redirect(['action' => 'mylist']);
+		$user_id = $this->MyAuth->user("id");
+		try{
+			$playlist = $this->Playlists->get($id, [
+				'contain'	=> ["Users"]
+			]);
+			if($playlist["user_id"] !== $user_id){
+				throw new Exception();
 			}
-			$this->Flash->error(__('プレイリストの更新に失敗しました'));
+			if($this->request->is(['patch', 'post', 'put'])){
+				$playlist = $this->Playlists->patchEntity($playlist, $this->request->data);
+				if($this->Playlists->save($playlist)){
+					$this->Flash->success(__('プレイリストを更新しました'));
+					return $this->redirect(['action' => 'mylist']);
+				}
+				$this->Flash->error(__('プレイリストの更新に失敗しました'));
+			}
+			$this->set(compact('playlist',"search","keyword"));
+		}catch(Exception $e){
+			$this->Flash->error(__("不正なIDです"));
+			return $this->redirect(["action"=>"mylist"]);
 		}
-		$this->set(compact('playlist',"search","keyword"));
 	}
 	
 	public function play($playlist_id = null){

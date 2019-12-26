@@ -6,9 +6,7 @@
 
 <input type="hidden" id="nb" value="<?= $nb ?>" />
 <h2 class= "page_title">Playlist Play</h2>
-<div class="form_box">
-	<div class="keyword_box">
-	</div><!-- keyword_box -->		
+<div class="form_box">		
 	<form>
 	    <input type="button" value=" < <" id="prev" />
 	    <input type="button" value="再生" id="exe" />
@@ -19,9 +17,9 @@
 
 <div id= "playlist_play_container">
 	<div class="playlist_left_container">
-		<div class= "iframe_box">
+		<div>
 			<div id="player"></div>
-		</div><!-- iframe_box -->
+		</div>
 		<div class="button_add_playlist">
 			<?php 
 				echo $this->Form->create($movie,["id" =>"playlistAdd"],array("url"=>"/admin/movies/addplaylistajax"));

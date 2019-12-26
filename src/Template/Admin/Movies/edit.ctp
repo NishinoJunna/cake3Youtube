@@ -7,19 +7,24 @@
 
 <div id= "shuffle_movies_container">
 	<?= $this->Form->create()?>
+	<h3>☞左上から横に順番になっています</h3>
 	<div class= "shuffle_left_container">
 	<?php foreach($playlist_movies as $movie) :?>
-		<div class= "movies_box" id="<?= $movie->movie_detail->youtube_id?>">
+		<div class="wraped" id="<?= $movie->movie_detail->youtube_id?>">
+			<div class= "movies_box" 
+				style="background:url(https://i.ytimg.com/vi/<?php echo $movie->youtube_id ?>/mqdefault.jpg); background-repeat: no-repeat;
+				background-size:240px 160px;">
+				<p class="number"><?=$movie->play_number?></p>
+			</div><!-- trend_movie_box -->
 			<div class ="trend_movie_details">
-				<p class ="trend_movie_title"><?= $movie->movie_detail->title ?></p>
-				<p><?=$movie->play_number?></p>
+					<p class ="movie_title"><?= $movie->movie_detail->title ?></p>
 			</div><!-- movie_details -->
-		</div><!-- trend_movie_box -->
+		</div>
 	<?php endforeach ;?>
 	</div><!-- shuffle_left_container -->
 </div><!-- shuffle_movies_container -->
 	<?= $this->Form->input("newnumber",["type"=>"hidden","value"=>"","id"=>"result"]); ?>
-	<?= $this->Form->button("登録",["class"=>"submit"])?>
+	<?= $this->Form->button("保存",["class"=>"submit"])?>
 	<?= $this->Form->end?>
 
 

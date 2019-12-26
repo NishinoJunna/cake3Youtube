@@ -62,7 +62,7 @@ console.log(keyword);
 			console.log(data);
 			if (!data.items) return;
 			$('#related').text('');
-			$('#related').append('<table>');
+			$('#related').append('<div class="flex_right_box">');
 			for(var i in data.items){
 				if(data.items[i].id.videoId &&
 					data.items[i].id.kind=="youtube#video"){
@@ -71,17 +71,19 @@ console.log(keyword);
 						datas[i] = {"videoId" : data.items[i].id.videoId,
 	                			"title" : data.items[i].snippet.title,
 	                			"description" : data.items[i].snippet.description };
-						$('.right_play_container').append(
-							'<tr class="movie_box">' +
-							'<td class="thum"><img src="' +
-							data.items[i].snippet.thumbnails.medium.url + '"/></td>' +
-							'<td class="details">' +
-							'<a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=' + data.items[i].id.videoId + '&search=' + keyword + 
-							'">' + data.items[i].snippet.title +'</a><br />' +
-							'<span class="description">' + data.items[i].snippet.description +
-							'</span>' +
-							'</td>' +
-							'</td>');
+						$('.right_play_container').append(`
+		 					<div class="movie_box">
+			 					<div class="movies_box" style="background-image:url(${data.items[i].snippet.thumbnails.medium.url});background-repeat: no-repeat;
+		 										background-size:100%;">
+								</div>
+			 						<div class="details">
+			 							<p class= "related_movie_title">
+			 								<a href="http://localhost/cake3youtube/admin/homes/play?youtube_id=${data.items[i].id.videoId}">
+			 									${data.items[i].snippet.title}</a>
+			 							</p>
+			 						</div><!--details-->
+		 					</div><!--movie_box-->`
+						);
 					}
 				}
 			}
@@ -89,7 +91,7 @@ console.log(keyword);
 			console.log(datas);
 			
 			console.log(datas);
-			var tr_tags = $(".right_play_container tr");
+			var tr_tags = $(".right_play_container .movie_box");
             
             tr_tags.on('click',function(){
             	var rank = tr_tags.index(this);
@@ -116,7 +118,7 @@ console.log(keyword);
 	
 	function onPlayerReady(event){
         event.target.playVideo();
-        $('h2.movie_title').html(event.target.getVideoData().title);
+        $('p.movie_title').html(event.target.getVideoData().title);
         search(youtube_id);
         $('#commentAdd #youtube_id').val(youtube_id	);
         $('#videoid_add').val(youtube_id);

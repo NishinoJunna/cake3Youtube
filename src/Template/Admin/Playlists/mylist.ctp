@@ -4,7 +4,6 @@
 	<h1 class="page_title">Your All Playlists</h1>
 	
 
-
 <?php $i = 0 ?>
 <?php foreach($my_playlists as $playlist) :?> 
 	<div class = "playlist_box">
@@ -22,7 +21,12 @@
 			<p class = "content">
 				<?= h($playlist->description) ?>
 			</p>
-		</div><!-- .description -->
+			<?php if($playlist->status == 1): ?>
+				<p class="status1">公開中</p>
+			<?php elseif($playlist->status == 0): ?>
+				<p class="status0">非公開</p>
+			<?php endif; ?>
+		</div><!-- description -->
 		<div id="ask<?= $i ?>">
 		</div><!--ask-->
 		<div class = "actions">
@@ -31,10 +35,11 @@
 			<p class ="edit"><?= $this->Html->link("一覧",["controller"=>"Movies","action"=>"view",$playlist->id])?></p>
 			<div class="nb_box">
 				<input type="hidden" id="nb<?= $i ?>" value="<?= $playlist->id ?>" />
-				<input type="button" class="del" value="プレイリストを削除" />
+				<input type="button" class="btn delete_playlist_button del" value="削除" />
+
 			</div>
 		</div><!-- actions -->
-	</div><!-- .playlist_box -->
-
+	</div><!-- playlist_box -->
 <?php $i++; endforeach;?>	
 </div><!-- #container -->
+

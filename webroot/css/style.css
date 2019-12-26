@@ -60,10 +60,10 @@ body{
 /*全ページ共通CSS*/
 		.page_title{
 	        	border-left: solid red 2rem;
+	        	border-max-height: 2rem;
 	        	padding-left: 1rem;
 	        	letter-spacing: 0.2em;
-	        	vertical-align: middle;
-	        	display: inline;
+	        	display: inline-block;s
 	    }
 	    
 	    #player{
@@ -198,7 +198,7 @@ body{
         	border-radius: 2rem;
         	font-size: 1.5rem;
         	font-weight: bold;
-        	margin:1rem auto 1rem auto;
+        	margin: 1rem auto;
         	background-color: orangered;
         	box-sizing: border-box;
         }
@@ -244,9 +244,7 @@ body{
         	text-align: right;
         	margin-bottom: 3rem;
         }
-        .add_playlist{
-        	width:300px;
-        }
+
         .left_play_container{
         	width: 65%;
         	margin-right: 2rem;

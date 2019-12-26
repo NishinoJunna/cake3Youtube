@@ -55,7 +55,7 @@ var init = function(){
      event.target.playVideo();
      current = $('#' + youtube_id).val();
      console.log(current);
-     $('.playlist_right_container #color' + current).css("border","aqua 1rem solid");
+     $('.playlist_right_container #color' + current).css("border","violet 0.5rem solid");
      $('#commentAdd #youtube_id').val(youtube_id);
      /*$('h2.movie_title').html(event.target.getVideoData().title);
      search(youtube_id);*/

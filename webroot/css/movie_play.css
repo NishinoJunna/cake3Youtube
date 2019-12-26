@@ -3,9 +3,11 @@
 	margin:1rem 0;
 	padding-bottom: 1rem;
 	border-bottom: solid gray 0.1rem;
-	cursor:pointer;
 }
-
+.movie_box:hover{
+	cursor:pointer;
+	opacity: 0.7;
+}
 .movie_box:first-child{
 	margin-top:0;
 }
@@ -45,11 +47,17 @@
 	font-size: 20px;
 	min-width:700px;
 }
-.add_playlist{
+
+.button_add_playlist{
 	width: 25%;
 	margin:0 4rem 0 auto;
 	font-size:1.2rem;
 	min-width:140px;
+}
+
+.add_button{
+		margin: 5rem 4rem 0 auto;
+	width:25%;
 }
 
 .link_add_before_login{
